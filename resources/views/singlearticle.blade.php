@@ -8,12 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Federo&family=Gloock&family=Manuale:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">   
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="{{asset('css/navbar.css')}}"> 
     <link rel="stylesheet" href="{{ asset('css/singlearticle.css') }}">
-    <link rel="stylesheet" href="{{asset('css/navbar.css')}}">
 
 </head>
 
@@ -102,14 +102,14 @@
                         </div>
                         <!-- Reply Section -->
                         <div class="bg-light p-2">
-                            <div class="reply-section mt-2" style="display: none;">
+                            <div class="reply-section mt-2">
                                 <div class="d-flex flex-row align-items-start">
                                     <img class="rounded-circle" src="{{ asset('assets/comment.jpg') }}" width="40">
                                     <textarea class="form-control ml-1 shadow-none textarea"></textarea>
                                 </div>
-                                <div class="mt-2 text-right">
-                                    <button class="btn btn-primary btn-sm shadow-none reply-btn" type="button">Reply</button>
-                                    <button class="btn btn-outline-primary btn-sm ml-1 shadow-none cancel-reply-btn" type="button"><span class="cancel">Cancel</span></button>
+                                <div class=" interaction1 mt-2 text-center">
+                                    <button class="b-a btn  btn-primary  shadow-none reply-btn" type="button">Reply</button>
+                                    <button class="b-a btn btn-outline-primary  ml-1 shadow-none cancel-reply-btn" type="button"><span class="cancel">Cancel</span></button>
                                 </div>
                             </div>
                         </div>
@@ -126,9 +126,9 @@
                             <img class="rounded-circle" src="{{ asset('assets/comment.jpg') }}" width="40">
                             <textarea class="form-control ml-1 shadow-none textarea"></textarea>
                         </div>
-                        <div class="mt-2 text-right">
-                            <button class="btnn btn-primary btn-sm shadow-none" type="button">Post comment</button>
-                            <button class="btnn btn-outline-primary btn-sm ml-1 shadow-none " type="button"><span class="cancel">Cancel</span></button>
+                        <div class="interaction1 mt-2 text-center">
+                            <button class="b-a btn btn-primary shadow-none" type="button">Comment</button>
+                            <button class="b-a btn btn-outline-primary  ml-1 shadow-none " type="button"><span class="cancel">Cancel</span></button>
                         </div>
                     </div>
                 </div>
@@ -197,8 +197,8 @@
             </div>
 
         </div>
-        <script src="{{ asset('js/singlearticle.js') }}"></script>
         <script src="{{asset('js/dark-mode.js')}}"></script>
+        <script src="{{ asset('js/singlearticle.js') }}"></script>
 </body>
 
 </html>
