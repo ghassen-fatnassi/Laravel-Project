@@ -3,7 +3,7 @@ function toggleHeart() {
     if (icon.classList.contains('fa-heart-o')) {
         icon.classList.remove('fa-heart-o');
         icon.classList.add('fa-heart');
-        icon.style.color = 'var(--third-color)';
+        icon.style.color = 'var(--accent-color)';
     } else {
         icon.classList.remove('fa-heart');
         icon.classList.add('fa-heart-o');
