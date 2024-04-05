@@ -46,17 +46,13 @@
 
                     <div class="CTA">
                         <input type="submit" value="Login" name="login">
-                        <a href="#" class="switch" id="switch-login">I'm New</a>
+                        <a href="{{ route('register') }}" class="switch" id="switch-login">I'm New</a>
                     </div>
                 </form>
             </div>
             <!-- End Login Form -->
 
-            <!-- Signup Form -->
-            <div class="signup form-peice switched">
-                <!-- Your existing signup form content here -->
-            </div>
-            <!-- End Signup Form -->
+           
         </div>
     </div>
 </section>

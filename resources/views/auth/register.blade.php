@@ -26,6 +26,7 @@
         <!-- Signup Form -->
         <div class="signup form-peice switched">
         <form method="POST" action="{{ route('register') }}">
+            @csrf
            <div class="form-group">
               <label for="name">Name</label>
               <input type="text" name="name" id="name" class="name" >
@@ -34,7 +35,7 @@
 
             <div class="form-group">
               <label for="email">Email Address</label>
-              <input type="text" name="emailAdress" id="email" class="email" >
+              <input type="text" name="email" id="email" class="email" >
               <span class="error"></span>
             </div>
 
@@ -54,7 +55,7 @@
             <div class="form-group">
               <br>
               <label for="passConfirm">Confirm Password</label>
-              <input type="password" name="passConfirm" id="passConfirm" class="passConfirm">
+              <input type="password" name="password_confirmation" id="passConfirm" class="passConfirm">
               <span class="toggle-password"><i class="fas fa-eye-slash" style="top: 74%;"></i></span>
               <span class="error"></span>
             </div>
@@ -71,8 +72,10 @@
                 <span class="error"></span>
             </div>
             <div class="CTA">
-              <input type="submit" value="Signup Now" id="submit"> 
-              <a href="#" class="switch" id="switch-signup">I have an account</a>
+              <button type="submit">
+                Signup Now
+              </button>
+              <a href="{{ route('login') }}" class="switch" id="switch-signup">I have an account</a>
             </div>
           </form>
         </div>
@@ -86,7 +89,7 @@
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="{{ asset('js/login.js') }}"></script>
+
 
 </body>
 </html>
