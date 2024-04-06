@@ -1,0 +1,223 @@
+:root {
+    --primary-color: #66503e;
+    --secondary-color: #b89072;
+    --accent-color: #ccb191;
+    --highlight-color: #e1dbd3;
+    --danger-color: #faf7f5;
+    --dark-icon-color: #fff;
+    --light-icon-color: #ffde59;
+    --text-light: rgba(255, 255, 255, 0.6);
+    --text-lighter: rgba(255, 255, 255, 0.9);
+    --spacing-s: 8px;
+    --spacing-m: 16px;
+    --spacing-l: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 64px;
+    --width-container: 1200px;
+    --bs-btn-border-width: 0;
+}
+html {
+    height: 100%;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+}
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700");
+body.dark-mode {
+    background-color: #212121;
+    --primary-color: #140714; /* Change primary color for dark mode */
+    --secondary-color: #621a62; /* Change secondary color for dark mode */
+    --accent-color: #9f5999; /* Change accent color for dark mode */
+    --highlight-color: #f3b1e4; /* Change highlight color for dark mode */
+    --danger-color: #e7e0e4; /* Change danger color for dark mode */
+}
+header {
+    font-family: "Nunito";
+    padding: 1em;
+    background: var(--accent-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: normal;
+}
+/* -------------- BUTTON -------------- */
+.btn {
+    background-color: #fff;
+    width: 4em;
+    height: 2em;
+    border-radius: 10em;
+    border-width: 0;
+    padding: 0 0.5em;
+    box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1),
+        inset 0 8px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 4px rgba(0, 0, 0, 0.1);
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+}
+.btn__indicator {
+    background-color: #fff;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+
+    position: absolute;
+
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+
+    transition: transform 0.3s ease;
+}
+.btn__icon-container {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn__icon {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+}
+/* -------------- BUTTON -------------- */
+/* -------------- ANIMATION ------------ */
+.btn__icon.animated {
+    animation: spin 0.5s;
+}
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+/* -------------- ANIMATION ------------ */
+/* -------------- DARKMODE -------------- */
+.dark-mode .btn {
+    box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.3),
+        inset 8px 0 8px rgba(0, 0, 0, 0.3), inset 0 -4px 4px rgba(0, 0, 0, 0.3);
+}
+.dark-mode .btn__indicator {
+    transform: translateX(1rem);
+    background-color: var(--accent-color);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+}
+.dark-mode .btn__icon {
+    color: var(--primary-color);
+}
+/* -------------- DARKMODE -------------- */
+/*----------LOGO--------*/
+.logo {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: 1.5em;
+}
+/*----------LOGO--------*/
+/*-----------NAVBAR--------------*/
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+nav ul {
+    visibility: unset;
+    opacity: 1;
+    background: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    position: unset;
+    height: auto;
+    align-items: center;
+    transform: translateX(0);
+    width: 100%;
+    transition: all 0.3s;
+}
+nav ul li a {
+    color: var(--primary-color);
+    font-size: 1.1em;
+    font-weight: 700;
+    padding: 0 1em;
+    display: block;
+    text-decoration: none;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    z-index: 1000;
+}
+.sidebar li {
+    width: 100%;
+    margin: 1rem;
+}
+.sidebar .important {
+    width: 8rem;
+    margin-left: 1.8rem;
+}
+.sidebar .btn {
+    margin-left: 0.8rem;
+}
+.sidebar a {
+    width: 100%;
+}
+.menu-button {
+    display: none;
+}
+@media (max-width: 800px) {
+    .hideOnMobile {
+        display: none;
+    }
+    .active {
+        display: none;
+    }
+    .sidebar .active {
+        display: block;
+    }
+    .menu-button {
+        display: block;
+    }
+}
+@media (max-width: 400px) {
+    .sidebar {
+        width: 100%;
+    }
+}
+nav ul li a:hover {
+    color: var(--secondary-color);
+}
+nav ul .active a {
+    font-weight: 700;
+    color: var(--highlight-color);
+}
+.important {
+    background: var(--primary-color);
+    padding: 0.2em 0;
+    border-radius: 1em;
+    margin: 0 0.5rem;
+}
+.dark-mode .important {
+    background-color: black;
+}
+.important a {
+    color: var(--highlight-color);
+}
+.dark-mode .important a {
+    color: var(--highlight-color);
+}
+nav ul li.important a:hover {
+    color: var(--accent-color);
+}
+.dark-mode nav ul li.important a:hover {
+    color: var(--secondary-color);
+}
+/*-----------NAVBAR--------------*/

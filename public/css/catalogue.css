@@ -1,0 +1,242 @@
+
+:root {
+    --primary-color: #66503e;
+    --secondary-color: #b89072;
+    --accent-color: #ccb191;
+    --highlight-color: #e1dbd3;
+    --danger-color: #faf7f5; /* Renamed from error-color */
+}
+body.dark-mode {
+    background-color: #212121;
+    --primary-color: #140714; /* Change primary color for dark mode */
+    --secondary-color: #621A62; /* Change secondary color for dark mode */
+    --accent-color: #9f5999; /* Change accent color for dark mode */
+    --highlight-color: #f3b1e4; /* Change highlight color for dark mode */
+    --danger-color: #e7e0e4; /* Change danger color for dark mode */
+}
+.trending-box{
+    display: flex;
+    flex-direction: column;
+}
+.trending-title h1{
+    text-align: center;
+    color: var(--secondary-color);
+    font-family: "Federo", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+.t-article-box{
+    width: 350px;
+    margin: 1.5rem;
+    display: flex;
+    flex-direction: row;
+}
+.trending-articles{
+    display: flex;
+    flex-direction: row;
+}
+.t-article-pic img{
+    height: 14rem;
+    width: auto;
+}
+.t-article-title{
+    height: 2rem;
+    margin-right: 3.8rem;
+    margin-bottom: 2rem;
+    font-family: "Gloock", serif;
+    font-weight: 400;
+    font-size: 1rem;
+    font-style: normal;
+    
+}
+.t-article-title a{
+    text-decoration: none;
+    color:black;
+}
+.t-article-title a:hover{
+    text-decoration: underline;
+}
+.t-article-title.dark-mode a{
+    color:var(--danger-color);
+}
+.t-article-authorbutton{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.t-article-author{
+    font-family: "Manuale", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+.dark-mode .t-article-author {
+    color: var(--danger-color); /* Adjust the dark mode color as needed */
+}
+.read-button {
+    background-color: transparent; /* Set the initial background color to transparent */
+    padding: 2px 20px;
+    border: 2px solid var(--accent-color); /* Set border color to accent color */
+    border-radius: 10px;
+    text-decoration: none; /* Remove underline if using <a> element */
+    margin-right: 3.8rem;
+    transition: background-color 0.3s; /* Add transition for smooth color change */
+    color: var(--accent-color); /* Set text color to accent color */
+}
+
+.read-button:hover {
+    background-color: var(--accent-color); /* Change background color on hover */
+    color: white; /* Change text color to white on hover */
+}
+
+.read-button a {
+    text-decoration: none;
+    color: inherit; /* Inherit text color from parent */
+}
+.discover-title h1{
+    text-align: center;
+    color: var(--secondary-color);
+    font-family: "Federo", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+.all-articles{
+    margin-top: 2rem;
+    margin-left: 15px;
+    margin-right: 60px;
+    max-width: 60%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.article-container{
+    display: block;
+    margin: 0;
+    margin-bottom: 2rem;
+    padding: 0;
+    border: 3px solid transparent; /* Initial border */
+    transition: border-color 0.3s ease; /* Smooth transition for border color change */
+}
+.article-container:hover {
+    border-color: var(--primary-color); /* Change border color on hover */
+}
+.article-category-date{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: "Manuale", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+
+}
+.dark-mode .article-category-date{
+    color: var(--danger-color);
+}
+.article-category-date a {
+    text-decoration: none;
+    color: var(--accent-color);
+    transition:color ease 0.3s;
+}
+.article-category-date a:hover{
+    color:black;
+    
+}
+.dark-mode .article-category-date a:hover{
+    color:var(--danger-color)
+}
+
+.date{
+    margin-left: 20px;
+
+}
+.duration{
+    margin-left: 20px;
+}
+.article-info{
+    display: flex;
+    margin-left: 1rem;
+    
+}
+.article-title{
+    max-width: 30rem;
+    font-family: "Gloock", serif;
+    font-weight: 200;
+    font-style: normal;
+    text-decoration: none;
+}
+.article-title a {
+    text-decoration: none; /* Remove underline from anchor element */
+    max-width: 30rem;
+    font-family: "Gloock", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--accent-color);
+    transition: color ease 0.3s;
+}
+.article-subtext{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 200;
+    color: #929292;
+}
+.article-title a:hover {
+    color: black;
+    text-decoration: underline;
+}
+.dark-mode .article-title a:hover{
+    color: var(--danger-color);
+}
+
+
+.article-img{
+    order: 2;
+    margin-left: 2rem;
+    
+}
+.article-img img {
+    width: auto;
+    height: 10rem;
+}
+.article-author-avatar{
+    margin-top: 1rem;
+    display: flex;
+    
+
+}
+.article-avatar img{
+    
+    height: 2rem;
+    width: auto;
+}
+.article-author{
+    margin-left: 0.5rem;
+    margin-top: 0.2rem;
+    order: 2;
+    font-family: "Manuale", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+.dark-mode .article-author{
+    color: var(--danger-color);
+}
+
+.view-more{
+    text-decoration: none;
+    background: var(--accent-color);
+    border-radius: 5px;
+    color:#fff;
+    display: block;
+    font-size: .75rem;
+    height: 46px;
+    letter-spacing: 2.75px;
+    line-height: 2.875rem;
+    margin: 0 auto 60px;
+    text-align: center;
+    width: 276px;
+}
