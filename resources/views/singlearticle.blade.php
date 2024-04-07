@@ -22,12 +22,10 @@
     <div class=" container">
         <article class="t-content__article-wrapper" data-article-content="">
             <div class="t-content__section a-tag">
-                <a href="#" class="a-tag__wrapper">Catégorie</a>
+                <a href="#" class="a-tag__wrapper">{{$article->category}}</a>
             </div>
-            <h1 class="t-content__title a-page-title">How artificial intelligence is transforming the world</h1>
-            <p class="t-content__chapo">Resumé de l'article
-                Artificial intelligence (AI) is a wide-ranging tool that enables people to rethink how we integrate information, analyze data, and use the resulting insights to improve decision making—and already it is transforming every walk of life. In this report, Darrell West and John Allen discuss AI’s application across a variety of sectors, address issues in its development, and offer recommendations for getting the most out of AI while still protecting important human values.
-            </p>
+            <h1 class="t-content__title a-page-title">{{$article->title}}</h1>
+            <p class="t-content__chapo">{{$article->description}}</p>
             <div class="t-content__dates t-content__dates--reading-time ">
                 <p class="m-pub-dates">
                     <span class="m-pub-dates__date">
@@ -39,7 +37,7 @@
                 </p>
                 <div class="m-from-author">
                     <span class="m-from-author__by-label">Author: </span>
-                    <a href="user.blade.php" class="m-from-author__name">Ghassen Fatnassi</a>
+                    <a href="user.blade.php" class="m-from-author__name">{{$article->author->name}}</a>
                 </div>
                 <div class="a-reading-time">
                     <span class="a-svg a-svg--picto-clock" title="Temps de lecture"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -68,17 +66,7 @@
             </div>
             <div class="t-content">
                 <p>
-                    There’s been a lot of scary talk going around lately. Artificial intelligence is getting more powerful — especially the new generative AI that can write code, write stories, and generate outputs ranging from pretty pictures to product designs. The greatest concern is not so much that computers will become smarter than humans, it’s that they will be unpredictably smart, or unpredictably foolish, due to quirks in the AI's code. Experts worry that if we keep entrusting key tasks to them, they could trigger what Elon Musk has called “civilization destruction.”
-
-                    This worst-case scenario needs to be addressed but will not happen soon. If you own or manage a midsize company, the pressing issue is how new developments in AI will affect your business. Our view, which reflects a consensus view, says to handle this change in the environment the way any big change should be handled. Don’t ignore it, or try to resist it, or get stuck on what it might do to you. Instead, look at what you can do with the change. Embrace it. Leverage it to your advantage.
-
-                    Here’s a brief overview that should make clear a couple of key points. Although the recent surge in AI may seem like it came out of the blue, it’s really just the next step in a long process of evolutionary change. Not only can midsize companies participate in the evolution, they will have to in order to stay fit to survive.
-
-                    How we got here … and where we can go next
-
-                    Artificial intelligence—the creation of software and hardware able to simulate human smarts—isn’t new. Crucial core technologies for today’s AI were first conceived in the 1970s and ‘80s. In the 1990s, IBM’s Deep Blue chess machine played and beat the reigning world champion, setting a milestone for AI researchers. Since then, AI has continued to improve while moving into new realms, some of which we now take for granted. By the 2010s, natural language processing was refined to the point where Siri and Alexa could be your virtual assistants.
-
-                    What’s new lately is that major tech-industry players have been ramping up investment at the frontiers of AI. Elon Musk is a leader in the field despite his reservations. He has launched a deep-pocketed startup, X.ai, to focus solely on cutting-edge AI. Microsoft is the lead investor in OpenAI. Amazon, Google/Alphabet, and others are placing big bets in the race as well.
+                {{$article->body}}
                 </p>
             </div>
 
