@@ -7,12 +7,12 @@
     <title>Single Article </title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Federo&family=Gloock&family=Manuale:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">   
+    <link href="https://fonts.googleapis.com/css2?family=Federo&family=Gloock&family=Manuale:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="{{asset('css/navbar.css')}}"> 
+
+    <link rel="stylesheet" href="{{asset('css/navbar.css')}}">
     <link rel="stylesheet" href="{{ asset('css/singlearticle.css') }}">
 
 </head>
@@ -29,7 +29,7 @@
             <div class="t-content__dates t-content__dates--reading-time ">
                 <p class="m-pub-dates">
                     <span class="m-pub-dates__date">
-                        Published: 
+                        Published:
                         <time datetime="2024-03-24T08:00:14+00:00">
                             23/03/2024 - 09:00
                         </time>
@@ -40,10 +40,12 @@
                     <a href="user.blade.php" class="m-from-author__name">{{$article->author->name}}</a>
                 </div>
                 <div class="a-reading-time">
-                    <span class="a-svg a-svg--picto-clock" title="Temps de lecture"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <span class="a-svg a-svg--picto-clock" title="Temps de lecture">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                             <path fill="currentColor" d="M12 2c-5.522 0-10 4.478-10 10s4.478 10 10 10 10-4.478 10-10-4.478-10-10-10zm0 18c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8zm1-11h-1v5l4.25 2.548.75-1.232-3.75-2.268z" />
                         </svg>
-                    </span> 2 mn
+                    </span>
+                    <span id="readingTime">Calculating...</span>
                 </div>
                 <div class="anchors-container">
                     <div class="save-article-wrapper">
@@ -58,22 +60,20 @@
             </div>
             <div class="t-content__main-media">
                 <figure class="m-figure m-figure--16x9">
-                    <img fetchpriority="high" src="{{ asset('assets/AI.jpg') }}" alt="" class="m-figure__img lazy">
-                    <figcaption class="m-figure__caption">
-                        <span class="a-media-legend">A robot thinking</span><span class="a-media-legend">© Getty Images</span>
-                    </figcaption>
+                    <img fetchpriority="high" src="{{asset('assets/article-img.webp') }}" alt="" class="m-figure__img lazy">
                 </figure>
+            </div>
+            <div class="controls">
+                <button id="playButton">Play</button>
+                <button id="pauseButton">Pause</button>
             </div>
             <div class="t-content">
                 <p>
-                {{$article->body}}
+                    {{$article->body}}
                 </p>
             </div>
-
-
-
-
         </article>
+        @include('delete')
 
     </div>
     <!--comments section-->
@@ -187,6 +187,8 @@
         </div>
         <script src="{{asset('js/dark-mode.js')}}"></script>
         <script src="{{ asset('js/singlearticle.js') }}"></script>
+        <script src="{{ asset('js/reading.time.js') }}"></script>
+        <script src="{{ asset('js/tts.js') }}"></script>
 </body>
 
 </html>

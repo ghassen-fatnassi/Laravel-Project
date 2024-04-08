@@ -19,7 +19,7 @@ class ArticleFactory extends Factory
     public function definition(): array
     {
         return [
-            'category' => $this->faker->randomElement(['Programming Web/Mobile', 'Artifical Intelligence', 'Cyber Security','Machine Learning']),
+            'category' => $this->faker->randomElement(['programming-web-mobile', 'artificial-intelligence', 'cyber-security','machine-learning']),
             'title' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
             'body' => $this->faker->text,

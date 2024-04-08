@@ -11,4 +11,5 @@ class ArticleController extends Controller
     {
         return view('singlearticle',compact('article'));
     }
+    
 }
