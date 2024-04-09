@@ -1,19 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home', function () {
-    return view('home');
-});
-
-Route::get('category/{category}',[CategoryController::class,'show'])->name('category.show');
-
 Route::get('/register', function () {
     // Code to display the register view
     return view('register');
@@ -29,7 +21,5 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::get('/articles/{article}', [ArticleController::class, 'show'])->name('articles.show');
-
 
 require __DIR__.'/auth.php';

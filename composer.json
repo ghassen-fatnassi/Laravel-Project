@@ -8,7 +8,7 @@
         "php": "^8.2",
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.9",
-        "spatie/laravel-permission": "^6.4"
+        "spatie/laravel-sitemap": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
