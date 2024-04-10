@@ -11,6 +11,8 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <title>Document</title>
 </head>
 
@@ -32,7 +34,12 @@
                         <!-- END profile-header-img -->
                         <!-- BEGIN profile-header-info -->
                         <div class="profile-header-info">
-                            <h4 class="mt-10 mb-3">Sean Ngu</h4>
+                            <div class="user-name-message">
+                            <h4 class="mt-10 mb-3">{{$user->name}}</h4>
+                            @auth
+                            <a href="{{ url('chatify/' . $user->id) }}"><i class='bx bx-envelope bx-md'></i></a>
+                            @endauth
+                            </div>
                             <p class="mb-10">UXUI + Frontend Developer</p>
                             <p class="mb-10">UXUI + Frontend Developer</p>
                         </div>

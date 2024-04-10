@@ -430,3 +430,15 @@ strong {
     width: 276px;
 }
 /*my articles end*/
+/*---MESSAGING--*/
+.user-name-message{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.user-name-message a{
+    text-decoration: none;
+    color: var(--primary1);
+}
+
+/*---MESSAGING--*/

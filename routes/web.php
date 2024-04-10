@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -10,9 +11,11 @@ Route::get('/', function () {
 });
 Route::get('/home', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('category/{category}',[CategoryController::class,'show'])->name('category.show');
+
+
 
 Route::get('/register', function () {
     // Code to display the register view
@@ -30,6 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::get('/articles/{article}', [ArticleController::class, 'show'])->name('articles.show');
+Route::delete('/articles/{article}', [ArticleController::class, 'destroy'])->name('articles.destroy');
+Route::get('/users/{user}', [UserProfileController::class, 'show'])->name('user.show');
 
 
 require __DIR__.'/auth.php';

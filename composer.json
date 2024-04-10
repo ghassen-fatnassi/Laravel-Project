@@ -8,6 +8,8 @@
         "php": "^8.2",
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.9",
+        "munafio/chatify": "^1.6",
+        "pusher/pusher-php-server": "^7.2",
         "spatie/laravel-permission": "^6.4"
     },
     "require-dev": {
