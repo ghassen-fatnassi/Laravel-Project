@@ -13,18 +13,19 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('description1');
-            $table->string('description2');
-            $table->string('email')->unique();
+            $table->string('name');
+            $table->string('email');
+            $table->string('shortbio');
+            $table->string('institution');
+            $table->string('position');
+            $table->binary('photo')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('name');
-            $table->string('position')->nullable();
             $table->string('phone')->nullable();
-            $table->string('facebook')->default('');
-            $table->string('instagram')->default('');
-            $table->string('linkedin')->default('');
             $table->string('twitter')->default('');
+            $table->string('github')->default('');
+            $table->string('linkedin')->default('');
+            $table->integer('article_count')->default(0);
             $table->integer('followers')->default(0);
             $table->integer('following')->default(0);
             $table->string('usertype')->default('user');
