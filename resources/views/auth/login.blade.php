@@ -23,10 +23,14 @@
                 <h2>JuniorReadHub</h2>
                 <p>Your Right Choice</p>
                 </div>
-
+                
                 <div class="success-msg">
-                <p>Welcome to our community !</p>
-                <a href="#" class="profile"> View Articles</a>
+                <p>Proceeding to email verification ...</p>
+                <br>
+                <p>Only one step left to be among our community!</p>
+
+
+                <!-- <a href="#" class="profile"> View Articles</a> -->
                 </div>
             </div>
 

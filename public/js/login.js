@@ -287,6 +287,15 @@ $('form.forgot_password-form').submit(function (event) {
     } 
 });
 
+// Reset password Form submit
+$('form.reset_password-form').submit(function (event) {
+    
+    if (emailError || passwordError || passConfirmError){
+        event.preventDefault();
+        $('.email, .password_confirmation, .password').blur();
+    } 
+});
+
 
 });
 
