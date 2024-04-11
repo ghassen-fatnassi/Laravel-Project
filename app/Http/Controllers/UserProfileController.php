@@ -81,5 +81,24 @@ class UserProfileController extends Controller
         // Redirect back or to a success page with a success message
         return redirect()->back()->with('success', 'Profile updated successfully.');
     }
-    
+
+    public function destroy(Request $request)
+    {
+        // Find the user by ID
+        $user = User::find($request->id);
+        // Check if old password matches
+        if ($request->filled('old_password')) {
+            if (!Hash::check($request->old_password, $user->password)) 
+            {
+                return back()->withErrors(['old_password' => 'The old password is incorrect.\n account not deleted']);
+            }
+            else
+            {
+                DB::table('users')->where('id', $user->id)->delete();
+                return view('/');
+
+            }
+        }
+
+    }
 }

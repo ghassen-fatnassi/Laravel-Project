@@ -133,7 +133,7 @@
                                 </ul>
                             </div>
                             @endif
-                            <form method="POST" action="{{ route('profile.submit-form') }}">
+                            <form method="POST">
                                 @csrf
                                 <!-- CSRF Token -->
                                 <div class="row mb-5 gx-5">
@@ -286,8 +286,12 @@
                                 </div> <!-- Row END -->
                                 <!-- Button -->
                                 <div class="gap-3 d-md-flex justify-content-md-end text-center">
-                                    <button type="button" class="btn btn-danger btn-lg">Delete profile</button>
-                                    <button type="submit" class="btn btn-primary btn-lg">Update profile</button>
+                                    <button type="submit" class="btn btn-danger btn-lg"
+                                        formaction="{{ route('profile.destroy-user') }}">Delete
+                                        profile</button>
+                                    <button type="submit" class="btn btn-primary btn-lg"
+                                        formaction="{{ route('profile.submit-form') }}">Update
+                                        profile</button>
                                 </div>
                             </form>
                         </div>

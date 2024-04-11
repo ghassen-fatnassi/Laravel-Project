@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
 
-Route::get('/', function () {return view('welcome');});
+Route::get('/', function () {return view('welcome');})->name('home');
 
 
 Route::get('/register', function () {return view('register');})->name('register');
@@ -19,6 +19,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::post('/profile-modified', [UserProfileController::class, 'submit'])->name('profile.submit-form');
+Route::post('/profile-modified', [UserProfileController::class, 'destroy'])->name('profile.destroy-user');
 
 
 Route::get('/profile/{user}', [UserProfileController::class, 'show'])->name('profile.show');

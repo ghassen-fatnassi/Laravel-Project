@@ -862,3 +862,4 @@ dismissAll.addEventListener('click', function(e){
   message.innerHTML = 'All caught up!';
   row.appendChild(message);
 })
+
