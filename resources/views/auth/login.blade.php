@@ -1,47 +1,101 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+  <title>Document</title>
+</head>
+<body>
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+<!-- <nav></nav> -->
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+<section id="loginregister" class="loginregister">
+
+  <div class="row">
+
+        <!-- Brand Box -->
+            <div class="col-sm-6 brand">
+                <a href="#" class="logo">JRH <span>.</span></a>
+
+                <div class="heading">
+                <h2>JuniorReadHub</h2>
+                <p>Your Right Choice</p>
+                </div>
+
+                <div class="success-msg">
+                <p>Welcome to our community !</p>
+                <a href="#" class="profile"> View Articles</a>
+                </div>
+            </div>
+
+        <!-- Form Box -->
+        <div class="col-sm-6 form">
+
+    
+            <!-- Login Form -->
+            <div class="login form-peice">
+
+
+            <!-- Session Status -->
+            <x-auth-session-status class="mb-4" :status="session('status')" />
+
+                <form class="login-form" method="POST" action="{{ route('login') }}">
+                    @csrf
+
+                    <div class="form-group"> 
+
+                    <label for="loginEmail">Email Adderss</label>
+                        <input id="email" class="loginEmail" type="email" name="email" :value="old('email')"  autofocus autocomplete="username">
+                        <span class="error"></span>
+                        
+                    </div>
+
+                    <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                        <input id="password" class="loginPassword" type="password" name="password" autocomplete="current-password" >
+                        <span class="toggle-password"><i class="fas fa-eye-slash"></i></span>
+                        <span class="error"style="display: inline;max-width: 336px;height: 1.5vh;"></span>
+                        
+                    </div>
+
+                    <div class="block mt-4"style="margin-top: 4vh;margin-block-end: -2vh;">
+                        <!-- <label for="remember_me" class="flex items-center"> -->
+                        <input type="checkbox" id="remember_me" name="remember" style="position:relative;margin-left: -20vh;margin-bottom: -1.7vh;">
+                        <span class="ms-2 text-sm text-gray-600 dark:text-gray-400" style="color: #b89072;">{{ __('Remember me') }}</span>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        @if (Route::has('password.request'))
+                            <a  href="{{ route('password.request') }}" style="color: #66503e; margin-left: 45vh;">
+                                {{ __('Forgot your password?') }}
+                            </a>
+                        @endif
+
+                        <div class="CTA">
+                            <input type="submit" value="Login" name="login"> 
+                            <a href="{{ route('register') }}" class="switchbutton" id="switch-login">I'm New</a>
+                        </div>
+
+                    </div>
+                    <br><br>
+                    <x-input-error :messages="$errors->get('email')" class="mt-2" style="color:#f95959;" />
+                    <x-input-error :messages="$errors->get('password')" class="mt-2" style="color:#f95959;"/>
+
+                </form>
+            
+            </div>
         </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+    </div>
+</section>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
-        </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ asset('js/login.js') }}"></script>
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+</body>
+</html>

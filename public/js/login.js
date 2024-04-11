@@ -1,5 +1,4 @@
-var firstnameError = true,
-    lastnameError = true,
+var nameError = true,
     emailError = true,
     phoneError=true,
     passwordError = true,
@@ -42,24 +41,24 @@ $("input").blur(function () {
         validatePosition();
     }
 
-    // First Name
-    if ($(this).hasClass("firstname")) {
+    // Full Name
+    if ($(this).hasClass("name")) {
         if ($(this).val().trim() ===""){
             $(this)
                 .siblings("span.error")
-                .text("Please enter your first name")
+                .text("Please enter your full name")
                 .fadeIn()
                 .parent(".form-group")
                 .addClass("hasError");
-            firstnameError = true;
-        }else if (/^\s|\s\s+|\s$/.test($(this).val()) || !/^(?:[A-Z][a-z]*)(?: [A-Z][a-z]*)*$/.test($(this).val().trim()) || $(this).val().trim().length <= 2 || $(this).val().trim().length > 30 || $(this).val().indexOf(' ') !== $(this).val().lastIndexOf(' ')) {
+            nameError = true;
+        }else if (/^\s|\s\s+|\s$/.test($(this).val()) || !/^(?:[A-Z][a-z]*)(?: [A-Z][a-z]*)*$/.test($(this).val().trim()) || $(this).val().trim().length <= 5 || $(this).val().trim().length > 100 ) {
             $(this)
                 .siblings("span.error")
-                .text("Invalid first name")
+                .text("Invalid full name")
                 .fadeIn()
                 .parent(".form-group")
                 .addClass("hasError");
-            firstnameError = true;
+            nameError = true;
         } else {
             $(this)
                 .siblings(".error")
@@ -67,40 +66,11 @@ $("input").blur(function () {
                 .fadeOut()
                 .parent(".form-group")
                 .removeClass("hasError");
-            firstnameError = false;
+            nameError = false;
         }
     }
     
 
-    // Last Name
-    if ($(this).hasClass("lastname")) {
-
-        if ($(this).val().trim() ===""){
-            $(this)
-                .siblings("span.error")
-                .text("Please enter your last name")
-                .fadeIn()
-                .parent(".form-group")
-                .addClass("hasError");
-            lastnameError = true;
-        }else if(/^\s|\s\s+|\s$/.test($(this).val()) || !/^(?:[A-Z][a-z]*)(?: [A-Z][a-z]*)*$/.test($(this).val().trim()) || $(this).val().trim().length <= 2 || $(this).val().trim().length > 30  || $(this).val().indexOf(' ') !== $(this).val().lastIndexOf(' ')) {
-            $(this)
-                .siblings("span.error")
-                .text("Invalid last name")
-                .fadeIn()
-                .parent(".form-group")
-                .addClass("hasError");
-            lastnameError = true;
-        } else {
-            $(this)
-                .siblings(".error")
-                .text("")
-                .fadeOut()
-                .parent(".form-group")
-                .removeClass("hasError");
-            lastnameError = false;
-        }
-    }
     // Email 
     if ($(this).hasClass("email") || $(this).hasClass("loginEmail")) {
         var email = $(this).val();
@@ -167,7 +137,7 @@ $("input").blur(function () {
 
 
     // Password 
-    if ($(this).hasClass("pass") || $(this).hasClass("loginPassword")) {
+    if ($(this).hasClass("password") || $(this).hasClass("loginPassword")) {
         var password = $(this).val();
         var passwordStrengthRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*_?&])[A-Za-z\d@$!%*_?&]{8,}$/;
         
@@ -218,9 +188,9 @@ $("input").blur(function () {
     }
 
     // Password confirmation
-    if ($(this).hasClass("passConfirm")) {
+    if ($(this).hasClass("password_confirmation")) {
         var confirmPassword = $(this).val();
-        var password = $(".pass").val();
+        var password = $(".password").val();
 
         if (confirmPassword.trim() ==="") {
             $(this)
@@ -277,11 +247,11 @@ $('a.switch').click(function (e) {
 
 // Form submit
 $('form.signup-form').submit(function (event) {
-    event.preventDefault();
     validatePosition();
 
-    if (firstnameError || lastnameError || emailError || phoneError || passwordError || passConfirmError || positionError){
-        $('.firstname, .passConfirm, .lastname, .email, .phone, .pass').blur();
+    if (nameError || emailError || phoneError || passwordError || passConfirmError || positionError){
+        event.preventDefault();
+        $('.name, .password_confirmation, .email, .phone, .password').blur();
     } else {
         $('.signup, .login').addClass('switched');
 
@@ -299,14 +269,24 @@ $('a.profile').on('click', function () {
     location.reload(true);
 });
 
-// Form submit
+//Login  Form submit
 $('form.login-form').submit(function (event) {
-    event.preventDefault();
-
+   
     if (emailError || passwordError ){
+        event.preventDefault();
         $('.loginEmail, .loginPassword').blur();
     } 
 });
+
+// Forget password Form submit
+$('form.forgot_password-form').submit(function (event) {
+    
+    if (emailError){
+        event.preventDefault();
+        $('.email').blur();
+    } 
+});
+
 
 });
 
@@ -361,3 +341,5 @@ $('form').find('input[type=text], input[type=email], input[type=password], selec
 $('form').find('label').removeClass('active');
 $('form').find('.error').text('').fadeOut().parent(".form-group").removeClass('hasError');
 }
+
+

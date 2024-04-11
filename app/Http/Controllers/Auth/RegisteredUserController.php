@@ -31,10 +31,10 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'phone' =>['required','integer','digits:8'],
-            'position' => ['required', 'string', 'in:junior,senior,bureau,alumini'],
+            'position' => ['required','string', 'in:junior,senior,bureau,alumini'],
         ]);
 
         $user = User::create([
