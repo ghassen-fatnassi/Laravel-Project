@@ -50,12 +50,12 @@
                 <form class="verification-form" method="POST" action="{{ route('verification.send') }}">
                     @csrf
                         <div class="CTA">
-                            <input type="submit" value="Resend Verification Email'" name="verification resend"> 
+                            <input type="submit" value="Resend Verification Email" name="verification resend"> 
                         </div>
 
                 </form>
 
-                <form class="logout-form" style="margin-left:30vh;" method="POST" action="{{ route('logout') }}">
+                <form class="logout-form" style="margin-left:16rem;" method="POST" action="{{ route('logout') }}">
                     @csrf
                         <div class="CTA">
                             <input type="submit" value="Log Out" name="logout"> 

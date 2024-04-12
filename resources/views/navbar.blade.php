@@ -6,7 +6,7 @@
 <header>
   <a href="#" class="logo">
     <img src="" alt="logo">
-    Junior Exchange
+    JuniorReadHub
   </a>
   <nav>
     <ul class="sidebar">

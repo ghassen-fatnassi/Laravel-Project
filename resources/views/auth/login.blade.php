@@ -8,6 +8,7 @@
   <title>Document</title>
 </head>
 <body>
+@include('navbar')
 
 <!-- <nav></nav> -->
 
@@ -66,7 +67,7 @@
 
                     <div class="block mt-4"style="margin-top: 4vh;margin-block-end: -2vh;">
                         <!-- <label for="remember_me" class="flex items-center"> -->
-                        <input type="checkbox" id="remember_me" name="remember" style="position:relative;margin-left: -20vh;margin-bottom: -1.7vh;">
+                        <input type="checkbox" id="remember_me" name="remember" style="position:relative;margin-left: 1rem;top:1.2rem;">
                         <span class="ms-2 text-sm text-gray-600 dark:text-gray-400" style="color: #b89072;">{{ __('Remember me') }}</span>
                         </label>
                     </div>

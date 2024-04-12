@@ -35,14 +35,14 @@
             </div>
 
         <!-- Form Box -->
-        <div class="col-sm-6 form">
+        <div class="col-sm-6 form ">
 
  
             <!-- Signup Form -->
             <div class="signup form-peice">
-                <form class="signup-form" method="POST" action="{{ route('register') }}">
+                <form class="signup-form scrollable" method="POST" action="{{ route('register') }}">
                 @csrf
-                    <div class="form-group">
+                    <div class="form-group ">
                         <label for="name">Full Name</label>
                         <input type="text" id="name" class="name" name="name" :value="old('name')" autofocus autocomplete="name">
                         <span class="error"></span>
