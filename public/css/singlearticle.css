@@ -125,9 +125,10 @@ a {
     flex-direction: column;
 }
 .m-figure__img {
+    width: 50%;
     height: 50%;
     overflow: hidden;
-    width: 50%;
+    
     position: relative;
     top: 50%;
     left: 25%;
@@ -291,3 +292,8 @@ a {
     color: #9f5999;
 }
 /*-----Controls-----*/
+/*-------article img------*/
+#article-img img{
+    width: auto;
+    height: 2rem;
+}

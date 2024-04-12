@@ -75,7 +75,7 @@
             </div>
             <div class="t-content__main-media">
                 <figure class="m-figure m-figure--16x9">
-                    <img fetchpriority="high" src="{{asset('assets/article-img.webp') }}" alt="" class="m-figure__img lazy">
+                    <img fetchpriority="high" src="{{ asset('storage/' . $article->image) }}" alt="" class="m-figure__img lazy" id="article-img">
                 </figure>
             </div>
             <div class="controls">
@@ -93,6 +93,7 @@
 
 
     </div>
+    <livewire:comments :model="$article"/>
     <!--comments section-->
     <div class="container mt-5">
         <div class="d-flex justify-content-center row">

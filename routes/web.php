@@ -34,6 +34,10 @@ Route::middleware('auth')->group(function () {
 });
 Route::get('/articles/{article}', [ArticleController::class, 'show'])->name('articles.show');
 Route::delete('/articles/{article}', [ArticleController::class, 'destroy'])->name('articles.destroy');
+
+Route::get('/create', [ArticleController::class, 'create'])->name('articles.create')->middleware('auth');
+Route::post('/create', [ArticleController::class, 'store'])->name('articles.store')->middleware('auth');
+
 Route::get('/users/{user}', [UserProfileController::class, 'show'])->name('user.show');
 
 
