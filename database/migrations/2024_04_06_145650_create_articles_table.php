@@ -23,15 +23,9 @@ return new class extends Migration
             $table->integer('likes');
             $table->integer('comments');
             $table->integer('bookmarks');
-<<<<<<< HEAD
-            $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
-            $table->binary('image')->nullable();
-=======
             $table->string('image')->nullable();
-
             $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
             
->>>>>>> f624fc138d2313d9465e14eb2fe1ac32eba927e4
 
         });
     }
