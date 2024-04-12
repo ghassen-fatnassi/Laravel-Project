@@ -29,7 +29,7 @@ class UserProfileController extends Controller
         ->join('users', 'articles.author_id', '=', 'users.id')
         ->where('users.id', $user->id)
         ->sum('articles.comments');
-
+        
         return view('profile',compact('user','bookmarks_count','likes_count','comments_count'));
     }
 

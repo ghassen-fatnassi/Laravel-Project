@@ -5,17 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+class ArticleView extends Model
 {
     use HasFactory;
-    
-    public function author()
+
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function article_views()
+    public function articles()
     {
-        return $this->hasMany(ArticleView::class);
+        return $this->belongsTo(Article::class);
     }
+
 }

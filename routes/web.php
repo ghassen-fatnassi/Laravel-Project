@@ -26,6 +26,6 @@ Route::post('/profile', [UserProfileController::class, 'destroy'])->name('profil
 //image upload routes
 
 
-Route::get('/profile/{user}', [UserProfileController::class, 'show'])->name('profile.show');
+Route::get('/users/{user}', [UserProfileController::class, 'show'])->name('user.show');
 
 require __DIR__.'/auth.php';
