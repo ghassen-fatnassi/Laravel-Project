@@ -49,6 +49,11 @@ a {
     fill: var(--danger-color);
     stroke: var(--secondary-color);
 }
+.cvMh7UGw.bookmarked svg {
+    fill: var(--accent-color);}
+.like-c{
+    height: 50px;
+}
 .t-content.t-content--article .t-content__chapo {
     margin-bottom: 12px;
 }
@@ -212,8 +217,8 @@ a {
     background-color: #f9f9f9;
     border-radius: 5px;
 }
-.fa {
-    margin-right: 5px;
+.fa{
+    font-size: 19px; 
 }
 /*Read more section */
 .card {

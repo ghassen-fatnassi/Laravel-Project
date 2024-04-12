@@ -62,9 +62,10 @@
                     </span>
                     <span id="readingTime">Calculating...</span>
                 </div>
+                <div class="like like-c p-2 cursor" data-article-id="{{ $article->id }}" onclick="toggleHeart()"><i id="heart-icon" class="fa fa-heart-o"></i></div>
                 <div class="anchors-container">
                     <div class="save-article-wrapper">
-                        <button type="button" class="cvMh7UGw">
+                        <button type="button" class="cvMh7UGw " data-article-id="{{ $article->id }}"id="bookmark-button" onclick="bookmarkArticle()">
                             <svg class="saved-article_svg__fs-icon saved-article_svg__fs-icon--saved-article" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="25" height="25">
                                 <path d="M13.9 3c.7 0 1.3.6 1.3 1.3V17L10 13.9 4.8 17V4.3c0-.7.5-1.3 1.3-1.3h7.8z"></path>
                             </svg>

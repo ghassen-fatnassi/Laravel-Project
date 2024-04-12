@@ -19,11 +19,15 @@ class Article extends Model
         'image',
         'author_id',
         'likes',
-        'comments',
+        'ncomments', 
         'bookmarks',
     ];
     public function author()
     {
         return $this->belongsTo(User::class, 'author_id');
     }
+    public function bookmark()
+{
+    return $this->hasMany(bookmark::class);
+}
 }

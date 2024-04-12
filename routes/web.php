@@ -33,6 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::get('/articles/{article}', [ArticleController::class, 'show'])->name('articles.show');
+Route::post('/articles/{article}/bookmark', 'ArticleController@bookmark')->name('articles.bookmark');
+Route::post('/articles/{article}/like', 'ArticleController@like')->name('articles.like');
 Route::delete('/articles/{article}', [ArticleController::class, 'destroy'])->name('articles.destroy');
 
 Route::get('/create', [ArticleController::class, 'create'])->name('articles.create')->middleware('auth');
