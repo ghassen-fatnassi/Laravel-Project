@@ -8,7 +8,15 @@
         "php": "^8.2",
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.9",
+<<<<<<< HEAD
         "spatie/laravel-sitemap": "*"
+=======
+        "livewire/livewire": "^3.4",
+        "munafio/chatify": "^1.6",
+        "pusher/pusher-php-server": "^7.2",
+        "spatie/laravel-permission": "^6.4",
+        "usamamuneerchaudhary/commentify": "^1.5"
+>>>>>>> f624fc138d2313d9465e14eb2fe1ac32eba927e4
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

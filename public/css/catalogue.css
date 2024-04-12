@@ -6,6 +6,9 @@
     --highlight-color: #e1dbd3;
     --danger-color: #faf7f5; /* Renamed from error-color */
 }
+body{
+    margin: 0;
+}
 body.dark-mode {
     background-color: #212121;
     --primary-color: #140714; /* Change primary color for dark mode */
@@ -65,6 +68,10 @@ body.dark-mode {
     flex-direction: row;
     justify-content: space-between;
 }
+.t-article-authorbutton a{
+    text-decoration: none;
+    color: black;
+}
 .t-article-author{
     font-family: "Manuale", serif;
     font-optical-sizing: auto;
@@ -105,9 +112,11 @@ body.dark-mode {
     margin-top: 2rem;
     margin-left: 15px;
     margin-right: 60px;
+    
     max-width: 60%;
     padding-left: 0;
     padding-right: 0;
+    padding-bottom: 2rem;
 }
 
 .article-container{
@@ -161,6 +170,7 @@ body.dark-mode {
 .article-info{
     display: flex;
     margin-left: 1rem;
+    justify-content: space-between;
     
 }
 .article-title{
@@ -207,6 +217,11 @@ body.dark-mode {
     display: flex;
     
 
+}
+.article-author-avatar a{
+    text-decoration: none;
+    color: black;
+    order:2;
 }
 .article-avatar img{
     

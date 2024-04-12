@@ -21,7 +21,16 @@ return new class extends Migration
             $table->string('avatar')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+<<<<<<< HEAD
             $table->string('phone')->nullable();
+=======
+            $table->string('name');
+            $table->string('phone')->nullable();
+            $table->string('position');
+            $table->string('facebook')->default('');
+            $table->string('instagram')->default('');
+            $table->string('linkedin')->default('');
+>>>>>>> f624fc138d2313d9465e14eb2fe1ac32eba927e4
             $table->string('twitter')->default('');
             $table->string('github')->default('');
             $table->string('linkedin')->default('');

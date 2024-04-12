@@ -3,9 +3,7 @@
     --secondary-color: #b89072;
     --accent-color: #ccb191;
     --highlight-color: #e1dbd3;
-    --danger-color: #faf7f5; 
-    
-    
+    --danger-color: #faf7f5;
 }
 body {
     background: var(--danger-color);
@@ -16,6 +14,10 @@ a {
     text-decoration: none;
     color: var(--accent-color);
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> f624fc138d2313d9465e14eb2fe1ac32eba927e4
 .a-tag__wrapper {
     background-color: var(--secondary-color);
     border: 1px solid transparent;
@@ -57,7 +59,7 @@ a {
     margin-left: 16px;
     margin-right: 16px;
 }
-.t-content__chapo{
+.t-content__chapo {
     color: var(--secondary-color);
 }
 .dark-mode p.t-content__chapo {
@@ -69,28 +71,27 @@ a {
 .t-content.t-content--article .t-content__title.a-page-title {
     line-height: 1.2;
     margin-bottom: 10px;
-    
 }
-.a-page-title{
+.a-page-title {
     font-family: "Gloock", serif;
     font-weight: 400;
     color: var(--primary-color);
     font-size: 3rem;
     font-style: normal;
 }
-.a-reading-time{
+.a-reading-time {
     color: var(--accent-color);
 }
-.dark-mode .a-reading-time{
+.dark-mode .a-reading-time {
     color: var(--highlight-color);
 }
-.t-content__chapo{
+.t-content__chapo {
     font-size: 0.9rem;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     font-weight: 200;
     line-height: 1.5rem;
 }
-.t-content{
+.t-content {
     font-family: "Manuale", serif;
     font-optical-sizing: auto;
     font-weight: 500;
@@ -98,7 +99,7 @@ a {
     font-style: normal;
     line-height: 2.5rem;
 }
-.dark-mode .t-content__title.a-page-title{
+.dark-mode .t-content__title.a-page-title {
     color: var(--secondary-color);
 }
 .t-content.t-content--article {
@@ -108,8 +109,11 @@ a {
 .t-content__main-media {
     display: inline;
 }
-.dark-mode .m-pub-dates__date,.m-from-author__by-label,.a-reading-time,.t-content__dates{
-    color: var(--primary-color)  !important;
+.dark-mode .m-pub-dates__date,
+.m-from-author__by-label,
+.a-reading-time,
+.t-content__dates {
+    color: var(--primary-color) !important;
 }
 .media {
     width: 56px;
@@ -124,9 +128,10 @@ a {
     flex-direction: column;
 }
 .m-figure__img {
+    width: 50%;
     height: 50%;
     overflow: hidden;
-    width: 50%;
+    
     position: relative;
     top: 50%;
     left: 25%;
@@ -156,7 +161,7 @@ a {
 .interaction {
     justify-content: space-around;
 }
-.interaction1{
+.interaction1 {
     display: flex;
     justify-content: flex-start;
 }
@@ -169,7 +174,7 @@ a {
 .icon {
     margin-left: 10px;
 }
-.b-a{
+.b-a {
     margin: 1%;
     width: 15%;
     display: flex;
@@ -179,7 +184,7 @@ a {
 .btn-primary {
     color: var(--danger-color);
     background-color: var(--accent-color);
-    border-color: var(--accent-color); 
+    border-color: var(--accent-color);
 }
 .bg-light {
     --bs-bg-opacity: 1;
@@ -210,8 +215,8 @@ a {
     background-color: #f9f9f9;
     border-radius: 5px;
 }
-.fa{
-    margin-right:5px;
+.fa {
+    margin-right: 5px;
 }
 /*Read more section */
 .card {
@@ -236,7 +241,7 @@ a {
 .card-body {
     padding: 20px;
 }
-.dark-mode .card-body{
+.dark-mode .card-body {
     background-color: #141414;
 }
 .card-title {
@@ -244,18 +249,18 @@ a {
     margin-top: 0;
     margin-bottom: 10px;
 }
-.dark-mode .card-title{
-    color:var(--accent-color);
+.dark-mode .card-title {
+    color: var(--accent-color);
 }
 .card-text {
     color: var(--secondary-color);
     font-size: 0.9rem;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     font-weight: 200;
     line-height: 1.5rem;
 }
-.dark-mode .card-text{
-    color:var(--highlight-color);
+.dark-mode .card-text {
+    color: var(--highlight-color);
 }
 .my-4 {
     margin-bottom: 30px;
@@ -272,3 +277,26 @@ a {
     }
 }
 /*Read more section */
+/*-----Controls-----*/
+.controls {
+    width: 70em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#playButton {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    color: #ccb191;
+}
+.dark-mode #playButton {
+    color: #9f5999;
+}
+/*-----Controls-----*/
+/*-------article img------*/
+#article-img img{
+    width: auto;
+    height: 2rem;
+}
