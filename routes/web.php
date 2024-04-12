@@ -18,8 +18,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+//profile edit and delete routes
 Route::post('/profile-modified', [UserProfileController::class, 'submit'])->name('profile.submit-form');
-Route::post('/profile-modified', [UserProfileController::class, 'destroy'])->name('profile.destroy-user');
+Route::post('/profile', [UserProfileController::class, 'destroy'])->name('profile.destroy-user');
+
+//image upload routes
 
 
 Route::get('/profile/{user}', [UserProfileController::class, 'show'])->name('profile.show');

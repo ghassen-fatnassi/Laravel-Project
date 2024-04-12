@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('shortbio');
             $table->string('institution');
             $table->string('position');
-            $table->binary('photo')->nullable();
+            $table->string('avatar')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('phone')->nullable();

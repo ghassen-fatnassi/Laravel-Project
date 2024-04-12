@@ -63,7 +63,8 @@ body{
 }
 
 .profile-header-img img {
-    max-width: 100%
+    width: 115px;
+    height:115px;
 }
 
 

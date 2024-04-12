@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
 class UserProfileController extends Controller
 {
 
@@ -40,8 +42,8 @@ class UserProfileController extends Controller
             'shortbio' => 'nullable|string|max:255',
             'institution' => 'nullable|string|max:255',
             'position' => 'nullable|string|max:255',
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:4096',
-            'phone' => 'required|string|max:20',
+            'photo' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:4096',
+            'phone' => 'nullable|string|max:20',
             'twitter' => 'nullable|string|max:511|url',
             'github' => 'nullable|string|max:511|url',
             'linkedin' => 'nullable|string|max:511|url',
@@ -59,7 +61,17 @@ class UserProfileController extends Controller
                 return back()->withErrors(['old_password' => 'The old password is incorrect.']);
             }
         }
-    
+        //dd($request->all());
+        if($request->hasFile('photo'))
+        {
+            $path = $request->file('photo')->store('public/images');
+            if ($user->avatar) 
+            {
+                Storage::delete($user->avatar);
+            }
+            $user->avatar = $path;
+        }
+        
         // Update user information
         $user->name = $request->name;
         $user->email = $request->email;
@@ -69,7 +81,8 @@ class UserProfileController extends Controller
         $user->twitter = $request->twitter;
         $user->github = $request->github;
         $user->linkedin = $request->linkedin;
-    
+
+
         // Update password if new password is provided
         if ($request->filled('new_password')) {
             $user->password = Hash::make($request->new_password);
@@ -84,6 +97,9 @@ class UserProfileController extends Controller
 
     public function destroy(Request $request)
     {
+        $request->validate([
+            'old_password' => 'required|string|min:8', // Require old password to delete the account
+        ]);
         // Find the user by ID
         $user = User::find($request->id);
         // Check if old password matches
@@ -95,10 +111,8 @@ class UserProfileController extends Controller
             else
             {
                 DB::table('users')->where('id', $user->id)->delete();
-                return view('/');
-
+                return view('home');
             }
         }
-
     }
 }

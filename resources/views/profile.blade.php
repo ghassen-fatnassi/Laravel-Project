@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
     <title>Document</title>
@@ -27,7 +28,7 @@
                     <div class="profile-header-content">
                         <!-- BEGIN profile-header-img -->
                         <div class="profile-header-img">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="no image found">
+                            <img src="{{ Storage::url($user->avatar) }}" alt="Profile photo \n not found">
                         </div>
                         <!-- END profile-header-img -->
                         <!-- BEGIN profile-header-info -->
@@ -133,7 +134,7 @@
                                 </ul>
                             </div>
                             @endif
-                            <form method="POST">
+                            <form method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <!-- CSRF Token -->
                                 <div class="row mb-5 gx-5">
@@ -191,26 +192,35 @@
                                     <!-- Upload profile -->
                                     <div class="col-xl-4">
                                         <div class="bg-secondary-soft px-4 py-5 rounded">
+
                                             <div class="row g-3">
                                                 <h4 class="mb-4 mt-0">Upload your profile photo</h4>
                                                 <div class="text-center">
                                                     <!-- Image upload -->
-                                                    <div class="square position-relative display-2 mb-3">
+                                                    <div class="square position-relative display-2 mb-3"
+                                                        id="image-preview">
                                                         <i
                                                             class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
                                                     </div>
                                                     <!-- Button -->
-                                                    <input type="file" id="customFile" name="photo" hidden="">
+                                                    <input type="file" id="customFile" name="photo" hidden=""
+                                                        accept=".jpg, .png, .jpeg, .gif, .svg">
+
                                                     <label class="btn btn-success-soft btn-block"
                                                         for="customFile">Upload</label>
-                                                    <button type="button" class="btn btn-danger-soft">Remove</button>
+                                                    <button type="button" class="btn btn-danger-soft"
+                                                        id="remove-photo">Remove</button>
                                                     <!-- Content -->
                                                     <p class="text-muted mt-3 mb-0">
                                                         <span class="me-1">Note:</span>
-                                                        Minimum size 300px x 300px
+                                                        Maximum size is 4 MB
                                                     </p>
+                                                    <p id="upload-feedback" class="text-success mt-2 d-none">Photo
+                                                        uploaded successfully!</p>
                                                 </div>
                                             </div>
+
+
                                         </div>
                                     </div>
                                 </div> <!-- Row END -->
