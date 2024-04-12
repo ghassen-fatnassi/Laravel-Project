@@ -17,10 +17,12 @@
   body {
     font-family: "Montserrat", sans-serif;
     background: #b89072 ;
+    height: 100%;
+
   }
   
   *{
-    margin: 0px;
+    margin: 0vh;
     padding: 0;
     box-sizing: border-box;
   
@@ -281,6 +283,18 @@
     background: #fff;
     color:#66503e;
     cursor: pointer;
+    transition: all 0.9s;
+  }
+  .form form .CTA a.switchbutton {
+    font-size: 13px;
+    font-weight: 400;
+    font-family: "Montserrat", sans-serif;
+    color: #bbbbbb;
+    text-decoration: underline;
+    transition: all 0.3s;
+  }
+  .form form .CTA a.switchbutton:hover {
+    color: #66503e;
     transition: all 0.9s;
   }
   .form form .CTA a.switch {
