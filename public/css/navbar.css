@@ -16,10 +16,17 @@
     --width-container: 1200px;
     --bs-btn-border-width: 0;
 }
-html {
+html{
     height: 100%;
     font-family: "Montserrat", sans-serif;
     font-size: 14px;
+
+}
+header{
+    
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+
 }
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700");
 body.dark-mode {
@@ -56,6 +63,7 @@ header {
     align-items: center;
 
     cursor: pointer;
+    box-sizing: border-box;
 }
 .btn__indicator {
     background-color: #fff;
@@ -221,6 +229,7 @@ nav ul li.important a:hover {
     color: var(--secondary-color);
 }
 /*-----------NAVBAR--------------*/
+/*-----------SUBMENU--------------*/
 .sub-menu-wrap{
     position: absolute;
     top: 10%;
@@ -230,6 +239,7 @@ nav ul li.important a:hover {
     max-height: 0px;
     overflow: hidden;
     transition: max-height 0.5s;
+    z-index: 99999;
 }
 .sub-menu-wrap.open-menu{
     max-height: 400px;
@@ -287,3 +297,4 @@ nav ul li.important a:hover {
 .sub-menu-link:hover p{
     font-weight: 600;
 }
+/*-----------SUBMENU--------------*/

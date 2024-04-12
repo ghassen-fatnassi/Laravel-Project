@@ -1,20 +1,25 @@
-<!-- Check if the user is authenticated -->
 @auth
-    <!-- Check if the user has the role of Admin -->
-    @if(auth()->user()->hasRole('Admin'))
-        <!-- Display the delete button for Admin -->
+    @if(auth()->user()->usertype === 'admin' || auth()->user()->id === $article->author_id)
         <form method="POST" action="{{ route('articles.destroy', ['article' => $article->id]) }}">
             @csrf
             @method('DELETE')
-            <button type="submit">Delete</button>
-        </form>
-    <!-- Check if the user has the role of User and is the author of the article -->
-    @elseif(auth()->user()->hasRole('User') && $article->author_id == auth()->id())
-        <!-- Display the delete button for the User who is the author of the article -->
-        <form method="POST" action="{{ route('articles.destroy', ['article' => $article->id]) }}">
-            @csrf
-            @method('DELETE')
-            <button type="submit">Delete</button>
+            <button type="submit" class="icon-button">
+                <i class='bx bx-x-circle bx-md'></i>
+            </button>
         </form>
     @endif
 @endauth
+<style>
+    .icon-button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    color:#ccb191;
+    
+}
+.dark-mode .icon-button{
+        color:#9f5999;
+    }
+
+</style>

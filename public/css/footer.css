@@ -1,0 +1,219 @@
+/*-----------FOOTER--------------*/  
+.footer{
+  box-sizing: border-box; 
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+#footer {
+    min-height: 730px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-color: var(--secondary-color);
+    /* font-family: "Bebas Neue" , sans-serif; */
+   
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    
+  }
+  .containerr{
+    width: 60%;
+    background: var(--primary-color);
+    height: auto;
+    border-radius: 6px;
+    padding: 5px 5px 5px 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    
+  }
+  .containerr p, .containerr strong{ 
+    text-align:center;
+    color: white
+  
+  }
+  .par11{
+    margin-bottom: 1rem;
+  }
+  .containerr .contentt{
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+  }
+  .containerr .contentt .left-side{
+    width: 35%;
+    height: 80%;   
+  }
+  .contentt .left-side .details{
+    margin: 20px;
+    text-align: center;
+  }
+  .contentt .left-side .details i{
+    font-size: 20px;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+  }
+  .contentt .left-side .details .topic{
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+  }
+  .contentt .left-side::before{
+    
+    position: absolute;
+    height: 70%;
+    width: 2px;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #afafb6;
+  }
+  .contentt .left-side .details .text-one,
+  .contentt .left-side .details .text-two{
+  font-size: 14px;
+  color:  var(--accent-color);
+  }
+  .containerr .content .right-side {
+    width: 65%;
+    height: 100%; 
+    margin-left: 75px;  
+  }
+  .contentt .right-side .topic-text {
+    font-size: 30px;
+    font-weight: 600;
+    color:var(--accent-color) ;
+    text-align:center;   
+    font-family:"Roboto Condensed", serif; 
+    text-transform:uppercase;
+    letter-spacing:1px;
+  }
+  .right-side .input-box{
+    height:50px ;
+    width: 100%;
+    margin: 12px 0;
+    text-align: center;
+  }
+  .right-side .input-box input{
+    height: 100%;
+    width: 70%;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .right-side .button input[type="button"]{
+    color: #fff;
+    font-family: 18px;
+    background-color: var(--secondary-color);
+    border-radius: 6px ;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  .button input[type="button"]:hover{
+    background-color: var(--accent-color);
+  }
+  .last {
+    
+    color:#ffffff;
+    position:absolute;
+    bottom: 0px;
+    min-height: 10%;
+    width: 100%;
+    background: var(--secondary-color)    ;
+    padding: 0 0 5px 0;
+    
+  }
+  .last .social{
+    text-align:center;
+    padding-bottom:5px;
+  }
+  .last .social > a {
+    font-size:24px;
+    width:40px;
+    height:40px;
+    line-height:40px;
+    display:inline-block;
+    text-align:center;
+    border-radius:50%;
+    border:1px solid #fff;
+    margin:0 10px;
+    color:inherit;
+    opacity:0.75;
+  }
+  .last .social > a:hover {
+    opacity:1.5;
+  }
+  .last .copyright {
+    margin-top:2px;
+    text-align:center;
+    font-size:15px;
+    color:black;
+    margin: bottom 10px;
+  }
+  @media only screen and (max-width: 1100px) {
+    .containerr {
+        width: 80%; 
+        transition: width 0.3s ease;
+    }
+    .contentt .left-side {
+        width: 35%; 
+    }
+    .contentt .right-side {
+        width: 65%; 
+    } 
+  }
+  @media only screen and (max-width: 900px) {
+    .containerr {
+        width: 90%;
+        transition: width 0.3s ease;
+    }
+    .containerr .contentt .left-side::before {
+        display: none; 
+    }
+    .contentt .left-side .details,
+    .contentt .right-side .par11 {
+        font-size: 16px; 
+    }
+    .contentt .right-side .topic-text {
+        font-size: 20px; 
+    }
+  }
+  @media only screen and (max-width: 576px) {
+    .containerr {
+        width: 100%;
+        transition: width 0.3s ease;
+        
+    }
+    .containerr .contentt .left-side,
+    .containerr .contentt .right-side { 
+        margin-left: 0; 
+    }
+    .right-side .input-box input,
+    .right-side  {
+        width: 70%;
+        
+        
+    }
+    .contentt .left-side .details,
+    .contentt .right-side .par11 {
+        font-size: 14px; 
+        width: 90%;
+    }
+    .contentt .right-side .topic-text {
+        font-size: 18px; 
+    }
+    .topic-text{
+        font-size: 20px;
+        width: 90%;
+    }
+  
+    form{
+        width: 90%;
+    }
+  }
+  /*-----------FOOTER--------------*/  
+  
