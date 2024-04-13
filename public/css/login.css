@@ -1,9 +1,9 @@
-/* :root{
+:root{
     --primary-color : #66503e;
     --secondary-color: #b89072;
     --accent-color: #e1dbd3;
     --danger-color:#faf7f5;
-  }
+}
   
   body.dark-mode{
     background-color:#212121;
@@ -12,11 +12,11 @@
     --accent-color: #9f5999;
     --danger-color:#e7e0e4;
   }
-   */
+   
 
 body {
     font-family: "Montserrat", sans-serif;
-    background: #b89072;
+    background: var(--secondary-color);
     height: 100%;
 }
 
@@ -67,7 +67,7 @@ h1 {
     color: #fff;
     height: 63vh;
     position: relative;
-    box-shadow: 4px 2px 10px #66503e; /*3px,3px,10px)*/
+    box-shadow: 4px 2px 10px var(--primary-color); /*3px,3px,10px)*/
     transition: all 0.6s cubic-bezier(1, -0.375, 0.285, 0.995);
     z-index: 9999;
 }
@@ -86,7 +86,7 @@ h1 {
     z-index: -1;
 }
 .brand a.logo {
-    color: #b89072;
+    color:var(--secondary-color);
     font-size: 20px;
     font-weight: 700;
     text-decoration: none;
@@ -124,7 +124,7 @@ h1 {
     letter-spacing: 2px;
     white-space: 4px;
     font-family: "Raleway", sans-serif;
-    color: #66503e;
+    color: var(--primary-color);
 }
 .brand .success-msg {
     width: 100%;
@@ -144,7 +144,7 @@ h1 {
     font-size: 12px;
     text-transform: uppercase;
     padding: 8px 30px;
-    background: #66503e;
+    background: var(--primary-color);
     text-decoration: none;
     color: #fff;
     border-radius: 30px;
@@ -155,7 +155,7 @@ h1 {
     padding: 8px 30px;
     background: #fff;
     text-decoration: none;
-    color: #66503e;
+    color: var(--primary-color);
     border-radius: 30px;
 }
 .brand .success-msg p,
@@ -260,7 +260,7 @@ h1 {
     display: none;
 }
 .form form input[type="password"] {
-    color: #b89072;
+    color: var(--secondary-color);
 }
 .form form .CTA {
     margin-top: 30px;
@@ -270,7 +270,7 @@ h1 {
     font-size: 12px;
     text-transform: uppercase;
     padding: 5px 30px;
-    background: #66503e;
+    background: var(--primary-color);
     color: #fff;
     border-radius: 30px;
     margin-right: 20px;
@@ -279,7 +279,7 @@ h1 {
 }
 .form form .CTA input:hover {
     background: #fff;
-    color: #66503e;
+    color: var(--primary-color);
     cursor: pointer;
     transition: all 0.9s;
 }
@@ -292,7 +292,7 @@ h1 {
     transition: all 0.3s;
 }
 .form form .CTA a.switchbutton:hover {
-    color: #66503e;
+    color: var(--primary-color);
     transition: all 0.9s;
 }
 .form form .CTA a.switch {
@@ -304,7 +304,7 @@ h1 {
     transition: all 0.3s;
 }
 .form form .CTA a.switch:hover {
-    color: #66503e;
+    color: var(--primary-color);
     transition: all 0.9s;
 }
 

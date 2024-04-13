@@ -4,10 +4,12 @@
 
 </head>
 <header>
-  <a href="#" class="logo">
-    <img src="" alt="logo">
-    JuniorReadHub
+  <div class="site-logo-name">
+  <a href="{{route('home')}}" class="site-logo">
+    <img src="{{asset('assets/logo-junior.png')}}" alt="logo">
   </a>
+  <div class="site-name">JuniorReadHub</div>
+  </div>
   <nav>
     <ul class="sidebar">
       <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26">
@@ -23,11 +25,14 @@
       <li>
         <a href="{{route('chatify')}}" target="_blank">Chat</a>
       </li>
+      <li class='important'><a href="{{ route('articles.create') }}">Write Article</a></li>
       @else
       <!-- If the user is not authenticated, render the "Sign In" link -->
       <li><a href="{{route('login')}}">Sign In</a></li>
+      <li class='important'><a href="{{route('register')}}">Get Started</a></li>
       @endauth
-      <li class='important'><a href="#">Get Started</a></li>
+
+      
       <li>
         <div class="btn">
           <div class="btn__indicator">
@@ -49,12 +54,13 @@
       <li class="hideOnMobile">
         <a href="{{route('chatify')}}" target="_blank">Chat</a>
       </li>
-
+      <li class='important hideOnMobile'><a href="{{route('articles.create')}}">Write Article</a></li>
       @else
       <!-- If the user is not authenticated, render the "Sign In" link -->
       <li class="hideOnMobile"><a href="{{route('login')}}">Sign In</a></li>
+      <li class='important hideOnMobile'><a href="{{route('register')}}">Get Started</a></li>
       @endauth
-      <li class='important hideOnMobile'><a href="#">Get Started</a></li>
+      
       <li class="hideOnMobile">
         <div class="btn">
           <div class="btn__indicator">
@@ -73,7 +79,7 @@
       <div class="sub-menu">
         <div class="user-info">
           <img src="{{asset('assets/avatar.png')}}" alt="">
-          <h2>{{ auth()->user()->name }}</h2>
+          <h2 style="font-weight: 500; font-size:1.5em;" id="bootstrap-overrides">{{ auth()->user()->name }}</h2>
         </div>
         <hr>
         <a href="" class="sub-menu-link">

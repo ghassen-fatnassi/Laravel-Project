@@ -19,7 +19,7 @@ class Article extends Model
         'image',
         'author_id',
         'likes',
-        'ncomments', 
+        'comments', 
         'bookmarks',
     ];
     public function author()

@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{$article->title}}</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Federo&family=Gloock&family=Manuale:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
@@ -62,7 +64,11 @@
                     </span>
                     <span id="readingTime">Calculating...</span>
                 </div>
-                <div class="like like-c p-2 cursor" data-article-id="{{ $article->id }}" onclick="toggleHeart()"><i id="heart-icon" class="fa fa-heart-o"></i></div>
+                @auth
+                    <div class="like like-c cursor" data-article-id="{{ $article->id }}" onclick="toggleHeart(event); handleLikeButtonClick(event);">
+                        <i id="heart-icon" class="fa fa-heart-o"></i>
+                    </div>
+                
                 <div class="anchors-container">
                     <div class="save-article-wrapper">
                         <button type="button" class="cvMh7UGw " data-article-id="{{ $article->id }}"id="bookmark-button" onclick="bookmarkArticle()">
@@ -73,6 +79,7 @@
 
                     </div>
                 </div>
+                @endauth
             </div>
             <div class="t-content__main-media">
                 <figure class="m-figure m-figure--16x9">
@@ -95,53 +102,6 @@
 
     </div>
     <livewire:comments :model="$article"/>
-    <!--comments section-->
-    <div class="container mt-5">
-        <div class="d-flex justify-content-center row">
-            <div class="col-md-8">
-                <div class="d-flex flex-column comment-section">
-                    <div class="bg-white p-2">
-                        <div class="d-flex flex-row user-info"><img class="rounded-circle" src="{{ asset('assets/comment.jpg') }}" width="40">
-                            <div class=" name-date d-flex flex-column justify-content-start ml-2 "><span class="d-block font-weight-bold name">Amal Jaoua</span><span class="date text-black-50">24 Mars 2024</span></div>
-                        </div>
-                        <div class="mt-2">
-                            <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        </div>
-                        <!-- Reply Section -->
-                        <div class="bg-light p-2">
-                            <div class="reply-section mt-2">
-                                <div class="d-flex flex-row align-items-start">
-                                    <img class="rounded-circle" src="{{ asset('assets/comment.jpg') }}" width="40">
-                                    <textarea class="form-control ml-1 shadow-none textarea"></textarea>
-                                </div>
-                                <div class=" interaction1 mt-2 text-center">
-                                    <button class="b-a btn  btn-primary  shadow-none reply-btn" type="button">Reply</button>
-                                    <button class="b-a btn btn-outline-primary  ml-1 shadow-none cancel-reply-btn" type="button"><span class="cancel">Cancel</span></button>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="bg-white">
-                        <div class="interaction d-flex flex-row fs-12 ">
-                            <div class="like p-2 cursor" onclick="toggleHeart()"><i id="heart-icon" class="fa fa-heart-o"></i><span class="ml-1">Like</span></div>
-                            <div class="like reply p-2 cursor"><i class="fa fa-commenting-o"></i><span class="ml-1">Reply</span></div>
-                        </div>
-                    </div>
-                    <div class="bg-light p-2">
-                        <div class="d-flex flex-row align-items-start">
-                            <img class="rounded-circle" src="{{ asset('assets/comment.jpg') }}" width="40">
-                            <textarea class="form-control ml-1 shadow-none textarea"></textarea>
-                        </div>
-                        <div class="interaction1 mt-2 text-center">
-                            <button class="b-a btn btn-primary shadow-none" type="button">Comment</button>
-                            <button class="b-a btn btn-outline-primary  ml-1 shadow-none " type="button"><span class="cancel">Cancel</span></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!--More acrticles-->
 
     <div class="container">

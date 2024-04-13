@@ -302,3 +302,7 @@ a {
     width: auto;
     height: 2rem;
 }
+/*-------article img-----*/
+#like-btn{
+    padding: 0;
+}

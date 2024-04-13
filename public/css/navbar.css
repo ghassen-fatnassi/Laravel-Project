@@ -256,6 +256,7 @@ nav ul li.important a:hover {
 .user-info h2{
     font-weight: 500;
 }
+
 .user-info img{
     width: 4em;
     margin-right: 0.5em;
@@ -298,3 +299,19 @@ nav ul li.important a:hover {
     font-weight: 600;
 }
 /*-----------SUBMENU--------------*/
+.site-logo img{
+    
+    height: 2rem;
+    width: auto;
+}
+.site-logo{
+    margin-top: 0.4rem;
+}
+.site-logo-name{
+    display: flex;
+    flex-direction: row;
+}
+.site-name{
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+}
