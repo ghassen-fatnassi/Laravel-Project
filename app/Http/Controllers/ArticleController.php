@@ -7,7 +7,6 @@ use App\Models\Bookmark;
 use Illuminate\Http\Request;
 use App\Models\Like;
 use Illuminate\Support\Facades\Log;
-
 class ArticleController extends Controller
 {
     public function show(Article $article)
