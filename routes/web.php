@@ -33,10 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::get('/articles/{article}', [ArticleController::class, 'show'])->name('articles.show');
-Route::post('/articles/{article}/bookmark',[ArticleController::class,'bookmark'])->name('articles.bookmark');
-Route::post('/articles/{article}/like', [ArticleController::class,'like'])->name('articles.like');
 Route::delete('/articles/{article}', [ArticleController::class, 'destroy'])->name('articles.destroy');
-Route::delete('/articles/{article}/like', [ArticleController::class,'unlike'])->name('articles.unlike');
 
 
 
@@ -44,6 +41,10 @@ Route::get('/create', [ArticleController::class, 'create'])->name('articles.crea
 Route::post('/create', [ArticleController::class, 'store'])->name('articles.store')->middleware('auth');
 
 Route::get('/users/{user}', [UserProfileController::class, 'show'])->name('user.show');
+
+Route::post('/articles/{article}/like', [ArticleController::class, 'like'])->name('articles.like');
+
+Route::post('/articles/{article}/bookmark', [ArticleController::class, 'bookmark'])->name('articles.bookmark');
 
 
 require __DIR__.'/auth.php';

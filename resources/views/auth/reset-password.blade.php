@@ -8,7 +8,7 @@
   <title>Document</title>
 </head>
 <body>
-
+@include('navbar')
 <!-- <nav></nav> -->
 
 <section id="loginregister" class="loginregister">
@@ -93,7 +93,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{{ asset('js/login.js') }}"></script>
-
+<script src="{{ asset('js/dark-mode.js') }}"></script>
 
 </body>
 </html>

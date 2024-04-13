@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Bookmark;
 use Illuminate\Http\Request;
-use App\Models\bookmark;
 use App\Models\Like;
 use Illuminate\Support\Facades\Log;
 
@@ -20,49 +20,61 @@ class ArticleController extends Controller
             ->get();
         return view('singlearticle', compact('article', 'relatedArticles'));
     }
+
     public function bookmark(Article $article)
     {
-        $user = auth()->user();
-        $bookmark = bookmark::where('user_id', $user->id)
-            ->where('article_id', $article->id)
-            ->first();
+        $user_id = auth()->id();
 
-        if (!$bookmark) {
-            // clicking once
-            $article->increment('bookmarks');
-            bookmark::create([
-                'user_id' => $user->id,
-                'article_id' => $article->id,
-            ]);
-            return response()->json(['message' => 'Article bookmarked successfully']);
-        } else {
-            //clicking again
+        $existing_bookmark = Bookmark::where('user_id', $user_id)
+                            ->where('article_id', $article->id)
+                            ->first();
+
+        if ($existing_bookmark) {
+            
+            $existing_bookmark->delete();
             $article->decrement('bookmarks');
-            $bookmark->delete();
-            return response()->json(['message' => 'Bookmark removed']);
+            session()->flash('bookmark_status', 'unbookmarked');
+        } else {
+            $bookmark = new Bookmark();
+            $bookmark->article_id = $article->id;
+            $bookmark->user_id = $user_id;
+            $bookmark->save();
+            $article->increment('bookmarks');
+            session()->flash('bookmark_status', 'bookmarked');
         }
+        return redirect()->back()->with('bookmark_status', session('bookmark_status'));
+        
     }
 
     public function like(Article $article)
     {
-        $user = auth()->user();
-        $like = Like::where('user_id', $user->id)
-            ->where('article_id', $article->id)
-            ->first();
-        if (!$like) {
-            // If no existing like found, create a new like
+        $user_id = auth()->id();
+
+        $existing_like = Like::where('user_id', $user_id)
+                            ->where('article_id', $article->id)
+                            ->first();
+
+        if ($existing_like) {
+            
+            $existing_like->delete();
+            $article->decrement('likes');
+            session()->flash('like_status', 'unliked');
+        } else {
+            $like = new Like();
+            $like->article_id = $article->id;
+            $like->user_id = $user_id;
+            $like->save();
             $article->increment('likes');
-            Like::create([
-                'user_id' => $user->id,
-                'article_id' => $article->id,
-            ]);
-            return response()->json(['message' => 'Article liked successfully']);
+            session()->flash('like_status', 'liked');
         }
+        return redirect()->back()->with('like_status', session('like_status'));
     }
+
     public function create()
     {
         return view('create');
     }
+    
     public function store(Request $request)
     {
         $request->validate([

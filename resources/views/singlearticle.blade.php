@@ -22,7 +22,7 @@
 
 <body>
     @include('navbar')
-    
+
     <div class=" container">
         <article class="t-content__article-wrapper" data-article-content="">
             <div class="t-content__section a-tag">
@@ -65,20 +65,19 @@
                     <span id="readingTime">Calculating...</span>
                 </div>
                 @auth
-                    <div class="like like-c cursor" data-article-id="{{ $article->id }}" onclick="toggleHeart(event); handleLikeButtonClick(event);">
+                <form action="{{ route('articles.like', ['article' => $article->id]) }}" method="POST">
+                    @csrf
+                    <button id="heart-button" type="submit" style="border: none; background: none;">
                         <i id="heart-icon" class="fa fa-heart-o"></i>
-                    </div>
-                
-                <div class="anchors-container">
-                    <div class="save-article-wrapper">
-                        <button type="button" class="cvMh7UGw " data-article-id="{{ $article->id }}"id="bookmark-button" onclick="bookmarkArticle()">
-                            <svg class="saved-article_svg__fs-icon saved-article_svg__fs-icon--saved-article" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="25" height="25">
-                                <path d="M13.9 3c.7 0 1.3.6 1.3 1.3V17L10 13.9 4.8 17V4.3c0-.7.5-1.3 1.3-1.3h7.8z"></path>
-                            </svg>
-                        </button>
+                    </button>
+                </form>
+                <form action="{{ route('articles.bookmark', ['article' => $article->id]) }}" method="POST">
+                    @csrf
+                    <button type="submit" style="border: none; background: none;">
+                        <i class='bx bxs-bookmark bx-sm'></i>
+                    </button>
+                </form>
 
-                    </div>
-                </div>
                 @endauth
             </div>
             <div class="t-content__main-media">
@@ -87,9 +86,9 @@
                 </figure>
             </div>
             <div class="controls">
-            <div class="play-pause">
-                <button id="playButton"><i class='bx bx-play-circle bx-md'></i></button>
-            </div>
+                <div class="play-pause">
+                    <button id="playButton"><i class='bx bx-play-circle bx-md'></i></button>
+                </div>
                 @include('delete')
             </div>
             <div class="t-content">
@@ -101,9 +100,8 @@
 
 
     </div>
-    <livewire:comments :model="$article"/>
+    <livewire:comments :model="$article" />
     <!--More acrticles-->
-
     <div class="container">
         <h1 class="my-4">Read More</h1>
         <div class="row justify-content-center">
@@ -112,7 +110,7 @@
                 <div class="text-center categorie ">
                     @switch($article->category)
                     @case('programming-web-mobile')
-                    <a href="{{ route('category.show', ['category' => 'programming-web-mobile']) }}" >Programming Web/Mobile</a>
+                    <a href="{{ route('category.show', ['category' => 'programming-web-mobile']) }}">Programming Web/Mobile</a>
                     @break
                     @case('artificial-intelligence')
                     <a href="{{ route('category.show', ['category' => 'artificial-intelligence']) }}">Artificial Intelligence</a>
@@ -137,13 +135,19 @@
                         </div>
                     </div>
             </div></a>
-            @endforeach        
+            @endforeach
+
 
         </div>
-        <script src="{{asset('js/dark-mode.js')}}"></script>
-        <script src="{{ asset('js/singlearticle.js') }}"></script>
-        <script src="{{ asset('js/reading.time.js') }}"></script>
-        <script src="{{ asset('js/tts.js') }}"></script>
+    </div>
+    <input type="hidden" id="likeStatus" value="{{ session('like_status') }}">
+    <input type="hidden" id="bookmarkStatus" value="{{ session('bookmark_status') }}">
+    
+    <script src="{{asset('js/notification.js')}}"></script>
+    <script src="{{asset('js/dark-mode.js')}}"></script>
+    <script src="{{ asset('js/reading.time.js') }}"></script>
+    <script src="{{ asset('js/tts.js') }}"></script>
+
 </body>
 
 </html>

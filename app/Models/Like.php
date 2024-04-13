@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Like extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'user_id',
         'article_id',
@@ -22,4 +21,5 @@ class Like extends Model
     {
         return $this->belongsTo(Article::class);
     }
+    
 }

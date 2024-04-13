@@ -11,7 +11,10 @@ class CategoryController extends Controller
     public function show($category)
     {
         
-        $articles = Article::where('category', $category)->get();
+        $articles = Article::where('category', $category)
+                    ->orderBy('created_at', 'desc') // Sort by created_at field in descending order
+                    ->get();
+
 
         $articleslikes = Article::where('category', $category)->orderBy('likes', 'desc')->take(5)->get();
         foreach ($articles as $article) {

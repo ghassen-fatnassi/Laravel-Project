@@ -126,6 +126,9 @@ h1 {
     font-family: "Raleway", sans-serif;
     color: var(--primary-color);
 }
+.dark-mode .brand .heading p{
+    color:var(--secondary-color)
+}
 .brand .success-msg {
     width: 100%;
     text-align: center;

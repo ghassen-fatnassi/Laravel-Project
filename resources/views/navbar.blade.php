@@ -16,7 +16,7 @@
             <path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z" />
           </svg></a></li>
       <li class="active"><a href="{{ route('home') }}">Home</a></li>
-      <li><a href="#footer">Contact</a></li>
+      <li><a href="{{ route('home') }}#footer">Contact</a></li>
       @auth
       <!-- If the user is authenticated, render the user's name instead of "Sign In" -->
       <li>
@@ -45,7 +45,7 @@
     </ul>
     <ul>
       <li class="active hideOneMobile"><a href="{{ route('home') }}">Home</a></li>
-      <li class="hideOnMobile"><a href="#footer">Contact</a></li>
+      <li class="hideOnMobile"><a href="{{ route('home') }}#footer">Contact</a></li>
       @auth
       <!-- If the user is authenticated, render the user's name instead of "Sign In" -->
       <li class="hideOnMobile">
