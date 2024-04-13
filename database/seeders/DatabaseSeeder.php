@@ -21,7 +21,9 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call([
             UserSeeder::class,
-            ArticleSeeder::class
+            ArticleSeeder::class,
+            ArticleViewSeeder::class,
+            UserLoginSeeder::class
         ]);
     }
 }

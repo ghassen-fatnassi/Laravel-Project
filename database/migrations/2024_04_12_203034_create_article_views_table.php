@@ -19,9 +19,11 @@ return new class extends Migration
             $table->foreign('viewer_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
-        
     }
 
+
+
+    
     /**
      * Reverse the migrations.
      */

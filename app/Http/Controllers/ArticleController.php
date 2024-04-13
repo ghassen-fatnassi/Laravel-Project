@@ -10,12 +10,16 @@ use Illuminate\Auth\Events\Authenticated;
 
 class ArticleController extends Controller
 {
-    public function show(Article $article,Authenticated $event)
+    public function show(Article $article)
     {   
-        $user=$event->user;
+        //tracking article views for dashboard
+        //start
+        $user=auth()->user();
         $article_view=new ArticleView;
         $article_view->article_id=$article->id;
         $article_view->viewer_id=$user->id;
+        $article_view->save();
+        //end
 
         $relatedArticles = Article::where('author_id', $article->author_id)
         ->where('id', '!=', $article->id)
