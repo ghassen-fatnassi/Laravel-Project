@@ -26,11 +26,11 @@
             <div class="article-author-avatar">
                 <a href="{{ route('user.show', ['user' => $article->author_id]) }}">
                     <div class="article-author">{{$article->author->name}}</div>
-                </a>
+                    </a>
                 <div class="article-avatar">
-                    <img src="{{ asset('assets/avatar.png') }}" alt="">
+                    <img style="border-radius: 50px;" src="{{ Storage::url($article->author->avatar) }}" alt="">
                 </div>
-
+                
             </div>
         </div>
         <div class="article-img" data-aos="fade-down">

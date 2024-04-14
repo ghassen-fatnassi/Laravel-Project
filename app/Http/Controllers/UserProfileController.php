@@ -61,7 +61,7 @@ class UserProfileController extends Controller
         //dd($request->all());
         if($request->hasFile('photo'))
         {
-            $path = $request->file('photo')->store('public/images');
+            $path = $request->file('photo')->store('/public/images');
             if ($user->avatar) 
             {
                 Storage::delete($user->avatar);
@@ -94,13 +94,13 @@ class UserProfileController extends Controller
 
     public function destroy(Request $request)
     {
-        $request->validate([
+        /*$request->validate([
             'old_password' => 'required|string|min:8', // Require old password to delete the account
-        ]);
+        ]);*/
         // Find the user by ID
         $user = User::find($request->id);
         // Check if old password matches
-        if ($request->filled('old_password')) {
+        /*if ($request->filled('old_password')) {
             if (!Hash::check($request->old_password, $user->password)) 
             {
                 return back()->withErrors(['old_password' => 'The old password is incorrect.\n account not deleted']);
@@ -111,5 +111,8 @@ class UserProfileController extends Controller
                 return view('home');
             }
         }
+        */
+        DB::table('users')->where('id', $user->id)->delete();
+        return redirect()->route('home');
     }
 }

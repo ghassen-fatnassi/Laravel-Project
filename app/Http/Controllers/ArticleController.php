@@ -9,23 +9,26 @@ use Illuminate\Http\Request;
 use App\Models\Like;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Auth\Events\Authenticated;
-
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
-    public function show(Article $article,Authenticated $event)
+    public function show(Article $article)
     {   
-        $user=$event->user;
-        $article_view=new ArticleView;
-        $article_view->article_id=$article->id;
-        $article_view->viewer_id=$user->id;
-
+        if (Auth::check()){
+            $user= Auth::user();
+            $article_view=new ArticleView;
+            $article_view->article_id=$article->id;
+            $article_view->viewer_id=$user->id;
+            $article_view->save();
+        }
+        $user= Auth::user();
         $relatedArticles = Article::where('author_id', $article->author_id)
         ->where('id', '!=', $article->id)
         ->inRandomOrder()
         ->take(3)
         ->get();
-        return view('singlearticle', compact('article', 'relatedArticles'));
+        return view('singlearticle', compact('article', 'relatedArticles','user'));
     }
 
 

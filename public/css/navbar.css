@@ -47,7 +47,7 @@ header {
     line-height: normal;
 }
 /* -------------- BUTTON -------------- */
-.btn {
+.btnn {
     background-color: #fff;
     width: 4em;
     height: 2em;
@@ -65,7 +65,7 @@ header {
     cursor: pointer;
     box-sizing: border-box;
 }
-.btn__indicator {
+.btnn__indicator {
     background-color: #fff;
     width: 2rem;
     height: 2rem;
@@ -77,20 +77,20 @@ header {
 
     transition: transform 0.3s ease;
 }
-.btn__icon-container {
+.btnn__icon-container {
     width: 2rem;
     height: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.btn__icon {
+.btnn__icon {
     color: var(--secondary-color);
     font-size: 1.2rem;
 }
 /* -------------- BUTTON -------------- */
 /* -------------- ANIMATION ------------ */
-.btn__icon.animated {
+.btnn__icon.animated {
     animation: spin 0.5s;
 }
 @keyframes spin {
@@ -100,16 +100,16 @@ header {
 }
 /* -------------- ANIMATION ------------ */
 /* -------------- DARKMODE -------------- */
-.dark-mode .btn {
+.dark-mode .btnn {
     box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.3),
         inset 8px 0 8px rgba(0, 0, 0, 0.3), inset 0 -4px 4px rgba(0, 0, 0, 0.3);
 }
-.dark-mode .btn__indicator {
+.dark-mode .btnn__indicator {
     transform: translateX(1rem);
     background-color: var(--accent-color);
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
 }
-.dark-mode .btn__icon {
+.dark-mode .btnn__icon {
     color: var(--primary-color);
 }
 /* -------------- DARKMODE -------------- */
@@ -172,7 +172,7 @@ nav ul li a {
     width: 8rem;
     margin-left: 1.8rem;
 }
-.sidebar .btn {
+.sidebar .btnn {
     margin-left: 0.8rem;
 }
 .sidebar a {

@@ -36,10 +36,10 @@
 
       
       <li>
-        <div class="btn">
-          <div class="btn__indicator">
-            <div class="btn__icon-container">
-              <i class="btn__icon fa-solid fa-sun fa-moon"></i>
+        <div class="btnn">
+          <div class="btnn__indicator">
+            <div class="btnn__icon-container">
+              <i class="btnn__icon fa-solid fa-sun fa-moon"></i>
             </div>
           </div>
         </div>
@@ -64,10 +64,10 @@
       @endauth
       
       <li class="hideOnMobile">
-        <div class="btn">
-          <div class="btn__indicator">
-            <div class="btn__icon-container">
-              <i class="btn__icon fa-solid fa-sun fa-moon"></i>
+        <div class="btnn">
+          <div class="btnn__indicator">
+            <div class="btnn__icon-container">
+              <i class="btnn__icon fa-solid fa-sun fa-moon"></i>
             </div>
           </div>
         </div>
@@ -80,11 +80,11 @@
     <div class="sub-menu-wrap" id="sub-menu">
       <div class="sub-menu">
         <div class="user-info">
-          <img src="{{asset('assets/avatar.png')}}" alt="">
+          <img style="border-radius: 50px;" src="{{ Storage::url($user->avatar) }}" alt="">
           <h2 style="font-weight: 500; font-size:1.5em;" id="bootstrap-overrides">{{ auth()->user()->name }}</h2>
         </div>
         <hr>
-        <a href="" class="sub-menu-link">
+        <a href="{{ route('user.show', ['user' => $user->id]) }}" class="sub-menu-link">
           <img src="{{asset('assets/profile.png')}}" alt="">
           <p>Dashboard</p>
           <span>></span>

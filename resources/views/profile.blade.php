@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+<meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
@@ -11,13 +11,15 @@
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
     <title>Document</title>
+    
 </head>
 
 <body>
+    @include('navbar')
     <div class="container">
         <div class="d-flex flex-column col-md-12">
             <div id="content" class="content content-full-width">
@@ -34,10 +36,15 @@
                         </div>
                         <!-- END profile-header-img -->
                         <!-- BEGIN profile-header-info -->
-                        <div class="profile-header-info">
-                            <h4 class="mt-10 mb-3">{{$user->name}}</h4>
-                            <p class="mb-10">{{$user->shortbio}}</p>
-                            <p class="mb-10">I am from {{$user->position}}, Welcome to my profile</p>
+                        <div class="profile-header-info-message">
+                            <div class="profile-header-info">
+                                <h4 class="mt-10 mb-3">{{$user->name}}</h4>
+                                <p class="mb-10">{{$user->shortbio}}</p>
+                                <p class="mb-10">I am a {{$user->position}}, Welcome to my profile</p>
+                            </div>
+                            @auth
+                            <a href="{{ url('chatify/' . $user->id) }}"><i class='bx bx-envelope bx-md'></i></a>
+                            @endauth
                         </div>
                         <!-- END profile-header-info -->
                     </div>
@@ -169,9 +176,9 @@
                                                 </div>
                                                 <!-- Location -->
                                                 <div class="col-md-6">
-                                                    <label class="form-label">Location</label>
+                                                    <label class="form-label">Position</label>
                                                     <input type="text" class="form-control" placeholder=""
-                                                        aria-label="Location" name="position"
+                                                        aria-label="Position" name="position"
                                                         value="{{$user->position}}">
                                                 </div>
                                                 <!-- Institution -->
@@ -201,9 +208,7 @@
                                                     <!-- Image upload -->
                                                     <div class="square position-relative display-2 mb-3"
                                                         id="image-preview">
-                                                        <i
-                                                            class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
-                                                    </div>
+                                                        <i class='bx bxs-user'></i>                                                    </div>
                                                     <!-- Button -->
                                                     <input type="file" id="customFile" name="photo" hidden=""
                                                         accept=".jpg, .png, .jpeg, .gif, .svg">
@@ -301,9 +306,11 @@
                                     <button type="submit" class="btn btn-danger btn-lg"
                                         formaction="{{ route('profile.destroy-user') }}">Delete
                                         profile</button>
+                                    @if(auth()->user()->id === $user->id)
                                     <button type="submit" class="btn btn-primary btn-lg"
                                         formaction="{{ route('profile.submit-form') }}">Update
                                         profile</button>
+                                    @endif
                                 </div>
                             </form>
                         </div>
@@ -976,6 +983,7 @@
 
     <footer></footer>
     <script src="{{asset('js/profile.js')}}"></script>
+    <script src="{{asset('js/dark-mode.js')}}"></script>
 </body>
 
 </html>

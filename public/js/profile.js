@@ -884,7 +884,7 @@ $(document).ready(function () {
   // Remove photo button functionality
   $('#remove-photo').click(function () {
       $('#customFile').val('');
-      $('#image-preview').html('<i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>');
+      $('#image-preview').html('<i class="bx bxs-user"></i>');
       $('#upload-feedback').removeClass('d-block').addClass('d-none');
   });
 });

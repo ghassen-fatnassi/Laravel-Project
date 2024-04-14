@@ -30,7 +30,7 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'shortbio'=>'loves Cybersecurity',
             'institution'=>'SupCom',
-            'position'=>'tunisia',
+            'position'=>'junior',
             'phone'=>'50' . mt_rand(0, 9) . mt_rand(0, 9) . mt_rand(0, 9) . mt_rand(0, 9) . mt_rand(0, 9) . mt_rand(0, 9) . mt_rand(0, 9),
             'password' => Hash::make('password'),
             'remember_token' => Str::random(10),

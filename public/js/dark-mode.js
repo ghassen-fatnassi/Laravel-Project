@@ -1,8 +1,8 @@
 const body = document.querySelector('body');
 const iconbutton = document.querySelector('icon-button');
 
-const btns = document.querySelectorAll('.btn');
-const icons = document.querySelectorAll('.btn__icon');
+const btns = document.querySelectorAll('.btnn');
+const icons = document.querySelectorAll('.btnn__icon');
 const articleTitles = document.querySelectorAll('.t-article-title');
 const articleAuthor = document.querySelector('.t-article-author');
 
