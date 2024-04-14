@@ -325,7 +325,7 @@
                                                 <div class="col-md-6">
                                                     <div class="box box1">
                                                         <div class="details">
-                                                            <h3> {{$dashboard}}</h3>
+                                                            <h3>{{$dashboard['sparks']['reads_count']}}</h3>
                                                             <h4>READS</h4>
                                                         </div>
                                                         <div id="spark1"></div>
@@ -416,7 +416,7 @@
                                     <div class="article-category-date">
                                         <a href="">{{$article->category}}</a>
                                         <span class="date">{{$article->timestamp}}</span>
-                                        <span class="duration">5 min read</span>
+                                        
                                     </div>
                                     <div class="article-info">
                                         <div class="article-text">
@@ -434,7 +434,7 @@
                             @endforeach
 
                             </div>
-                            <a href="" class="view-more">VIEW MORE</a>
+                            
                         </div>
                         @else
                         <div class="tab-pane active profile-header-tab" id="fill-tabpanel-1" role="tabpanel"
@@ -544,7 +544,7 @@
                                     <div class="article-category-date">
                                         <a href="">{{$article->category}}</a>
                                         <span class="date">{{$article->timestamp}}</span>
-                                        <span class="duration">5 min read</span>
+                                        
                                     </div>
                                     <div class="article-info">
                                         <div class="article-text">
@@ -673,7 +673,7 @@
                                     <div class="article-category-date">
                                         <a href="">{{$article->category}}</a>
                                         <span class="date">{{$article->timestamp}}</span>
-                                        <span class="duration">5 min read</span>
+                                        
                                     </div>
                                     <div class="article-info">
                                         <div class="article-text">
@@ -705,7 +705,7 @@
 
     <footer></footer>
     <script>
-        var dashboard = {{ Js::from($dashboard) }};
+        var dashboard = {!! json_encode($dashboard) !!};
     </script>
     <script src="{{asset('js/profile.js')}}"></script>
     <script src="{{asset('js/dark-mode.js')}}"></script>
