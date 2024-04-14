@@ -17,10 +17,12 @@ class ArticleController extends Controller
     {   
         if (Auth::check()){
             $user= Auth::user();
+            if($user->id != $article->author_id){
             $article_view=new ArticleView;
             $article_view->article_id=$article->id;
             $article_view->viewer_id=$user->id;
             $article_view->save();
+            }
         }
         $user= Auth::user();
         $relatedArticles = Article::where('author_id', $article->author_id)
