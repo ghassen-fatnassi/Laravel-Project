@@ -24,10 +24,15 @@ class Article extends Model
     ];
     public function author()
     {
-        return $this->belongsTo(User::class, 'author_id');
+        return $this->belongsTo(User::class);
+    }
+
+    public function article_views()
+    {
+        return $this->hasMany(ArticleView::class);
     }
     public function bookmark()
-{
-    return $this->hasMany(bookmark::class);
-}
+    {
+        return $this->hasMany(bookmark::class);
+    }
 }

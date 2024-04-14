@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -24,6 +24,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'phone',
+        'shortbio',
+        'institution',
+        'position',
+
     ];
 
     /**
@@ -49,7 +54,7 @@ class User extends Authenticatable implements MustVerifyEmail
         ];
     }
     public function bookmark()
-{
-    return $this->hasMany(bookmark::class);
-}
+    {
+        return $this->hasMany(bookmark::class);
+    }
 }

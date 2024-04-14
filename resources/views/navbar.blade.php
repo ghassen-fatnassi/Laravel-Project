@@ -1,6 +1,8 @@
 <head>
-  <link rel="stylesheet" href="{{asset('css/navbar.css')}}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{asset('css/navbar.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 <header>
@@ -93,45 +95,45 @@
           <span>></span>
         </a>
 
-        <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
-          @csrf
-        </form>
-        </a>
-      </div>
-    </div>
-    @endauth
-  </nav>
+                <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
+                    @csrf
+                </form>
+                </a>
+            </div>
+        </div>
+        @endauth
+    </nav>
 </header>
 <script>
-  function showSidebar() {
+function showSidebar() {
     const sidebar = document.querySelector('.sidebar')
     sidebar.style.display = 'flex'
-  }
+}
 
-  function hideSidebar() {
+function hideSidebar() {
     const sidebar = document.querySelector('.sidebar')
     sidebar.style.display = 'none'
-  }
+}
 </script>
 <script>
-  let subMenu = document.getElementById("sub-menu");
+let subMenu = document.getElementById("sub-menu");
 
-  function toggleMenu() {
+function toggleMenu() {
     subMenu.classList.toggle("open-menu");
-  }
+}
 </script>
 <script>
-  const get = element => document.getElementById(element);
+const get = element => document.getElementById(element);
 
-  let open = get("menu-btn");
-  let nav = get("nav");
-  let close = get("close-btn");
+let open = get("menu-btn");
+let nav = get("nav");
+let close = get("close-btn");
 
-  open.addEventListener('click', () => {
+open.addEventListener('click', () => {
     nav.classList.add('open-nav');
-  })
+})
 
-  close.addEventListener('click', () => {
+close.addEventListener('click', () => {
     nav.classList.remove('open-nav');
-  })
+})
 </script>

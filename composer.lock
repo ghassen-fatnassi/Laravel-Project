@@ -1862,13 +1862,8 @@
             },
             "type": "library",
             "extra": {
-                "laravel": {
-                    "providers": [
-                        "Livewire\\LivewireServiceProvider"
-                    ],
-                    "aliases": {
-                        "Livewire": "Livewire\\Livewire"
-                    }
+                "branch-alias": {
+                    "dev-master": "2.7-dev"
                 }
             },
             "autoload": {

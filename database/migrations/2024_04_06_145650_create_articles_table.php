@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('articles', function (Blueprint $table) {
+
             $table->id();
             $table->timestamps();
             $table->string('category');
@@ -23,7 +24,6 @@ return new class extends Migration
             $table->integer('comments');
             $table->integer('bookmarks');
             $table->string('image')->nullable();
-
             $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
             
 

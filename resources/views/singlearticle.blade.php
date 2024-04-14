@@ -9,11 +9,16 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Federo&family=Gloock&family=Manuale:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Federo&family=Gloock&family=Manuale:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{{asset('css/navbar.css')}}">
     <link rel="stylesheet" href="{{ asset('css/singlearticle.css') }}">
@@ -23,26 +28,32 @@
 <body>
     @include('navbar')
 
+
     <div class=" container">
         <article class="t-content__article-wrapper" data-article-content="">
             <div class="t-content__section a-tag">
                 @switch($article->category)
                 @case('programming-web-mobile')
-                <a href="{{ route('category.show', ['category' => 'programming-web-mobile']) }}" class="a-tag__wrapper">Programming web/mobile</a>
+                <a href="{{ route('category.show', ['category' => 'programming-web-mobile']) }}"
+                    class="a-tag__wrapper">Programming web/mobile</a>
                 @break
                 @case('artificial-intelligence')
-                <a href="{{ route('category.show', ['category' => 'artificial-intelligence']) }}" class="a-tag__wrapper">Artificial Intelligence</a>
+                <a href="{{ route('category.show', ['category' => 'artificial-intelligence']) }}"
+                    class="a-tag__wrapper">Artificial Intelligence</a>
                 @break
                 @case('machine-learning')
-                <a href="{{ route('category.show', ['category' => 'machine-learning']) }}" class="a-tag__wrapper">Machine Learning</a>
+                <a href="{{ route('category.show', ['category' => 'machine-learning']) }}"
+                    class="a-tag__wrapper">Machine Learning</a>
                 @break
                 @case('cyber-security')
-                <a href="{{ route('category.show', ['category' => 'cyber-security']) }}" class="a-tag__wrapper">Cyber Security</a>
+                <a href="{{ route('category.show', ['category' => 'cyber-security']) }}" class="a-tag__wrapper">Cyber
+                    Security</a>
                 @break
                 @endswitch
             </div>
             <h1 class="t-content__title a-page-title">{{$article->title}}</h1>
             <p class="t-content__chapo">{{$article->description}}</p>
+            
             <div class="t-content__dates t-content__dates--reading-time ">
                 <p class="m-pub-dates">
                     <span class="m-pub-dates__date">
@@ -82,10 +93,14 @@
             </div>
             <div class="t-content__main-media">
                 <figure class="m-figure m-figure--16x9">
-                    <img fetchpriority="high" src="{{ asset('storage/' . $article->image) }}" alt="" class="m-figure__img lazy" id="article-img">
+                    <img fetchpriority="high" src="{{ asset('storage/' . $article->image) }}" alt=""
+                        class="m-figure__img lazy" id="article-img">
                 </figure>
             </div>
             <div class="controls">
+                <div class="play-pause">
+                    <button id="playButton"><i class='bx bx-play-circle bx-md'></i></button>
+                </div>
                 <div class="play-pause">
                     <button id="playButton"><i class='bx bx-play-circle bx-md'></i></button>
                 </div>
@@ -96,9 +111,12 @@
                     {{$article->body}}
                 </p>
             </div>
+
+
+
+
         </article>
-
-
+        
     </div>
     <livewire:comments :model="$article" />
     <!--More acrticles-->
@@ -113,7 +131,8 @@
                     <a href="{{ route('category.show', ['category' => 'programming-web-mobile']) }}">Programming Web/Mobile</a>
                     @break
                     @case('artificial-intelligence')
-                    <a href="{{ route('category.show', ['category' => 'artificial-intelligence']) }}">Artificial Intelligence</a>
+                    <a href="{{ route('category.show', ['category' => 'artificial-intelligence']) }}">Artificial
+                        Intelligence</a>
                     @break
                     @case('machine-learning')
                     <a href="{{ route('category.show', ['category' => 'machine-learning']) }}">Machine Learning</a>
@@ -126,17 +145,18 @@
                 <a href="{{ route('articles.show', ['article' => $relatedArticle]) }}">
                     <div class="card">
 
-                        <img class="card-img-top img-responsive mx-auto d-block" src="{{ asset('assets/1.jpg') }}" alt="Card image cap">
+                        <img class="card-img-top img-responsive mx-auto d-block" src="{{ asset('assets/1.jpg') }}"
+                            alt="Card image cap">
 
                         <div class="card-body">
                             <h4 class="card-title">{{$relatedArticle->name}}</h4>
-                            <p class="m-pub-dates"><span class="m-pub-dates__date">Published: <time datetime="2024-03-24T08:00:14+00:00">23/03/2024 - 09:00</time></span></p>
+                            <p class="m-pub-dates"><span class="m-pub-dates__date">Published: <time
+                                        datetime="2024-03-24T08:00:14+00:00">23/03/2024 - 09:00</time></span></p>
                             <p class="card-text">{{$relatedArticle->description}}</p>
                         </div>
                     </div>
             </div></a>
-            @endforeach
-
+            @endforeach        
 
         </div>
     </div>

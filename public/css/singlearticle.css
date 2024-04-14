@@ -14,7 +14,10 @@ a {
     text-decoration: none;
     color: var(--accent-color);
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> f624fc138d2313d9465e14eb2fe1ac32eba927e4
 .a-tag__wrapper {
     background-color: var(--secondary-color);
     border: 1px solid transparent;

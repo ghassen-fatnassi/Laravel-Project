@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
+
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
@@ -27,10 +28,19 @@ class UserFactory extends Factory
             'name' => fake() ->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'phone'=>fake(),
-            'position'=>fake(),
+            'shortbio'=>'loves Cybersecurity',
+            'institution'=>'SupCom',
+            'position'=>'tunisia',
+            'phone'=>'50' . mt_rand(0, 9) . mt_rand(0, 9) . mt_rand(0, 9) . mt_rand(0, 9) . mt_rand(0, 9) . mt_rand(0, 9) . mt_rand(0, 9),
+            'password' => Hash::make('password'),
             'remember_token' => Str::random(10),
+            'twitter'=> 'https://www.facebook.com/profile.php?id=100073799539058',
+            'github'=>'https://www.instagram.com/ghassen_fatnassi/',
+            'linkedin'=>'https://www.linkedin.com/in/ghassen-fatnassi-70ab52283/',
+            'article_count'=>mt_rand(5,15),
+            'followers'=>mt_rand(1,1000),
+            'following'=>mt_rand(1,1000),
+            'usertype'=>'user',
         ];
     }
 

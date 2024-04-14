@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 use App\Models\Article;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
@@ -23,14 +24,9 @@ class ArticleFactory extends Factory
             'title' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
             'body' => $this->faker->text,
-            'author_id' => function () {
-                // Retrieve a random existing user ID from the database
-                $randomUserId = \App\Models\User::inRandomOrder()->first()->id;
-                return $randomUserId;
-            },
-            'likes' => $this->faker->numberBetween(0, 100),
-            'comments' => $this->faker->numberBetween(0, 20),
-            'bookmarks' => $this->faker->numberBetween(0, 50),
+            'likes' => mt_rand(0, 100),
+            'comments' => mt_rand(0, 100),
+            'bookmarks' => mt_rand(0, 100),
             'image' => 'public/assets/article-img.webp',
             'created_at' => now(),
             'updated_at' => now(),
