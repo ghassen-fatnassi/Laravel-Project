@@ -310,16 +310,15 @@
                                     <div class="col-md-7">
                                         <div class="box shadow">
                                             <div class="d-flex justify-content-center">
-                                                <h6>About Last Week</h6>
+                                                <h6>Fast Numbers For You</h6>
                                             </div>
                                             <div class="row">
 
                                                 <div class="col-md-6">
                                                     <div class="box box1">
                                                         <div class="details">
-                                                            <h3>80</h3>
-                                                            <h4>PROFILE</h4>
-                                                            <h4>VISITS</h4>
+                                                            <h3> {{$dashboard}}</h3>
+                                                            <h4>READS</h4>
                                                         </div>
                                                         <div id="spark1"></div>
                                                     </div>
@@ -328,7 +327,7 @@
                                                 <div class="col-md-6">
                                                     <div class="box box2">
                                                         <div class="details">
-                                                            <h3>{{$bookmarks_count}}</h3>
+                                                            <h3> {{$dashboard['sparks']['bookmarks_count']}}</h3>
                                                             <h4>BOOKMARKS</h4>
                                                         </div>
                                                         <div id="spark2"></div>
@@ -343,7 +342,7 @@
                                                 <div class="col-md-6">
                                                     <div class="box box3">
                                                         <div class="details">
-                                                            <h3>{{$comments_count}}</h3>
+                                                            <h3>{{$dashboard['sparks']['comments_count']}}</h3>
                                                             <h4>COMMENTS</h4>
                                                         </div>
                                                         <div id="spark3"></div>
@@ -353,7 +352,7 @@
                                                 <div class="col-md-6">
                                                     <div class="box box4">
                                                         <div class="details">
-                                                            <h3>{{$likes_count}}</h3>
+                                                            <h3> {{$dashboard['sparks']['likes_count']}}</h3>
                                                             <h4>LIKES</h4>
                                                         </div>
                                                         <div id="spark4"></div>
@@ -404,91 +403,28 @@
                             aria-labelledby="fill-tab-3">
                             <h2 class="text-center">Latest Articles</h2>
                             <div class="all-articles">
-
+                            @foreach($latestArticles as $article)
                                 <div class="article-container col-md-4">
                                     <div class="article-category-date">
-                                        <a href="">Programming</a>
-                                        <span class="date">24 March 2024</span>
+                                        <a href="">{{$article->category}}</a>
+                                        <span class="date">{{$article->timestamp}}</span>
                                         <span class="duration">5 min read</span>
                                     </div>
                                     <div class="article-info">
                                         <div class="article-text">
                                             <div class="article-title">
                                                 <a href="">
-                                                    <h2>The Brain Science Behind Aging and Forgetting</h2>
+                                                    <h2>{{$article->title}}</h2>
                                                 </a>
                                             </div>
                                             <div class="article-subtext">
-                                                A New Yorker filed a $15 million dollar lawsuit against Burger King,
-                                                claiming a NYC store allowed a drug den. Locals say it's not just there.
+                                            {{$article->description}}
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
-                                <div class="article-container col-md-4">
-                                    <div class="article-category-date">
-                                        <a href="">Programming</a>
-                                        <span class="date">24 March 2024</span>
-                                        <span class="duration">4 min read</span>
-                                    </div>
-                                    <div class="article-info">
-                                        <div class="article-text">
-                                            <div class="article-title">
-                                                <a href="">
-                                                    <h2>Marking the Webs 35th Birthday: An Open Letter</h2>
-                                                </a>
-                                            </div>
-                                            <div class="article-subtext">
-                                                Sir Tim Berners-Lees open letter to mark the occasion of the Webs 35th
-                                                Birthday.
-                                            </div>
-                                        </div>
+                            @endforeach
 
-                                    </div>
-                                </div>
-                                <div class="article-container col-md-4">
-                                    <div class="article-category-date">
-                                        <a href="">Programming</a>
-                                        <span class="date">24 March 2024</span>
-                                        <span class="duration">4 min read</span>
-                                    </div>
-                                    <div class="article-info">
-                                        <div class="article-text">
-                                            <div class="article-title">
-                                                <a href="">
-                                                    <h2>Marking the Webs 35th Birthday: An Open Letter</h2>
-                                                </a>
-                                            </div>
-                                            <div class="article-subtext">
-                                                Sir Tim Berners-Lees open letter to mark the occasion of the Webs 35th
-                                                Birthday.
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="article-container col-md-4">
-                                    <div class="article-category-date">
-                                        <a href="">Programming</a>
-                                        <span class="date">24 March 2024</span>
-                                        <span class="duration">4 min read</span>
-                                    </div>
-                                    <div class="article-info">
-                                        <div class="article-text">
-                                            <div class="article-title">
-                                                <a href="">
-                                                    <h2>Marking the Webs 35th Birthday: An Open Letter</h2>
-                                                </a>
-                                            </div>
-                                            <div class="article-subtext">
-                                                Sir Tim Berners-Lees open letter to mark the occasion of the Webs 35th
-                                                Birthday.
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
                             </div>
                             <a href="" class="view-more">VIEW MORE</a>
                         </div>
@@ -502,16 +438,15 @@
                                     <div class="col-md-7">
                                         <div class="box shadow">
                                             <div class="d-flex justify-content-center">
-                                                <h6>About Last Week</h6>
+                                                <h6>Fast Numbers For You</h6>
                                             </div>
                                             <div class="row">
 
                                                 <div class="col-md-6">
                                                     <div class="box box1">
                                                         <div class="details">
-                                                            <h3>80</h3>
-                                                            <h4>PROFILE</h4>
-                                                            <h4>VISITS</h4>
+                                                            <h3> {{$dashboard['sparks']['reads_count']}}</h3>
+                                                            <h4>READS</h4>
                                                         </div>
                                                         <div id="spark1"></div>
                                                     </div>
@@ -520,7 +455,7 @@
                                                 <div class="col-md-6">
                                                     <div class="box box2">
                                                         <div class="details">
-                                                            <h3>{{$bookmarks_count}}</h3>
+                                                            <h3>{{$dashboard['sparks']['bookmarks_count']}}</h3>
                                                             <h4>BOOKMARKS</h4>
                                                         </div>
                                                         <div id="spark2"></div>
@@ -535,7 +470,7 @@
                                                 <div class="col-md-6">
                                                     <div class="box box3">
                                                         <div class="details">
-                                                            <h3>{{$comments_count}}</h3>
+                                                            <h3>{{$dashboard['sparks']['comments_count']}}</h3>
                                                             <h4>COMMENTS</h4>
                                                         </div>
                                                         <div id="spark3"></div>
@@ -545,7 +480,7 @@
                                                 <div class="col-md-6">
                                                     <div class="box box4">
                                                         <div class="details">
-                                                            <h3>{{$likes_count}}</h3>
+                                                            <h3>{{$dashboard['sparks']['likes_count']}}</h3>
                                                             <h4>LIKES</h4>
                                                         </div>
                                                         <div id="spark4"></div>
@@ -632,16 +567,15 @@
                                     <div class="col-md-7">
                                         <div class="box shadow">
                                             <div class="d-flex justify-content-center">
-                                                <h6>About Last Week</h6>
+                                                <h6>Fast Numbers For You</h6>
                                             </div>
                                             <div class="row">
 
                                                 <div class="col-md-6">
                                                     <div class="box box1">
                                                         <div class="details">
-                                                            <h3>80</h3>
-                                                            <h4>PROFILE</h4>
-                                                            <h4>VISITS</h4>
+                                                            <h3> {{$dashboard['sparks']['reads_count']}}</h3>
+                                                            <h4>READS</h4>
                                                         </div>
                                                         <div id="spark1"></div>
                                                     </div>
@@ -650,7 +584,7 @@
                                                 <div class="col-md-6">
                                                     <div class="box box2">
                                                         <div class="details">
-                                                            <h3>{{$bookmarks_count}}</h3>
+                                                            <h3>{{$dashboard['sparks']['bookmarks_count']}}</h3>
                                                             <h4>BOOKMARKS</h4>
                                                         </div>
                                                         <div id="spark2"></div>
@@ -665,7 +599,7 @@
                                                 <div class="col-md-6">
                                                     <div class="box box3">
                                                         <div class="details">
-                                                            <h3>{{$comments_count}}</h3>
+                                                            <h3>{{$dashboard['sparks']['comments_count']}}</h3>
                                                             <h4>COMMENTS</h4>
                                                         </div>
                                                         <div id="spark3"></div>
@@ -675,7 +609,7 @@
                                                 <div class="col-md-6">
                                                     <div class="box box4">
                                                         <div class="details">
-                                                            <h3>{{$likes_count}}</h3>
+                                                            <h3> {{$dashboard['sparks']['likes_count']}}</h3>
                                                             <h4>LIKES</h4>
                                                         </div>
                                                         <div id="spark4"></div>

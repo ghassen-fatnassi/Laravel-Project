@@ -50,16 +50,7 @@ window.Apex = {
     },
     colors: ['#fff'],
     tooltip: {
-      x: {
-        show: false
-      },
-      y: {
-        title: {
-          formatter: function formatter(val) {
-            return '';
-          }
-        }
-      }
+      enabled: false // This disables the tooltips, if you don't want them
     }
   }
   
@@ -98,16 +89,7 @@ window.Apex = {
     },
     colors: ['#fff'],
     tooltip: {
-      x: {
-        show: false
-      },
-      y: {
-        title: {
-          formatter: function formatter(val) {
-            return '';
-          }
-        }
-      }
+      enabled: false // This disables the tooltips, if you don't want them
     }
   }
   
@@ -151,16 +133,7 @@ window.Apex = {
       },
     },
     tooltip: {
-      x: {
-        show: false
-      },
-      y: {
-        title: {
-          formatter: function formatter(val) {
-            return '';
-          }
-        }
-      }
+      enabled: false // This disables the tooltips, if you don't want them
     }
   }
   
@@ -204,16 +177,7 @@ window.Apex = {
       },
     },
     tooltip: {
-      x: {
-        show: false
-      },
-      y: {
-        title: {
-          formatter: function formatter(val) {
-            return '';
-          }
-        }
-      }
+      enabled: false // This disables the tooltips, if you don't want them
     }
   }
   

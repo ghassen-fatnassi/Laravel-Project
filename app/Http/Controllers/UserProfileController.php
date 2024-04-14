@@ -36,7 +36,7 @@ class UserProfileController extends Controller
         ->join('article_views', 'article_views.article_id', '=', 'articles.id')
         ->where('article_views.viewer_id', $user->id)
         ->sum('article_views.article_id');
-        $sparks=array('bookmarks_count'=>$bookmarks_count,'comments_count'=>$comments_count,'likes_count'=>$likes_count,'read_count'=>$reads_count);
+        $sparks=array('bookmarks_count'=>$bookmarks_count,'comments_count'=>$comments_count,'likes_count'=>$likes_count,'reads_count'=>$reads_count);
         //sparks end
 
         //spider start
@@ -71,7 +71,7 @@ class UserProfileController extends Controller
         //heatmap end
         $latestArticles = $user->articles()->latest()->get();
         $dashboard=array('sparks'=>$sparks, 'spider'=>$spider, 'curve'=>$curve, 'heatmap'=>$heatmap);
-        return view('profile',compact('user','dashboard','latestArticles','bookmarks_count','comments_count','likes_count'));  
+        return view('profile',compact('user','dashboard','latestArticles'));  
     }
 
     public function submit(Request $request)
