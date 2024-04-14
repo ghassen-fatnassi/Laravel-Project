@@ -3,7 +3,8 @@ window.Apex = {
       enabled: false
     }
   };
-    
+
+
   var main1="#66503e";
   var main2="#101919";
   var primary1="#b89072";
@@ -227,7 +228,7 @@ window.Apex = {
       type: "area",
       height: 330,
       foreColor: "#999",
-      stacked: true,
+      stacked: false,
       dropShadow: {
         enabled: true,
         enabledSeries: [0],
@@ -247,10 +248,10 @@ window.Apex = {
     },
     series: [{
       name: 'FOLLOWERS',
-      data: generateDayWiseTimeSeries(0, 18)
+      data: generateDayWiseTimeSeries(0, 31)
     }, {
       name: 'READERS',
-      data: generateDayWiseTimeSeries(1, 18)
+      data: generateDayWiseTimeSeries(1, 31)
     }],
     markers: {
       size: 0,
@@ -297,23 +298,35 @@ window.Apex = {
     },
     fill: {
       type: "solid",
-      fillOpacity: 0.7
+      fillOpacity:1
     }
   };
   
   var chart = new ApexCharts(document.querySelector("#bar"), options);
   
   chart.render();
-  
   function generateDayWiseTimeSeries(s, count) {
     var values = [[
-      4,3,10,9,29,19,25,9,12,7,19,5,13,9,17,2,7,5
+      2,3,8,7,22,16,23,7,100,100,100,100,10,4,15,2,6,2,5,4,3,10,9,29,19,25,9,12,7,19,7,19 //32
+
     ], [
-      2,3,8,7,22,16,23,7,11,5,12,5,10,4,15,2,6,2
+      2,3,8,7,22,16,23,7,11,5,12,5,10,4,15,2,6,2,5,4,3,10,9,29,19,25,9,12,7,19,7,19 //32
     ]];
     var i = 0;
     var series = [];
-    var x = new Date("11 Nov 2012").getTime();
+    var currentDate = new Date();
+
+    // Subtract one month
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    
+    // Handling case where current month is January
+    if (currentDate.getMonth() === 11) {
+        // If the current month after subtracting one month is January,
+        // set the date to December 31st of the previous year
+        currentDate.setFullYear(currentDate.getFullYear() - 1);
+        currentDate.setMonth(11); // Set the month to December
+    }
+    var x=currentDate.getTime();
     while (i < count) {
       series.push([x, values[s][i]]);
       x += 86400000;
@@ -326,11 +339,11 @@ window.Apex = {
     series: [
       {
         name: 'Your Reads',
-        data: [200, 200, 300, 200, 50, 80, 33],
+        data: [200, 200, 300, 200],
       },
       {
         name: 'People Reads from your articles',
-        data: [15, 120, 140, 200, 200, 300, 200],
+        data: [15, 120, 140, 200],
       }
   ],
     chart: {
@@ -339,7 +352,7 @@ window.Apex = {
   },
   plotOptions: {
     radar: {
-      size: 140,
+      size: 120,
       polygons: {
         strokeColors: '#e9e9e9',
         fill: {
@@ -366,7 +379,7 @@ window.Apex = {
     }
   },
   xaxis: {
-    categories: ['AI/ML','CyberSecurity','Math','Software','Computation','Robotics','Business']
+    categories: ['Programming', 'AI', 'Cyber-Sec','ML']
   },
   yaxis: {
     tickAmount: 7,

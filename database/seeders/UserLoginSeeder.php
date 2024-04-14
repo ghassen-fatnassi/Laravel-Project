@@ -27,7 +27,7 @@ class UserLoginSeeder extends Seeder
             $loginCount = mt_rand(50, 500);
             
             // Calculate the time range for the last month
-            $startDate = Carbon::now()->subMonth();
+            $startDate = Carbon::now()->subMonth(3);
             $endDate = Carbon::now();
 
             // Generate login times evenly spaced within the last month

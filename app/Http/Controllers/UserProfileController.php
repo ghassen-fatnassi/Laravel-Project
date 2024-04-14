@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Article;
+use App\Models\ArticleView;
+use App\Models\UserLogin;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -17,6 +19,7 @@ class UserProfileController extends Controller
 
     public function show(User $user)
     {
+        //sparks start
         $bookmarks_count = DB::table('articles')
         ->join('users', 'articles.author_id', '=', 'users.id')
         ->where('users.id', $user->id)
@@ -29,8 +32,46 @@ class UserProfileController extends Controller
         ->join('users', 'articles.author_id', '=', 'users.id')
         ->where('users.id', $user->id)
         ->sum('articles.comments');
-        
-        return view('profile',compact('user','bookmarks_count','likes_count','comments_count'));
+        $reads_count=DB::table('articles')
+        ->join('article_views', 'article_views.article_id', '=', 'articles.id')
+        ->where('article_views.viewer_id', $user->id)
+        ->sum('article_views.article_id');
+        $sparks=array('bookmarks_count'=>$bookmarks_count,'comments_count'=>$comments_count,'likes_count'=>$likes_count,'read_count'=>$reads_count);
+        //sparks end
+
+        //spider start
+        $user_readers = DB::select('SELECT a.category, COUNT(av.viewer_id) AS views_count
+        FROM articles a
+        JOIN article_views av ON a.id = av.article_id
+        WHERE a.author_id = ?
+        GROUP BY a.category;', [$user->id]);
+        $user_reads=DB::select('SELECT a.category, COUNT(av.article_id)AS articles_count
+        FROM articles a
+        JOIN article_views av ON a.id = av.article_id
+        WHERE av.viewer_id = ?
+        GROUP BY a.category;', [$user->id]);
+        $spider=array('user_readers'=>$user_readers,'user_reads'=>$user_reads);
+        //spider end
+
+        //curve start
+        $readers_per_date=DB::select("SELECT DATE_FORMAT(av.created_at, '%Y-%m-%d') AS view_date,COUNT(av.viewer_id)AS views_count
+        FROM articles a
+        JOIN article_views av ON a.id = av.article_id
+        WHERE a.author_id = ? AND av.created_at >= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND av.created_at <= CURRENT_DATE
+        GROUP BY DATE_FORMAT(av.created_at, '%Y-%m-%d');", [$user->id]);
+        $curve=$readers_per_date;
+        //curve end
+
+        //heatmap start
+        $logins_per_date=DB::select("SELECT DATE_FORMAT(ul.created_at, '%Y-%m-%d') AS login_date,COUNT(ul.logger_id)AS login_count
+        FROM user_logins ul
+        WHERE ul.logger_id = ?
+        GROUP BY DATE_FORMAT(ul.created_at, '%Y-%m-%d');", [$user->id]);
+        $heatmap=$logins_per_date;
+        //heatmap end
+        $latestArticles = $user->articles()->latest()->get();
+        $dashboard=array('sparks'=>$sparks, 'spider'=>$spider, 'curve'=>$curve, 'heatmap'=>$heatmap);
+        return view('profile',compact('user','dashboard','latestArticles','bookmarks_count','comments_count','likes_count'));  
     }
 
     public function submit(Request $request)

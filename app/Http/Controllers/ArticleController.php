@@ -15,10 +15,12 @@ class ArticleController extends Controller
         //tracking article views for dashboard
         //start
         $user=auth()->user();
-        $article_view=new ArticleView;
-        $article_view->article_id=$article->id;
-        $article_view->viewer_id=$user->id;
-        $article_view->save();
+        if($user->id != $article->author_id){
+            $article_view=new ArticleView;
+            $article_view->article_id=$article->id;
+            $article_view->viewer_id=$user->id;
+            $article_view->save();
+        }
         //end
 
         $relatedArticles = Article::where('author_id', $article->author_id)

@@ -11,6 +11,7 @@
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
     <title>Document</title>
 </head>
@@ -55,12 +56,6 @@
                             <a class="nav-link_" id="fill-tab-1" data-bs-toggle="tab" href="#fill-tabpanel-1" role="tab"
                                 aria-controls="fill-tabpanel-1" aria-selected="false">
                                 Stats
-                            </a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link_" id="fill-tab-2" data-bs-toggle="tab" href="#fill-tabpanel-2" role="tab"
-                                aria-controls="fill-tabpanel-2" aria-selected="false">
-                                Notifications
                             </a>
                         </li>
                         <li class="nav-item" role="presentation">
@@ -405,82 +400,6 @@
 
                             </div>
                         </div>
-                        <div class="tab-pane profile-header-tab" id="fill-tabpanel-2" role="tabpanel"
-                            aria-labelledby="fill-tab-2">
-                            <div class="row notification-container">
-                                <h2 class="text-center">My Notifications</h2>
-                                <p class="dismiss text-right"><a id="dismiss-all" href="#">Dimiss All</a></p>
-                                <div class="card notification-card notification-invitation">
-                                    <div class="card-body">
-                                        <table>
-                                            <tr>
-                                                <td style="width:70%">
-                                                    <div class="card-title">Jane invited you to join '<b>Familia</b>'
-                                                        group</div>
-                                                </td>
-                                                <td style="width:30%">
-                                                    <a href="#" class="btn btn-primary">View</a>
-                                                    <a href="#" class="btn btn-danger dismiss-notification">Dismiss</a>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-
-                                <div class="card notification-card notification-warning">
-                                    <div class="card-body">
-                                        <table>
-                                            <tr>
-                                                <td style="width:70%">
-                                                    <div class="card-title">Your expenses for '<b>Groceries</b>' has
-                                                        exceeded its budget</div>
-                                                </td>
-                                                <td style="width:30%">
-                                                    <a href="#" class="btn btn-primary">View</a>
-                                                    <a href="#" class="btn btn-danger dismiss-notification">Dismiss</a>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-
-                                <div class="card notification-card notification-danger">
-                                    <div class="card-body">
-                                        <table>
-                                            <tr>
-                                                <td style="width:70%">
-                                                    <div class="card-title">Insufficient budget to create
-                                                        '<b>Clothing</b>' budget category</div>
-                                                </td>
-                                                <td style="width:30%">
-                                                    <a href="#" class="btn btn-primary">View</a>
-                                                    <a href="#" class="btn btn-danger dismiss-notification">Dismiss</a>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-
-                                <div class="card notification-card notification-reminder">
-                                    <div class="card-body">
-                                        <table>
-                                            <tr>
-                                                <td style="width:70%">
-                                                    <div class="card-title">You have <b>2</b> upcoming payment(s) this
-                                                        week</div>
-                                                </td>
-                                                <td style="width:30%">
-                                                    <a href="#" class="btn btn-primary">View</a>
-                                                    <a href="#" class="btn btn-danger dismiss-notification">Dismiss</a>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
                         <div class="tab-pane profile-header-tab" id="fill-tabpanel-3" role="tabpanel"
                             aria-labelledby="fill-tab-3">
                             <h2 class="text-center">Latest Articles</h2>
@@ -677,93 +596,28 @@
                             aria-labelledby="fill-tab-3">
                             <h2 class="text-center">Latest Articles</h2>
                             <div class="all-articles">
-
+                            @foreach($latestArticles as $article)
                                 <div class="article-container col-md-4">
                                     <div class="article-category-date">
-                                        <a href="">Programming</a>
-                                        <span class="date">24 March 2024</span>
+                                        <a href="">{{$article->category}}</a>
+                                        <span class="date">{{$article->timestamp}}</span>
                                         <span class="duration">5 min read</span>
                                     </div>
                                     <div class="article-info">
                                         <div class="article-text">
                                             <div class="article-title">
                                                 <a href="">
-                                                    <h2>The Brain Science Behind Aging and Forgetting</h2>
+                                                    <h2>{{$article->title}}</h2>
                                                 </a>
                                             </div>
                                             <div class="article-subtext">
-                                                A New Yorker filed a $15 million dollar lawsuit against Burger King,
-                                                claiming a NYC store allowed a drug den. Locals say it's not just there.
+                                            {{$article->description}}
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
-                                <div class="article-container col-md-4">
-                                    <div class="article-category-date">
-                                        <a href="">Programming</a>
-                                        <span class="date">24 March 2024</span>
-                                        <span class="duration">4 min read</span>
-                                    </div>
-                                    <div class="article-info">
-                                        <div class="article-text">
-                                            <div class="article-title">
-                                                <a href="">
-                                                    <h2>Marking the Webs 35th Birthday: An Open Letter</h2>
-                                                </a>
-                                            </div>
-                                            <div class="article-subtext">
-                                                Sir Tim Berners-Lees open letter to mark the occasion of the Webs 35th
-                                                Birthday.
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="article-container col-md-4">
-                                    <div class="article-category-date">
-                                        <a href="">Programming</a>
-                                        <span class="date">24 March 2024</span>
-                                        <span class="duration">4 min read</span>
-                                    </div>
-                                    <div class="article-info">
-                                        <div class="article-text">
-                                            <div class="article-title">
-                                                <a href="">
-                                                    <h2>Marking the Webs 35th Birthday: An Open Letter</h2>
-                                                </a>
-                                            </div>
-                                            <div class="article-subtext">
-                                                Sir Tim Berners-Lees open letter to mark the occasion of the Webs 35th
-                                                Birthday.
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="article-container col-md-4">
-                                    <div class="article-category-date">
-                                        <a href="">Programming</a>
-                                        <span class="date">24 March 2024</span>
-                                        <span class="duration">4 min read</span>
-                                    </div>
-                                    <div class="article-info">
-                                        <div class="article-text">
-                                            <div class="article-title">
-                                                <a href="">
-                                                    <h2>Marking the Webs 35th Birthday: An Open Letter</h2>
-                                                </a>
-                                            </div>
-                                            <div class="article-subtext">
-                                                Sir Tim Berners-Lees open letter to mark the occasion of the Webs 35th
-                                                Birthday.
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
+                            @endforeach
                             </div>
-                            <a href="" class="view-more">VIEW MORE</a>
                         </div>
                         @endif
                         @endauth
@@ -872,93 +726,29 @@
                             aria-labelledby="fill-tab-3">
                             <h2 class="text-center">Latest Articles</h2>
                             <div class="all-articles">
-
+                            @foreach($latestArticles as $article)
                                 <div class="article-container col-md-4">
                                     <div class="article-category-date">
-                                        <a href="">Programming</a>
-                                        <span class="date">24 March 2024</span>
+                                        <a href="">{{$article->category}}</a>
+                                        <span class="date">{{$article->timestamp}}</span>
                                         <span class="duration">5 min read</span>
                                     </div>
                                     <div class="article-info">
                                         <div class="article-text">
                                             <div class="article-title">
                                                 <a href="">
-                                                    <h2>The Brain Science Behind Aging and Forgetting</h2>
+                                                    <h2>{{$article->title}}</h2>
                                                 </a>
                                             </div>
                                             <div class="article-subtext">
-                                                A New Yorker filed a $15 million dollar lawsuit against Burger King,
-                                                claiming a NYC store allowed a drug den. Locals say it's not just there.
+                                            {{$article->description}}
                                             </div>
                                         </div>
 
                                     </div>
                                 </div>
-                                <div class="article-container col-md-4">
-                                    <div class="article-category-date">
-                                        <a href="">Programming</a>
-                                        <span class="date">24 March 2024</span>
-                                        <span class="duration">4 min read</span>
-                                    </div>
-                                    <div class="article-info">
-                                        <div class="article-text">
-                                            <div class="article-title">
-                                                <a href="">
-                                                    <h2>Marking the Webs 35th Birthday: An Open Letter</h2>
-                                                </a>
-                                            </div>
-                                            <div class="article-subtext">
-                                                Sir Tim Berners-Lees open letter to mark the occasion of the Webs 35th
-                                                Birthday.
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="article-container col-md-4">
-                                    <div class="article-category-date">
-                                        <a href="">Programming</a>
-                                        <span class="date">24 March 2024</span>
-                                        <span class="duration">4 min read</span>
-                                    </div>
-                                    <div class="article-info">
-                                        <div class="article-text">
-                                            <div class="article-title">
-                                                <a href="">
-                                                    <h2>Marking the Webs 35th Birthday: An Open Letter</h2>
-                                                </a>
-                                            </div>
-                                            <div class="article-subtext">
-                                                Sir Tim Berners-Lees open letter to mark the occasion of the Webs 35th
-                                                Birthday.
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="article-container col-md-4">
-                                    <div class="article-category-date">
-                                        <a href="">Programming</a>
-                                        <span class="date">24 March 2024</span>
-                                        <span class="duration">4 min read</span>
-                                    </div>
-                                    <div class="article-info">
-                                        <div class="article-text">
-                                            <div class="article-title">
-                                                <a href="">
-                                                    <h2>Marking the Webs 35th Birthday: An Open Letter</h2>
-                                                </a>
-                                            </div>
-                                            <div class="article-subtext">
-                                                Sir Tim Berners-Lees open letter to mark the occasion of the Webs 35th
-                                                Birthday.
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
+                            @endforeach
                             </div>
-                            <a href="" class="view-more">VIEW MORE</a>
                         </div>
                         @endguest
                     </div>
@@ -968,11 +758,13 @@
                 <!-- end profile-content -->
 
             </div>
-
         </div>
     </div>
 
     <footer></footer>
+    <script>
+        var dashboard = {{ Js::from($dashboard) }};
+    </script>
     <script src="{{asset('js/profile.js')}}"></script>
 </body>
 
