@@ -190,7 +190,39 @@ window.Apex = {
 
 
 
+  // Create a new array to store the view counts
+  var viewCounts = [];
+  
+  // Create a map to quickly look up view counts by date
+  var viewCountsMap = {};
+  //getting the curve data structure
+  var curve=dashboard['curve'];
 
+  // Iterate over the curve array and populate the viewCountsMap
+  curve.forEach(function(item) {
+    viewCountsMap[item.view_date] = item.views_count;
+  });
+  
+  // Iterate over the range of dates you're interested in (in this case, 30 days)
+  for (var i = 0; i < 32; i++) {
+      // Calculate the date for each day in the past 30 days
+    var currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() - i);
+    var dateString = currentDate.toISOString().split('T')[0]; // Get the date in YYYY-MM-DD format
+  
+      // If the view count exists for the current date, push it to the viewCounts array
+      // Otherwise, push 0
+    if (viewCountsMap[dateString] !== undefined) {
+      viewCounts.unshift(viewCountsMap[dateString]);
+    } else {
+      viewCounts.unshift(0);
+    }
+  }
+  
+  // Ensure the viewCounts array has exactly 30 elements
+  while (viewCounts.length < 32) {
+      viewCounts.unshift(0);
+  }
 
   var options = {
     chart: {
@@ -217,10 +249,7 @@ window.Apex = {
     },
     series: [{
       name: 'FOLLOWERS',
-      data: generateDayWiseTimeSeries(0, 31)
-    }, {
-      name: 'READERS',
-      data: generateDayWiseTimeSeries(1, 31)
+      data: generateDayWiseTimeSeries(31,viewCounts)
     }],
     markers: {
       size: 0,
@@ -233,6 +262,10 @@ window.Apex = {
       }
     },
     xaxis: {
+      labels: {
+        offsetX: 15,
+        offsetY: 0
+      },
       type: "datetime",
       axisBorder: {
         show: false
@@ -244,7 +277,7 @@ window.Apex = {
     yaxis: {
       labels: {
         offsetX: 14,
-        offsetY: -5
+        offsetY: 0
       },
       tooltip: {
         enabled: true
@@ -252,8 +285,8 @@ window.Apex = {
     },
     grid: {
       padding: {
-        left: -5,
-        right: 5
+        left: 20,
+        right: 0
       }
     },
     tooltip: {
@@ -273,21 +306,22 @@ window.Apex = {
   
   var chart = new ApexCharts(document.querySelector("#bar"), options);
   
-  chart.render();
-  function generateDayWiseTimeSeries(s, count) {
-    var values = [[
-      2,3,8,7,22,16,23,7,100,100,100,100,10,4,15,2,6,2,5,4,3,10,9,29,19,25,9,12,7,19,7,19 //32
+    // Assuming curve is your array of objects containing view_date and views_count
+  
 
-    ], [
-      2,3,8,7,22,16,23,7,11,5,12,5,10,4,15,2,6,2,5,4,3,10,9,29,19,25,9,12,7,19,7,19 //32
-    ]];
+
+  
+  chart.render();
+
+  function generateDayWiseTimeSeries(count,viewCounts) {
+    var values = viewCounts;//30
     var i = 0;
     var series = [];
     var currentDate = new Date();
 
     // Subtract one month
     currentDate.setMonth(currentDate.getMonth() - 1);
-    
+
     // Handling case where current month is January
     if (currentDate.getMonth() === 11) {
         // If the current month after subtracting one month is January,
@@ -295,15 +329,16 @@ window.Apex = {
         currentDate.setFullYear(currentDate.getFullYear() - 1);
         currentDate.setMonth(11); // Set the month to December
     }
+
     var x=currentDate.getTime();
     while (i < count) {
-      series.push([x, values[s][i]]);
+      series.push([x, values[i]]);
       x += 86400000;
       i++;
     }
     return series;
   }
-  
+
   var your_reads={};
   your_reads["programming-web-mobile"]=0;
   your_reads["artificial-intelligence"]=0;
@@ -315,8 +350,6 @@ window.Apex = {
   people_reads["cyber-security"]=0;
   people_reads["machine-learning"]=0;
 
-  //'programming-web-mobile', 'artificial-intelligence', 'cyber-security','machine-learning'
-
   back_your_reads=dashboard['spider']['user_reads'];
   back_people_reads=dashboard['spider']['user_readers'];
 
@@ -326,6 +359,7 @@ window.Apex = {
     var viewsCount = reader.views_count;
     people_reads[category]=viewsCount;
   }
+
 
   for (var i = 0; i < back_your_reads.length; i++) {
     var reader = back_your_reads[i];
@@ -393,439 +427,91 @@ window.Apex = {
     }
   }
   };
-  
-  
+
   var chartRadar = new ApexCharts(document.querySelector('#CategoryRadar'), optionsRadar);
   chartRadar.render().then(function () {});
   
+
+
+    // Assuming heatmapData is your array of login counts per day
+  var heatmapData =dashboard['heatmap'];
+  
+  // Initialize an empty object to store login counts for each day
+  var loginCounts = {};
+  
+  // Iterate over heatmapData to populate loginCounts object
+  heatmapData.forEach(item => {
+    loginCounts[item.login_date] = item.login_count;
+  });
+
+  const monthMap = {
+    1 : 'Jan',
+    2 : 'Feb',
+    3 : 'Mar',
+    4 : 'Apr',
+    5 : 'May',
+    6 : 'Jun',
+    7 : 'Jul',
+    8 : 'Aug',
+    9 : 'Sep',
+    10: 'Oct',
+    11: 'Nov',
+    12: 'Dec'
+  };
+  function daysInFebruary(year) {
+    return isLeapYear(year) ? 29 : 28;
+  }
+  var curryear=new Date().getFullYear();
+  function isLeapYear(year) {
+    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+  }
+  const limit = {
+    1: 31,  // January
+    2: daysInFebruary(curryear),  // February (assuming non-leap year)
+    3: 31,  // March
+    4: 30,  // April
+    5: 31,  // May
+    6: 30,  // June
+    7: 31,  // July
+    8: 31,  // August
+    9: 30,  // September
+    10: 31, // October
+    11: 30, // November
+    12: 31  // December
+  };
+  // Initialize an empty array to store the final heatmap data
+  var heatmapChartData = [];
+
+  // Loop through each month and day to generate heatmap data
+  for (var month = 1; month <= 12; month++) {
+    var monthData=[]
+    for (var day = 1; day <= limit[month]; day++) {
+        // Format month and day with leading zeros
+        var formattedMonth = month < 10 ? '0' + month : month;
+        var formattedDay = day < 10 ? '0' + day : day;
+        // Generate date string in 'YYYY-MM-DD' format
+        var currentDate = curryear +'-' + formattedMonth + '-' + formattedDay;
+  
+        // Check if loginCounts has data for the current date
+        var loginCount = loginCounts[currentDate] || 0;
+  
+        // Create an object representing the data for each day
+        var dayData = { x: 'd' + day==31 ? '':day, y: loginCount };
+  
+        // Add the day data to the array
+        monthData.push(dayData);
+    }
+    heatmapChartData.push({name:monthMap[month],data:monthData})
+  }
+  
+
   var optionsHeatMap = {
     chart: {
       type: 'heatmap',
       height: 330,
       width: '100%'
     },
-    series: [//this type for chart can contain any values , it just scales the number like this xi=xi/max ,and gives the colors accordingly 
-    {
-      name: "M 1",
-      data: [
-        { x: 'd1', y: 22 },
-        { x: '', y: 25 },
-        { x: '', y: 18 },
-        { x: '', y: 28 },
-        { x: '', y: 35 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: 'd10', y: 30 },
-        { x: '', y: 27 },
-        { x: '', y: 33 },
-        { x: '', y: 17 },
-        { x: '', y: 22 },
-        { x: '', y: 31 },
-        { x: '', y: 26 },
-        { x: '', y: 24 },
-        { x: '', y: 19 },
-        { x: '', y: 23 },
-        { x: 'd20', y: 16 },
-        { x: '', y: 21 },
-        { x: '', y: 34 },
-        { x: '', y: 15 },
-        { x: '', y: 37 },
-        { x: '', y: 28 },
-        { x: '', y: 36 },
-        { x: '', y: 29 },
-        { x: '', y: 18 },
-        { x: '', y: 27 },
-        { x: 'd30', y: 32 }
-      ]
-    },    
-    {
-      name: "",
-      data: [
-        { x: 'd1', y: 22 },
-        { x: '', y: 25 },
-        { x: '', y: 18 },
-        { x: '', y: 28 },
-        { x: '', y: 35 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: 'd10', y: 30 },
-        { x: '', y: 27 },
-        { x: '', y: 33 },
-        { x: '', y: 17 },
-        { x: '', y: 22 },
-        { x: '', y: 31 },
-        { x: '', y: 26 },
-        { x: '', y: 24 },
-        { x: '', y: 19 },
-        { x: '', y: 23 },
-        { x: 'd20', y: 16 },
-        { x: '', y: 21 },
-        { x: '', y: 34 },
-        { x: '', y: 15 },
-        { x: '', y: 37 },
-        { x: '', y: 28 },
-        { x: '', y: 36 },
-        { x: '', y: 29 },
-        { x: '', y: 18 },
-        { x: '', y: 27 },
-        { x: 'd30', y: 32 }
-      ]
-    },    
-    {
-      name: "",
-      data: [
-        { x: 'd1', y: 22 },
-        { x: '', y: 25 },
-        { x: '', y: 18 },
-        { x: '', y: 28 },
-        { x: '', y: 35 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: 'd10', y: 30 },
-        { x: '', y: 27 },
-        { x: '', y: 33 },
-        { x: '', y: 17 },
-        { x: '', y: 22 },
-        { x: '', y: 31 },
-        { x: '', y: 26 },
-        { x: '', y: 24 },
-        { x: '', y: 19 },
-        { x: '', y: 23 },
-        { x: 'd20', y: 16 },
-        { x: '', y: 21 },
-        { x: '', y: 34 },
-        { x: '', y: 15 },
-        { x: '', y: 37 },
-        { x: '', y: 28 },
-        { x: '', y: 36 },
-        { x: '', y: 29 },
-        { x: '', y: 18 },
-        { x: '', y: 27 },
-        { x: 'd30', y: 32 }
-      ]
-    },    
-    {
-      name: "",
-      data: [
-        { x: 'd1', y: 22 },
-        { x: '', y: 25 },
-        { x: '', y: 18 },
-        { x: '', y: 28 },
-        { x: '', y: 35 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: 'd10', y: 30 },
-        { x: '', y: 27 },
-        { x: '', y: 33 },
-        { x: '', y: 17 },
-        { x: '', y: 22 },
-        { x: '', y: 31 },
-        { x: '', y: 26 },
-        { x: '', y: 24 },
-        { x: '', y: 19 },
-        { x: '', y: 23 },
-        { x: 'd20', y: 16 },
-        { x: '', y: 21 },
-        { x: '', y: 34 },
-        { x: '', y: 15 },
-        { x: '', y: 37 },
-        { x: '', y: 28 },
-        { x: '', y: 36 },
-        { x: '', y: 29 },
-        { x: '', y: 18 },
-        { x: '', y: 27 },
-        { x: 'd30', y: 32 }
-      ]
-    },    
-    {
-      name: "",
-      data: [
-        { x: 'd1', y: 22 },
-        { x: '', y: 25 },
-        { x: '', y: 18 },
-        { x: '', y: 28 },
-        { x: '', y: 35 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: 'd10', y: 30 },
-        { x: '', y: 27 },
-        { x: '', y: 33 },
-        { x: '', y: 17 },
-        { x: '', y: 22 },
-        { x: '', y: 31 },
-        { x: '', y: 26 },
-        { x: '', y: 24 },
-        { x: '', y: 19 },
-        { x: '', y: 23 },
-        { x: 'd20', y: 16 },
-        { x: '', y: 21 },
-        { x: '', y: 34 },
-        { x: '', y: 15 },
-        { x: '', y: 37 },
-        { x: '', y: 28 },
-        { x: '', y: 36 },
-        { x: '', y: 29 },
-        { x: '', y: 18 },
-        { x: '', y: 27 },
-        { x: 'd30', y: 32 }
-      ]
-    },    
-    {
-      name: "",
-      data: [
-        { x: 'd1', y: 22 },
-        { x: '', y: 25 },
-        { x: '', y: 18 },
-        { x: '', y: 28 },
-        { x: '', y: 35 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: 'd10', y: 30 },
-        { x: '', y: 27 },
-        { x: '', y: 33 },
-        { x: '', y: 17 },
-        { x: '', y: 22 },
-        { x: '', y: 31 },
-        { x: '', y: 26 },
-        { x: '', y: 24 },
-        { x: '', y: 19 },
-        { x: '', y: 23 },
-        { x: 'd20', y: 16 },
-        { x: '', y: 21 },
-        { x: '', y: 34 },
-        { x: '', y: 15 },
-        { x: '', y: 37 },
-        { x: '', y: 28 },
-        { x: '', y: 36 },
-        { x: '', y: 29 },
-        { x: '', y: 18 },
-        { x: '', y: 27 },
-        { x: 'd30', y: 32 }
-      ]
-    },    
-    {
-      name: "",
-      data: [
-        { x: 'd1', y: 22 },
-        { x: '', y: 25 },
-        { x: '', y: 18 },
-        { x: '', y: 28 },
-        { x: '', y: 35 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: 'd10', y: 30 },
-        { x: '', y: 27 },
-        { x: '', y: 33 },
-        { x: '', y: 17 },
-        { x: '', y: 22 },
-        { x: '', y: 31 },
-        { x: '', y: 26 },
-        { x: '', y: 24 },
-        { x: '', y: 19 },
-        { x: '', y: 23 },
-        { x: 'd20', y: 16 },
-        { x: '', y: 21 },
-        { x: '', y: 34 },
-        { x: '', y: 15 },
-        { x: '', y: 37 },
-        { x: '', y: 28 },
-        { x: '', y: 36 },
-        { x: '', y: 29 },
-        { x: '', y: 18 },
-        { x: '', y: 27 },
-        { x: 'd30', y: 32 }
-      ]
-    },    
-    {
-      name: "",
-      data: [
-        { x: 'd1', y: 22 },
-        { x: '', y: 25 },
-        { x: '', y: 18 },
-        { x: '', y: 28 },
-        { x: '', y: 35 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: 'd10', y: 30 },
-        { x: '', y: 27 },
-        { x: '', y: 33 },
-        { x: '', y: 17 },
-        { x: '', y: 22 },
-        { x: '', y: 31 },
-        { x: '', y: 26 },
-        { x: '', y: 24 },
-        { x: '', y: 19 },
-        { x: '', y: 23 },
-        { x: 'd20', y: 16 },
-        { x: '', y: 21 },
-        { x: '', y: 34 },
-        { x: '', y: 15 },
-        { x: '', y: 37 },
-        { x: '', y: 28 },
-        { x: '', y: 36 },
-        { x: '', y: 29 },
-        { x: '', y: 18 },
-        { x: '', y: 27 },
-        { x: 'd30', y: 32 }
-      ]
-    },    
-    {
-      name: "",
-      data: [
-        { x: 'd1', y: 22 },
-        { x: '', y: 25 },
-        { x: '', y: 18 },
-        { x: '', y: 28 },
-        { x: '', y: 35 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: 'd10', y: 30 },
-        { x: '', y: 27 },
-        { x: '', y: 33 },
-        { x: '', y: 17 },
-        { x: '', y: 22 },
-        { x: '', y: 31 },
-        { x: '', y: 26 },
-        { x: '', y: 24 },
-        { x: '', y: 19 },
-        { x: '', y: 23 },
-        { x: 'd20', y: 16 },
-        { x: '', y: 21 },
-        { x: '', y: 34 },
-        { x: '', y: 15 },
-        { x: '', y: 37 },
-        { x: '', y: 28 },
-        { x: '', y: 36 },
-        { x: '', y: 29 },
-        { x: '', y: 18 },
-        { x: '', y: 27 },
-        { x: 'd30', y: 32 }
-      ]
-    },    
-    {
-      name: "",
-      data: [
-        { x: 'd1', y: 22 },
-        { x: '', y: 25 },
-        { x: '', y: 18 },
-        { x: '', y: 28 },
-        { x: '', y: 35 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: 'd10', y: 30 },
-        { x: '', y: 27 },
-        { x: '', y: 33 },
-        { x: '', y: 17 },
-        { x: '', y: 22 },
-        { x: '', y: 31 },
-        { x: '', y: 26 },
-        { x: '', y: 24 },
-        { x: '', y: 19 },
-        { x: '', y: 23 },
-        { x: 'd20', y: 16 },
-        { x: '', y: 21 },
-        { x: '', y: 34 },
-        { x: '', y: 15 },
-        { x: '', y: 37 },
-        { x: '', y: 28 },
-        { x: '', y: 36 },
-        { x: '', y: 29 },
-        { x: '', y: 18 },
-        { x: '', y: 27 },
-        { x: 'd30', y: 32 }
-      ]
-    },    
-    {
-      name: "",
-      data: [
-        { x: 'd1', y: 22 },
-        { x: '', y: 25 },
-        { x: '', y: 18 },
-        { x: '', y: 28 },
-        { x: '', y: 35 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: 'd10', y: 30 },
-        { x: '', y: 27 },
-        { x: '', y: 33 },
-        { x: '', y: 17 },
-        { x: '', y: 22 },
-        { x: '', y: 31 },
-        { x: '', y: 26 },
-        { x: '', y: 24 },
-        { x: '', y: 19 },
-        { x: '', y: 23 },
-        { x: 'd20', y: 16 },
-        { x: '', y: 21 },
-        { x: '', y: 34 },
-        { x: '', y: 15 },
-        { x: '', y: 37 },
-        { x: '', y: 28 },
-        { x: '', y: 36 },
-        { x: '', y: 29 },
-        { x: '', y: 18 },
-        { x: '', y: 27 },
-        { x: 'd30', y: 32 }
-      ]
-    },    
-    {
-      name: "M 12",
-      data: [
-        { x: 'd1', y: 22 },
-        { x: '', y: 25 },
-        { x: '', y: 18 },
-        { x: '', y: 28 },
-        { x: '', y: 35 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: '', y: 20 },
-        { x: 'd10', y: 30 },
-        { x: '', y: 27 },
-        { x: '', y: 33 },
-        { x: '', y: 17 },
-        { x: '', y: 22 },
-        { x: '', y: 31 },
-        { x: '', y: 26 },
-        { x: '', y: 24 },
-        { x: '', y: 19 },
-        { x: '', y: 23 },
-        { x: 'd20', y: 16 },
-        { x: '', y: 21 },
-        { x: '', y: 34 },
-        { x: '', y: 15 },
-        { x: '', y: 37 },
-        { x: '', y: 28 },
-        { x: '', y: 36 },
-        { x: '', y: 29 },
-        { x: '', y: 18 },
-        { x: '', y: 27 },
-        { x: 'd30', y: 32 }
-      ]
-    }
-    ],
+    series:heatmapChartData,
     dataLabels: {
       enabled: false
     },
@@ -846,34 +532,6 @@ window.Apex = {
   var secondary2="#faf7f5";
   var other="#ec7a2f";
 
-
-
-
-
-const dismissAll = document.getElementById('dismiss-all');
-const dismissBtns = Array.from(document.querySelectorAll('.dismiss-notification'));
-
-const notificationCards = document.querySelectorAll('.notification-card');
-
-dismissBtns.forEach(btn => {
-  btn.addEventListener('click', function(e){
-    e.preventDefault;
-    var parent = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
-    parent.classList.add('display-none');
-  })
-});
-
-dismissAll.addEventListener('click', function(e){
-  e.preventDefault;
-  notificationCards.forEach(card => {
-    card.classList.add('display-none');
-  });
-  const row = document.querySelector('.notification-container');
-  const message = document.createElement('h4');
-  message.classList.add('text-center');
-  message.innerHTML = 'All caught up!';
-  row.appendChild(message);
-})
 
 // Function to display selected image
 function previewImage(input) {
