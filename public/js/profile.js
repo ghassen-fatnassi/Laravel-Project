@@ -187,6 +187,11 @@ window.Apex = {
   new ApexCharts(document.querySelector("#spark4"), spark4).render();
   
   
+
+
+
+
+
   var options = {
     chart: {
       type: "area",
@@ -299,15 +304,45 @@ window.Apex = {
     return series;
   }
   
+  var your_reads={};
+  your_reads["programming-web-mobile"]=0;
+  your_reads["artificial-intelligence"]=0;
+  your_reads["cyber-security"]=0;
+  your_reads["machine-learning"]=0;
+  var people_reads={};
+  people_reads["programming-web-mobile"]=0;
+  people_reads["artificial-intelligence"]=0;
+  people_reads["cyber-security"]=0;
+  people_reads["machine-learning"]=0;
+
+  //'programming-web-mobile', 'artificial-intelligence', 'cyber-security','machine-learning'
+
+  back_your_reads=dashboard['spider']['user_reads'];
+  back_people_reads=dashboard['spider']['user_readers'];
+
+  for (var i = 0; i < back_people_reads.length; i++) {
+    var reader = back_people_reads[i];
+    var category = reader.category;
+    var viewsCount = reader.views_count;
+    people_reads[category]=viewsCount;
+  }
+
+  for (var i = 0; i < back_your_reads.length; i++) {
+    var reader = back_your_reads[i];
+    var category = reader.category;
+    var articlesCount = reader.articles_count;
+    your_reads[category]=articlesCount;
+  }
+
   var optionsRadar={
     series: [
       {
         name: 'Your Reads',
-        data: [200, 200, 300, 200],
+        data: [your_reads["programming-web-mobile"],your_reads["artificial-intelligence"],your_reads["cyber-security"], your_reads["machine-learning"]],
       },
       {
         name: 'People Reads from your articles',
-        data: [15, 120, 140, 200],
+        data: [people_reads["programming-web-mobile"],people_reads["artificial-intelligence"],people_reads["cyber-security"], people_reads["machine-learning"]],
       }
   ],
     chart: {
