@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
                 'twitter'=> 'https://www.facebook.com/profile.php?id=100073799539058',
                 'github'=>'https://www.instagram.com/ghassen_fatnassi/',
                 'linkedin'=>'https://www.linkedin.com/in/ghassen-fatnassi-70ab52283/',
-                'article_count'=>mt_rand(5,15),
+                'article_count'=>mt_rand(5,150),
                 'followers'=>mt_rand(1,1000),
                 'following'=>mt_rand(1,1000),   
                 'usertype'=>'user',
