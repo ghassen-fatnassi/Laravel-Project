@@ -11,7 +11,7 @@
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
     <title>Document</title>
 </head>
@@ -34,12 +34,16 @@
                         </div>
                         <!-- END profile-header-img -->
                         <!-- BEGIN profile-header-info -->
-                        <div class="profile-header-info">
-                            <h4 class="mt-10 mb-3">{{$user->name}}</h4>
-                            <p class="mb-10">{{$user->shortbio}}</p>
-                            <p class="mb-10">I am from {{$user->position}}, Welcome to my profile</p>
-                        </div>
-                        <!-- END profile-header-info -->
+                        <div class="profile-header-info-message">
+                            <div class="profile-header-info">
+                                <h4 class="mt-10 mb-3">{{$user->name}}</h4>
+                                <p class="mb-10">{{$user->shortbio}}</p>
+                                <p class="mb-10">I am a {{$user->position}}, Welcome to my profile</p>
+                            </div>
+                            @auth
+                            <a href="{{ url('chatify/' . $user->id) }}"><i class='bx bx-envelope bx-md'></i></a>
+                            @endauth
+                        </div>                        <!-- END profile-header-info -->
                     </div>
                     <!-- END profile-header-content -->
 
