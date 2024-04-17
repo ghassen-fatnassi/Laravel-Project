@@ -13,832 +13,524 @@ var secondary2="#faf7f5";
 var other1="#ec7a2f";
 var other2="#adaaab";
 
-
-var spark1 = {
-  chart: {
-    id: 'spark1',
-    group: 'sparks',
-    type: 'line',
-    height: 100,
-    sparkline: {
-      enabled: true
+  
+  var spark1 = {
+    chart: {
+      id: 'spark1',
+      group: 'sparks',
+      type: 'line',
+      height: 100,
+      sparkline: {
+        enabled: true
+      },
+      dropShadow: {
+        enabled: true,
+        top: 1,
+        left: 1,
+        blur: 2,
+        opacity: 0.2,
+      }
     },
-    dropShadow: {
-      enabled: true,
-      top: 1,
-      left: 1,
-      blur: 2,
-      opacity: 0.2,
+    series: [{
+      data: [25, 66, 41, 59, 25, 44, 12, 36, 9, 21]
+    }],
+    stroke: {
+      curve: 'smooth'
+    },
+    markers: {
+      size: 0
+    },
+    grid: {
+      padding: {
+        top: 20,
+        bottom: 10,
+        left: 110
+      }
+    },
+    colors: ['#fff'],
+    tooltip: {
+      enabled: false // This disables the tooltips, if you don't want them
     }
-  },
-  series: [{
-    data: [25, 66, 41, 59, 25, 44, 12, 36, 9, 21]
-  }],
-  stroke: {
-    curve: 'smooth'
-  },
-  markers: {
-    size: 0
-  },
-  grid: {
-    padding: {
-      top: 20,
-      bottom: 10,
-      left: 110
-    }
-  },
-  colors: ['#fff'],
-  tooltip: {
-    enabled: false // This disables the tooltips, if you don't want them
   }
-}
-
-var spark2 = {
-  chart: {
-    id: 'spark2',
-    group: 'sparks',
-    type: 'line',
-    height: 100,
-    sparkline: {
-      enabled: true
+  
+  var spark2 = {
+    chart: {
+      id: 'spark2',
+      group: 'sparks',
+      type: 'line',
+      height: 100,
+      sparkline: {
+        enabled: true
+      },
+      dropShadow: {
+        enabled: true,
+        top: 1,
+        left: 1,
+        blur: 2,
+        opacity: 0.2,
+      }
     },
-    dropShadow: {
-      enabled: true,
-      top: 1,
-      left: 1,
-      blur: 2,
-      opacity: 0.2,
+    series: [{
+      data: [12, 14, 2, 47, 32, 44, 14, 55, 41, 69]
+    }],
+    stroke: {
+      curve: 'smooth'
+    },
+    grid: {
+      padding: {
+        top: 20,
+        bottom: 10,
+        left: 110
+      }
+    },
+    markers: {
+      size: 0
+    },
+    colors: ['#fff'],
+    tooltip: {
+      enabled: false // This disables the tooltips, if you don't want them
     }
-  },
-  series: [{
-    data: [12, 14, 2, 47, 32, 44, 14, 55, 41, 69]
-  }],
-  stroke: {
-    curve: 'smooth'
-  },
-  grid: {
-    padding: {
-      top: 20,
-      bottom: 10,
-      left: 110
-    }
-  },
-  markers: {
-    size: 0
-  },
-  colors: ['#fff'],
-  tooltip: {
-    enabled: false // This disables the tooltips, if you don't want them
   }
-}
-
-var spark3 = {
-  chart: {
-    id: 'spark3',
-    group: 'sparks',
-    type: 'line',
-    height: 100,
-    sparkline: {
-      enabled: true
+  
+  var spark3 = {
+    chart: {
+      id: 'spark3',
+      group: 'sparks',
+      type: 'line',
+      height: 100,
+      sparkline: {
+        enabled: true
+      },
+      dropShadow: {
+        enabled: true,
+        top: 1,
+        left: 1,
+        blur: 2,
+        opacity: 0.2,
+      }
     },
-    dropShadow: {
-      enabled: true,
-      top: 1,
-      left: 1,
-      blur: 2,
-      opacity: 0.2,
-    }
-  },
-  series: [{
-    data: [47, 45, 74, 32, 56, 31, 44, 33, 45, 19]
-  }],
-  stroke: {
-    curve: 'smooth'
-  },
-  markers: {
-    size: 0
-  },
-  grid: {
-    padding: {
-      top: 20,
-      bottom: 10,
-      left: 110
-    }
-  },
-  colors: ['#fff'],
-  xaxis: {
-    crosshairs: {
-      width: 1
+    series: [{
+      data: [47, 45, 74, 32, 56, 31, 44, 33, 45, 19]
+    }],
+    stroke: {
+      curve: 'smooth'
     },
-  },
-  tooltip: {
-    enabled: false // This disables the tooltips, if you don't want them
-  }
-}
-
-var spark4 = {
-  chart: {
-    id: 'spark4',
-    group: 'sparks',
-    type: 'line',
-    height: 100,
-    sparkline: {
-      enabled: true
+    markers: {
+      size: 0
     },
-    dropShadow: {
-      enabled: true,
-      top: 1,
-      left: 1,
-      blur: 2,
-      opacity: 0.2,
-    }
-  },
-  series: [{
-    data: [15, 75, 47, 65, 14, 32, 19, 54, 44, 61]
-  }],
-  stroke: {
-    curve: 'smooth'
-  },
-  markers: {
-    size: 0
-  },
-  grid: {
-    padding: {
-      top: 20,
-      bottom: 10,
-      left: 110
-    }
-  },
-  colors: ['#fff'],
-  xaxis: {
-    crosshairs: {
-      width: 1
+    grid: {
+      padding: {
+        top: 20,
+        bottom: 10,
+        left: 110
+      }
     },
-  },
-  tooltip: {
-    enabled: false // This disables the tooltips, if you don't want them
-  }
-}
-
-curve=dashboard['curve'];
-heatmap=dashboard['heatmap'];
-spider=dashboard['spider'];
-
-new ApexCharts(document.querySelector("#spark1"), spark1).render();
-new ApexCharts(document.querySelector("#spark2"), spark2).render();
-new ApexCharts(document.querySelector("#spark3"), spark3).render();
-new ApexCharts(document.querySelector("#spark4"), spark4).render();
-
-var options = {
-  chart: {
-    type: "area",
-    height: 330,
-    foreColor: "#999",
-    stacked: false,
-    dropShadow: {
-      enabled: true,
-      enabledSeries: [0],
-      top: -2,
-      left: 2,
-      blur: 5,
-      opacity: 0.06
-    }
-  },
-  colors: [other2, other1],
-  stroke: {
-    curve: "smooth",
-    width: 3
-  },
-  dataLabels: {
-    enabled: false
-  },
-  series: [{
-    name: 'FOLLOWERS',
-    data: generateDayWiseTimeSeries(0, 31)
-  }, {
-    name: 'READERS',
-    data: generateDayWiseTimeSeries(1, 31)
-  }],
-  markers: {
-    size: 0,
-    strokeColor: "#fff",
-    strokeWidth: 3,
-    strokeOpacity: 1,
-    fillOpacity: 1,
-    hover: {
-      size: 6
-    }
-  },
-  xaxis: {
-    type: "datetime",
-    axisBorder: {
-      show: false
-    },
-    axisTicks: {
-      show: false
-    }
-  },
-  yaxis: {
-    labels: {
-      offsetX: 14,
-      offsetY: -5
+    colors: ['#fff'],
+    xaxis: {
+      crosshairs: {
+        width: 1
+      },
     },
     tooltip: {
-      enabled: true
+      enabled: false // This disables the tooltips, if you don't want them
     }
-  },
-  grid: {
-    padding: {
-      left: -5,
-      right: 5
-    }
-  },
-  tooltip: {
-    x: {
-      format: "dd MMM yyyy"
-    },
-  },
-  legend: {
-    position: 'top',
-    horizontalAlign: 'left'
-  },
-  fill: {
-    type: "solid",
-    fillOpacity:1
   }
-};
-
-var chart = new ApexCharts(document.querySelector("#bar"), options);
-
-chart.render();
-function generateDayWiseTimeSeries(s, count) {
-  var values = [[
-    2,3,8,7,22,16,23,7,100,100,100,100,10,4,15,2,6,2,5,4,3,10,9,29,19,25,9,12,7,19,7,19 //32
-
-  ], [
-    2,3,8,7,22,16,23,7,11,5,12,5,10,4,15,2,6,2,5,4,3,10,9,29,19,25,9,12,7,19,7,19 //32
-  ]];
-  var i = 0;
-  var series = [];
-  var currentDate = new Date();
-
-  // Subtract one month
-  currentDate.setMonth(currentDate.getMonth() - 1);
   
-  // Handling case where current month is January
-  if (currentDate.getMonth() === 11) {
-      // If the current month after subtracting one month is January,
-      // set the date to December 31st of the previous year
-      currentDate.setFullYear(currentDate.getFullYear() - 1);
-      currentDate.setMonth(11); // Set the month to December
-  }
-  var x=currentDate.getTime();
-  while (i < count) {
-    series.push([x, values[s][i]]);
-    x += 86400000;
-    i++;
-  }
-  return series;
-}
-
-var user_readers=spider['user_readers'];
-var user_reads=spider['user_reads'];
-
-// Sample result array (empty)
-const resultArray = [];
-
-// Define all categories you expect to have
-const allCategories = ['artificial-intelligence', 'cyber-security', 'machine-learning', 'programming-web-mobile'];
-
-// // Create an object to store counts and initialize with 0 for all categories
-// const countMap = {};
-// allCategories.forEach(category => {
-//     countMap[category] = 0;
-// });
-
-// // Update counts from resultArray if it's not empty
-// if (user_readers.length > 0) {
-//     user_readers.forEach(item => {
-//         countMap[item.category] = item.articles_count;
-//     });
-// }
-// console.log(user_readers);
-// console.log(countMap);
-
-// console.log(user_readers);
-// console.log(user_reads);
-
-var optionsRadar={
-  series: [
-    {
-      name: 'Your Reads',
-      data: [2,5,6,7],
+  var spark4 = {
+    chart: {
+      id: 'spark4',
+      group: 'sparks',
+      type: 'line',
+      height: 100,
+      sparkline: {
+        enabled: true
+      },
+      dropShadow: {
+        enabled: true,
+        top: 1,
+        left: 1,
+        blur: 2,
+        opacity: 0.2,
+      }
     },
-    {
-      name: 'People Reads from your articles',
-      data: [2,12,6,8],
-    }
-],
-  chart: {
-  height: 333,
-  type: 'radar',
-},
-plotOptions: {
-  radar: {
-    size: 120,
-    polygons: {
-      strokeColors: '#e9e9e9',
-      fill: {
-        colors: ['#f8f8f8', '#fff']
+    series: [{
+      data: [15, 75, 47, 65, 14, 32, 19, 54, 44, 61]
+    }],
+    stroke: {
+      curve: 'smooth'
+    },
+    markers: {
+      size: 0
+    },
+    grid: {
+      padding: {
+        top: 20,
+        bottom: 10,
+        left: 110
       }
+    },
+    colors: ['#fff'],
+    xaxis: {
+      crosshairs: {
+        width: 1
+      },
+    },
+    tooltip: {
+      enabled: false // This disables the tooltips, if you don't want them
     }
   }
-},
-title: {
-  text: ''
-},
-colors: [other2,other1],
-markers: {
-  size: 4,
-  colors: ['#fff'],
-  strokeColor: [other2,other1],
-  strokeWidth: 2,
-},
-tooltip: {
-  y: {
-    formatter: function(val) {
-      return val
+  
+  new ApexCharts(document.querySelector("#spark1"), spark1).render();
+  new ApexCharts(document.querySelector("#spark2"), spark2).render();
+  new ApexCharts(document.querySelector("#spark3"), spark3).render();
+  new ApexCharts(document.querySelector("#spark4"), spark4).render();
+  
+  
+
+
+
+  // Create a new array to store the view counts
+  var viewCounts = [];
+  
+  // Create a map to quickly look up view counts by date
+  var viewCountsMap = {};
+  //getting the curve data structure
+  var curve=dashboard['curve'];
+
+  // Iterate over the curve array and populate the viewCountsMap
+  curve.forEach(function(item) {
+    viewCountsMap[item.view_date] = item.views_count;
+  });
+  
+  // Iterate over the range of dates you're interested in (in this case, 30 days)
+  for (var i = 0; i < 32; i++) {
+      // Calculate the date for each day in the past 30 days
+    var currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() - i);
+    var dateString = currentDate.toISOString().split('T')[0]; // Get the date in YYYY-MM-DD format
+  
+      // If the view count exists for the current date, push it to the viewCounts array
+      // Otherwise, push 0
+    if (viewCountsMap[dateString] !== undefined) {
+      viewCounts.unshift(viewCountsMap[dateString]);
+    } else {
+      viewCounts.unshift(0);
     }
   }
-},
-xaxis: {
-  categories: ['Programming', 'AI', 'Cyber-Sec','ML']
-},
-yaxis: {
-  tickAmount: 7,
-  labels: {
-    formatter: function(val, i) {
-      if (i % 2 === 0) {
-        return val
-      } else {
-        return ''
+  
+  // Ensure the viewCounts array has exactly 30 elements
+  while (viewCounts.length < 32) {
+      viewCounts.unshift(0);
+  }
+
+  var options = {
+    chart: {
+      type: "area",
+      height: 330,
+      foreColor: "#999",
+      stacked: false,
+      dropShadow: {
+        enabled: true,
+        enabledSeries: [0],
+        top: -2,
+        left: 2,
+        blur: 5,
+        opacity: 0.06
       }
+    },
+    colors: [other2, other1],
+    stroke: {
+      curve: "smooth",
+      width: 3
+    },
+    dataLabels: {
+      enabled: false
+    },
+    series: [{
+      name: 'FOLLOWERS',
+      data: generateDayWiseTimeSeries(31,viewCounts)
+    }],
+    markers: {
+      size: 0,
+      strokeColor: "#fff",
+      strokeWidth: 3,
+      strokeOpacity: 1,
+      fillOpacity: 1,
+      hover: {
+        size: 6
+      }
+    },
+    xaxis: {
+      labels: {
+        offsetX: 15,
+        offsetY: 0
+      },
+      type: "datetime",
+      axisBorder: {
+        show: false
+      },
+      axisTicks: {
+        show: false
+      }
+    },
+    yaxis: {
+      labels: {
+        offsetX: 14,
+        offsetY: 0
+      },
+      tooltip: {
+        enabled: true
+      }
+    },
+    grid: {
+      padding: {
+        left: 20,
+        right: 0
+      }
+    },
+    tooltip: {
+      x: {
+        format: "dd MMM yyyy"
+      },
+    },
+    legend: {
+      position: 'top',
+      horizontalAlign: 'left'
+    },
+    fill: {
+      type: "solid",
+      fillOpacity:1
     }
+  };
+  
+  var chart = new ApexCharts(document.querySelector("#bar"), options);
+  
+    // Assuming curve is your array of objects containing view_date and views_count
+  
+
+
+  
+  chart.render();
+
+  function generateDayWiseTimeSeries(count,viewCounts) {
+    var values = viewCounts;//30
+    var i = 0;
+    var series = [];
+    var currentDate = new Date();
+
+    // Subtract one month
+    currentDate.setMonth(currentDate.getMonth() - 1);
+
+    // Handling case where current month is January
+    if (currentDate.getMonth() === 11) {
+        // If the current month after subtracting one month is January,
+        // set the date to December 31st of the previous year
+        currentDate.setFullYear(currentDate.getFullYear() - 1);
+        currentDate.setMonth(11); // Set the month to December
+    }
+
+    var x=currentDate.getTime();
+    while (i < count) {
+      series.push([x, values[i]]);
+      x += 86400000;
+      i++;
+    }
+    return series;
   }
-}
-};
 
+  var your_reads={};
+  your_reads["programming-web-mobile"]=0;
+  your_reads["artificial-intelligence"]=0;
+  your_reads["cyber-security"]=0;
+  your_reads["machine-learning"]=0;
+  var people_reads={};
+  people_reads["programming-web-mobile"]=0;
+  people_reads["artificial-intelligence"]=0;
+  people_reads["cyber-security"]=0;
+  people_reads["machine-learning"]=0;
 
-var chartRadar = new ApexCharts(document.querySelector('#CategoryRadar'), optionsRadar);
-chartRadar.render().then(function () {});
+  back_your_reads=dashboard['spider']['user_reads'];
+  back_people_reads=dashboard['spider']['user_readers'];
 
-var optionsHeatMap = {
-  chart: {
-    type: 'heatmap',
-    height: 330,
-    width: '100%'
-  },
-  series: [//this type for chart can contain any values , it just scales the number like this xi=xi/max ,and gives the colors accordingly 
-  {
-    name: "M 1",
-    data: [
-      { x: 'd1', y: 22 },
-      { x: '', y: 25 },
-      { x: '', y: 18 },
-      { x: '', y: 28 },
-      { x: '', y: 35 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: 'd10', y: 30 },
-      { x: '', y: 27 },
-      { x: '', y: 33 },
-      { x: '', y: 17 },
-      { x: '', y: 22 },
-      { x: '', y: 31 },
-      { x: '', y: 26 },
-      { x: '', y: 24 },
-      { x: '', y: 19 },
-      { x: '', y: 23 },
-      { x: 'd20', y: 16 },
-      { x: '', y: 21 },
-      { x: '', y: 34 },
-      { x: '', y: 15 },
-      { x: '', y: 37 },
-      { x: '', y: 28 },
-      { x: '', y: 36 },
-      { x: '', y: 29 },
-      { x: '', y: 18 },
-      { x: '', y: 27 },
-      { x: 'd30', y: 32 }
-    ]
-  },    
-  {
-    name: "",
-    data: [
-      { x: 'd1', y: 22 },
-      { x: '', y: 25 },
-      { x: '', y: 18 },
-      { x: '', y: 28 },
-      { x: '', y: 35 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: 'd10', y: 30 },
-      { x: '', y: 27 },
-      { x: '', y: 33 },
-      { x: '', y: 17 },
-      { x: '', y: 22 },
-      { x: '', y: 31 },
-      { x: '', y: 26 },
-      { x: '', y: 24 },
-      { x: '', y: 19 },
-      { x: '', y: 23 },
-      { x: 'd20', y: 16 },
-      { x: '', y: 21 },
-      { x: '', y: 34 },
-      { x: '', y: 15 },
-      { x: '', y: 37 },
-      { x: '', y: 28 },
-      { x: '', y: 36 },
-      { x: '', y: 29 },
-      { x: '', y: 18 },
-      { x: '', y: 27 },
-      { x: 'd30', y: 32 }
-    ]
-  },    
-  {
-    name: "",
-    data: [
-      { x: 'd1', y: 22 },
-      { x: '', y: 25 },
-      { x: '', y: 18 },
-      { x: '', y: 28 },
-      { x: '', y: 35 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: 'd10', y: 30 },
-      { x: '', y: 27 },
-      { x: '', y: 33 },
-      { x: '', y: 17 },
-      { x: '', y: 22 },
-      { x: '', y: 31 },
-      { x: '', y: 26 },
-      { x: '', y: 24 },
-      { x: '', y: 19 },
-      { x: '', y: 23 },
-      { x: 'd20', y: 16 },
-      { x: '', y: 21 },
-      { x: '', y: 34 },
-      { x: '', y: 15 },
-      { x: '', y: 37 },
-      { x: '', y: 28 },
-      { x: '', y: 36 },
-      { x: '', y: 29 },
-      { x: '', y: 18 },
-      { x: '', y: 27 },
-      { x: 'd30', y: 32 }
-    ]
-  },    
-  {
-    name: "",
-    data: [
-      { x: 'd1', y: 22 },
-      { x: '', y: 25 },
-      { x: '', y: 18 },
-      { x: '', y: 28 },
-      { x: '', y: 35 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: 'd10', y: 30 },
-      { x: '', y: 27 },
-      { x: '', y: 33 },
-      { x: '', y: 17 },
-      { x: '', y: 22 },
-      { x: '', y: 31 },
-      { x: '', y: 26 },
-      { x: '', y: 24 },
-      { x: '', y: 19 },
-      { x: '', y: 23 },
-      { x: 'd20', y: 16 },
-      { x: '', y: 21 },
-      { x: '', y: 34 },
-      { x: '', y: 15 },
-      { x: '', y: 37 },
-      { x: '', y: 28 },
-      { x: '', y: 36 },
-      { x: '', y: 29 },
-      { x: '', y: 18 },
-      { x: '', y: 27 },
-      { x: 'd30', y: 32 }
-    ]
-  },    
-  {
-    name: "",
-    data: [
-      { x: 'd1', y: 22 },
-      { x: '', y: 25 },
-      { x: '', y: 18 },
-      { x: '', y: 28 },
-      { x: '', y: 35 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: 'd10', y: 30 },
-      { x: '', y: 27 },
-      { x: '', y: 33 },
-      { x: '', y: 17 },
-      { x: '', y: 22 },
-      { x: '', y: 31 },
-      { x: '', y: 26 },
-      { x: '', y: 24 },
-      { x: '', y: 19 },
-      { x: '', y: 23 },
-      { x: 'd20', y: 16 },
-      { x: '', y: 21 },
-      { x: '', y: 34 },
-      { x: '', y: 15 },
-      { x: '', y: 37 },
-      { x: '', y: 28 },
-      { x: '', y: 36 },
-      { x: '', y: 29 },
-      { x: '', y: 18 },
-      { x: '', y: 27 },
-      { x: 'd30', y: 32 }
-    ]
-  },    
-  {
-    name: "",
-    data: [
-      { x: 'd1', y: 22 },
-      { x: '', y: 25 },
-      { x: '', y: 18 },
-      { x: '', y: 28 },
-      { x: '', y: 35 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: 'd10', y: 30 },
-      { x: '', y: 27 },
-      { x: '', y: 33 },
-      { x: '', y: 17 },
-      { x: '', y: 22 },
-      { x: '', y: 31 },
-      { x: '', y: 26 },
-      { x: '', y: 24 },
-      { x: '', y: 19 },
-      { x: '', y: 23 },
-      { x: 'd20', y: 16 },
-      { x: '', y: 21 },
-      { x: '', y: 34 },
-      { x: '', y: 15 },
-      { x: '', y: 37 },
-      { x: '', y: 28 },
-      { x: '', y: 36 },
-      { x: '', y: 29 },
-      { x: '', y: 18 },
-      { x: '', y: 27 },
-      { x: 'd30', y: 32 }
-    ]
-  },    
-  {
-    name: "",
-    data: [
-      { x: 'd1', y: 22 },
-      { x: '', y: 25 },
-      { x: '', y: 18 },
-      { x: '', y: 28 },
-      { x: '', y: 35 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: 'd10', y: 30 },
-      { x: '', y: 27 },
-      { x: '', y: 33 },
-      { x: '', y: 17 },
-      { x: '', y: 22 },
-      { x: '', y: 31 },
-      { x: '', y: 26 },
-      { x: '', y: 24 },
-      { x: '', y: 19 },
-      { x: '', y: 23 },
-      { x: 'd20', y: 16 },
-      { x: '', y: 21 },
-      { x: '', y: 34 },
-      { x: '', y: 15 },
-      { x: '', y: 37 },
-      { x: '', y: 28 },
-      { x: '', y: 36 },
-      { x: '', y: 29 },
-      { x: '', y: 18 },
-      { x: '', y: 27 },
-      { x: 'd30', y: 32 }
-    ]
-  },    
-  {
-    name: "",
-    data: [
-      { x: 'd1', y: 22 },
-      { x: '', y: 25 },
-      { x: '', y: 18 },
-      { x: '', y: 28 },
-      { x: '', y: 35 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: 'd10', y: 30 },
-      { x: '', y: 27 },
-      { x: '', y: 33 },
-      { x: '', y: 17 },
-      { x: '', y: 22 },
-      { x: '', y: 31 },
-      { x: '', y: 26 },
-      { x: '', y: 24 },
-      { x: '', y: 19 },
-      { x: '', y: 23 },
-      { x: 'd20', y: 16 },
-      { x: '', y: 21 },
-      { x: '', y: 34 },
-      { x: '', y: 15 },
-      { x: '', y: 37 },
-      { x: '', y: 28 },
-      { x: '', y: 36 },
-      { x: '', y: 29 },
-      { x: '', y: 18 },
-      { x: '', y: 27 },
-      { x: 'd30', y: 32 }
-    ]
-  },    
-  {
-    name: "",
-    data: [
-      { x: 'd1', y: 22 },
-      { x: '', y: 25 },
-      { x: '', y: 18 },
-      { x: '', y: 28 },
-      { x: '', y: 35 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: 'd10', y: 30 },
-      { x: '', y: 27 },
-      { x: '', y: 33 },
-      { x: '', y: 17 },
-      { x: '', y: 22 },
-      { x: '', y: 31 },
-      { x: '', y: 26 },
-      { x: '', y: 24 },
-      { x: '', y: 19 },
-      { x: '', y: 23 },
-      { x: 'd20', y: 16 },
-      { x: '', y: 21 },
-      { x: '', y: 34 },
-      { x: '', y: 15 },
-      { x: '', y: 37 },
-      { x: '', y: 28 },
-      { x: '', y: 36 },
-      { x: '', y: 29 },
-      { x: '', y: 18 },
-      { x: '', y: 27 },
-      { x: 'd30', y: 32 }
-    ]
-  },    
-  {
-    name: "",
-    data: [
-      { x: 'd1', y: 22 },
-      { x: '', y: 25 },
-      { x: '', y: 18 },
-      { x: '', y: 28 },
-      { x: '', y: 35 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: 'd10', y: 30 },
-      { x: '', y: 27 },
-      { x: '', y: 33 },
-      { x: '', y: 17 },
-      { x: '', y: 22 },
-      { x: '', y: 31 },
-      { x: '', y: 26 },
-      { x: '', y: 24 },
-      { x: '', y: 19 },
-      { x: '', y: 23 },
-      { x: 'd20', y: 16 },
-      { x: '', y: 21 },
-      { x: '', y: 34 },
-      { x: '', y: 15 },
-      { x: '', y: 37 },
-      { x: '', y: 28 },
-      { x: '', y: 36 },
-      { x: '', y: 29 },
-      { x: '', y: 18 },
-      { x: '', y: 27 },
-      { x: 'd30', y: 32 }
-    ]
-  },    
-  {
-    name: "",
-    data: [
-      { x: 'd1', y: 22 },
-      { x: '', y: 25 },
-      { x: '', y: 18 },
-      { x: '', y: 28 },
-      { x: '', y: 35 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: 'd10', y: 30 },
-      { x: '', y: 27 },
-      { x: '', y: 33 },
-      { x: '', y: 17 },
-      { x: '', y: 22 },
-      { x: '', y: 31 },
-      { x: '', y: 26 },
-      { x: '', y: 24 },
-      { x: '', y: 19 },
-      { x: '', y: 23 },
-      { x: 'd20', y: 16 },
-      { x: '', y: 21 },
-      { x: '', y: 34 },
-      { x: '', y: 15 },
-      { x: '', y: 37 },
-      { x: '', y: 28 },
-      { x: '', y: 36 },
-      { x: '', y: 29 },
-      { x: '', y: 18 },
-      { x: '', y: 27 },
-      { x: 'd30', y: 32 }
-    ]
-  },    
-  {
-    name: "M 12",
-    data: [
-      { x: 'd1', y: 22 },
-      { x: '', y: 25 },
-      { x: '', y: 18 },
-      { x: '', y: 28 },
-      { x: '', y: 35 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: '', y: 20 },
-      { x: 'd10', y: 30 },
-      { x: '', y: 27 },
-      { x: '', y: 33 },
-      { x: '', y: 17 },
-      { x: '', y: 22 },
-      { x: '', y: 31 },
-      { x: '', y: 26 },
-      { x: '', y: 24 },
-      { x: '', y: 19 },
-      { x: '', y: 23 },
-      { x: 'd20', y: 16 },
-      { x: '', y: 21 },
-      { x: '', y: 34 },
-      { x: '', y: 15 },
-      { x: '', y: 37 },
-      { x: '', y: 28 },
-      { x: '', y: 36 },
-      { x: '', y: 29 },
-      { x: '', y: 18 },
-      { x: '', y: 27 },
-      { x: 'd30', y: 32 }
-    ]
+  for (var i = 0; i < back_people_reads.length; i++) {
+    var reader = back_people_reads[i];
+    var category = reader.category;
+    var viewsCount = reader.views_count;
+    people_reads[category]=viewsCount;
   }
+
+
+  for (var i = 0; i < back_your_reads.length; i++) {
+    var reader = back_your_reads[i];
+    var category = reader.category;
+    var articlesCount = reader.articles_count;
+    your_reads[category]=articlesCount;
+  }
+
+  var optionsRadar={
+    series: [
+      {
+        name: 'Your Reads',
+        data: [your_reads["programming-web-mobile"],your_reads["artificial-intelligence"],your_reads["cyber-security"], your_reads["machine-learning"]],
+      },
+      {
+        name: 'People Reads from your articles',
+        data: [people_reads["programming-web-mobile"],people_reads["artificial-intelligence"],people_reads["cyber-security"], people_reads["machine-learning"]],
+      }
   ],
-  dataLabels: {
-    enabled: false
+    chart: {
+    height: 333,
+    type: 'radar',
   },
-  colors: [other1],
+  plotOptions: {
+    radar: {
+      size: 120,
+      polygons: {
+        strokeColors: '#e9e9e9',
+        fill: {
+          colors: ['#f8f8f8', '#fff']
+        }
+      }
+    }
+  },
   title: {
     text: ''
+  },
+  colors: [other2,other1],
+  markers: {
+    size: 4,
+    colors: ['#fff'],
+    strokeColor: [other2,other1],
+    strokeWidth: 2,
+  },
+  tooltip: {
+    y: {
+      formatter: function(val) {
+        return val
+      }
+    }
+  },
+  xaxis: {
+    categories: ['Programming', 'AI', 'Cyber-Sec','ML']
+  },
+  yaxis: {
+    tickAmount: 7,
+    labels: {
+      formatter: function(val, i) {
+        if (i % 2 === 0) {
+          return val
+        } else {
+          return ''
+        }
+      }
+    }
   }
-}
+  };
 
-var chartMap = new ApexCharts(document.querySelector("#HeatMap"), optionsHeatMap);
-chartMap.render();
+  var chartRadar = new ApexCharts(document.querySelector('#CategoryRadar'), optionsRadar);
+  chartRadar.render().then(function () {});
+  
 
-var main1="#66503e";
-var main2="#101919";
-var primary1="#b89072";
-var primary2="#ccb191";
-var secondary1="#e1dbd3";
-var secondary2="#faf7f5";
-var other="#ec7a2f";
+
+    // Assuming heatmapData is your array of login counts per day
+  var heatmapData =dashboard['heatmap'];
+  
+  // Initialize an empty object to store login counts for each day
+  var loginCounts = {};
+  
+  // Iterate over heatmapData to populate loginCounts object
+  heatmapData.forEach(item => {
+    loginCounts[item.login_date] = item.login_count;
+  });
+
+  const monthMap = {
+    1 : 'Jan',
+    2 : 'Feb',
+    3 : 'Mar',
+    4 : 'Apr',
+    5 : 'May',
+    6 : 'Jun',
+    7 : 'Jul',
+    8 : 'Aug',
+    9 : 'Sep',
+    10: 'Oct',
+    11: 'Nov',
+    12: 'Dec'
+  };
+  function daysInFebruary(year) {
+    return isLeapYear(year) ? 29 : 28;
+  }
+  var curryear=new Date().getFullYear();
+  function isLeapYear(year) {
+    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+  }
+  const limit = {
+    1: 31,  // January
+    2: daysInFebruary(curryear),  // February (assuming non-leap year)
+    3: 31,  // March
+    4: 30,  // April
+    5: 31,  // May
+    6: 30,  // June
+    7: 31,  // July
+    8: 31,  // August
+    9: 30,  // September
+    10: 31, // October
+    11: 30, // November
+    12: 31  // December
+  };
+  // Initialize an empty array to store the final heatmap data
+  var heatmapChartData = [];
+
+  // Loop through each month and day to generate heatmap data
+  for (var month = 1; month <= 12; month++) {
+    var monthData=[]
+    for (var day = 1; day <= limit[month]; day++) {
+        // Format month and day with leading zeros
+        var formattedMonth = month < 10 ? '0' + month : month;
+        var formattedDay = day < 10 ? '0' + day : day;
+        // Generate date string in 'YYYY-MM-DD' format
+        var currentDate = curryear +'-' + formattedMonth + '-' + formattedDay;
+  
+        // Check if loginCounts has data for the current date
+        var loginCount = loginCounts[currentDate] || 0;
+  
+        // Create an object representing the data for each day
+        var dayData = { x: 'd' + day==31 ? '':day, y: loginCount };
+  
+        // Add the day data to the array
+        monthData.push(dayData);
+    }
+    heatmapChartData.push({name:monthMap[month],data:monthData})
+  }
+  
+
+  var optionsHeatMap = {
+    chart: {
+      type: 'heatmap',
+      height: 330,
+      width: '100%'
+    },
+    series:heatmapChartData,
+    dataLabels: {
+      enabled: false
+    },
+    colors: [other1],
+    title: {
+      text: ''
+    }
+  }
+  
+  var chartMap = new ApexCharts(document.querySelector("#HeatMap"), optionsHeatMap);
+  chartMap.render();
+  
+  var main1="#66503e";
+  var main2="#101919";
+  var primary1="#b89072";
+  var primary2="#ccb191";
+  var secondary1="#e1dbd3";
+  var secondary2="#faf7f5";
+  var other="#ec7a2f";
+
 
 // Function to display selected image
 function previewImage(input) {
