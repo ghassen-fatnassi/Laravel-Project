@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
@@ -13,9 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Document</title>
-    
 </head>
 
 <body>
@@ -36,15 +34,10 @@
                         </div>
                         <!-- END profile-header-img -->
                         <!-- BEGIN profile-header-info -->
-                        <div class="profile-header-info-message">
-                            <div class="profile-header-info">
-                                <h4 class="mt-10 mb-3">{{$user->name}}</h4>
-                                <p class="mb-10">{{$user->shortbio}}</p>
-                                <p class="mb-10">I am a {{$user->position}}, Welcome to my profile</p>
-                            </div>
-                            @auth
-                            <a href="{{ url('chatify/' . $user->id) }}"><i class='bx bx-envelope bx-md'></i></a>
-                            @endauth
+                        <div class="profile-header-info">
+                            <h4 class="mt-10 mb-3">{{$user->name}}</h4>
+                            <p class="mb-10">{{$user->shortbio}}</p>
+                            <p class="mb-10">I am from {{$user->position}}, Welcome to my profile</p>
                         </div>
                         <!-- END profile-header-info -->
                     </div>
@@ -170,9 +163,9 @@
                                                 </div>
                                                 <!-- Location -->
                                                 <div class="col-md-6">
-                                                    <label class="form-label">Position</label>
+                                                    <label class="form-label">Location</label>
                                                     <input type="text" class="form-control" placeholder=""
-                                                        aria-label="Position" name="position"
+                                                        aria-label="Location" name="position"
                                                         value="{{$user->position}}">
                                                 </div>
                                                 <!-- Institution -->
@@ -202,14 +195,16 @@
                                                     <!-- Image upload -->
                                                     <div class="square position-relative display-2 mb-3"
                                                         id="image-preview">
-                                                        <i class='bx bxs-user'></i>                                                    </div>
+                                                        <i
+                                                            class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
+                                                    </div>
                                                     <!-- Button -->
                                                     <input type="file" id="customFile" name="photo" hidden=""
                                                         accept=".jpg, .png, .jpeg, .gif, .svg">
 
-                                                    <label class="btn btn-success-soft btn-block"
+                                                    <label class="btn btn-success-soft btn-block" style="margin-top: 2rem;"
                                                         for="customFile">Upload</label>
-                                                    <button type="button" class="btn btn-danger-soft"
+                                                    <button type="button" class="btn btn-danger-soft" style="margin-top: 2rem;"
                                                         id="remove-photo">Remove</button>
                                                     <!-- Content -->
                                                     <p class="text-muted mt-3 mb-0">
@@ -300,15 +295,12 @@
                                     <button type="submit" class="btn btn-danger btn-lg"
                                         formaction="{{ route('profile.destroy-user') }}">Delete
                                         profile</button>
-                                    @if(auth()->user()->id === $user->id)
                                     <button type="submit" class="btn btn-primary btn-lg"
                                         formaction="{{ route('profile.submit-form') }}">Update
                                         profile</button>
-                                    @endif
                                 </div>
                             </form>
                         </div>
-
                         <div class="tab-pane profile-header-tab" id="fill-tabpanel-1" role="tabpanel"
                             aria-labelledby="fill-tab-1">
                             <div class="main d-flex flex-column">
@@ -325,8 +317,8 @@
                                                 <div class="col-md-6">
                                                     <div class="box box1">
                                                         <div class="details">
-                                                            <h3>{{$dashboard['sparks']['reads_count']}}</h3>
-                                                            <h4>READS</h4>
+                                                            <h3> {{$dashboard['sparks']['reads_count']}}</h3>
+                                                            <h4>USER READS</h4>
                                                         </div>
                                                         <div id="spark1"></div>
                                                     </div>
@@ -416,7 +408,7 @@
                                     <div class="article-category-date">
                                         <a href="">{{$article->category}}</a>
                                         <span class="date">{{$article->timestamp}}</span>
-                                        
+                                        <span class="duration">5 min read</span>
                                     </div>
                                     <div class="article-info">
                                         <div class="article-text">
@@ -434,7 +426,7 @@
                             @endforeach
 
                             </div>
-                            
+                            <a href="" class="view-more">VIEW MORE</a>
                         </div>
                         @else
                         <div class="tab-pane active profile-header-tab" id="fill-tabpanel-1" role="tabpanel"
@@ -454,7 +446,7 @@
                                                     <div class="box box1">
                                                         <div class="details">
                                                             <h3> {{$dashboard['sparks']['reads_count']}}</h3>
-                                                            <h4>READS</h4>
+                                                            <h4>USER READS</h4>
                                                         </div>
                                                         <div id="spark1"></div>
                                                     </div>
@@ -544,7 +536,7 @@
                                     <div class="article-category-date">
                                         <a href="">{{$article->category}}</a>
                                         <span class="date">{{$article->timestamp}}</span>
-                                        
+                                        <span class="duration">5 min read</span>
                                     </div>
                                     <div class="article-info">
                                         <div class="article-text">
@@ -583,7 +575,7 @@
                                                     <div class="box box1">
                                                         <div class="details">
                                                             <h3> {{$dashboard['sparks']['reads_count']}}</h3>
-                                                            <h4>READS</h4>
+                                                            <h4>USER READS</h4>
                                                         </div>
                                                         <div id="spark1"></div>
                                                     </div>
@@ -673,7 +665,7 @@
                                     <div class="article-category-date">
                                         <a href="">{{$article->category}}</a>
                                         <span class="date">{{$article->timestamp}}</span>
-                                        
+                                        <span class="duration">5 min read</span>
                                     </div>
                                     <div class="article-info">
                                         <div class="article-text">
@@ -707,6 +699,7 @@
     <script>
         var dashboard = {!! json_encode($dashboard) !!};
     </script>
+
     <script src="{{asset('js/profile.js')}}"></script>
     <script src="{{asset('js/dark-mode.js')}}"></script>
 </body>

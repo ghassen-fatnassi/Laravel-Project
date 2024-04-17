@@ -7,6 +7,7 @@ document.documentElement.style.setProperty("--highlight-color", "#e1dbd3");
 var likeStatus = document.getElementById("likeStatus").value;
 var bookmarkStatus = document.getElementById("bookmarkStatus").value;
 
+
 function showNotification(message) {
     var notificationBox = document.createElement("div");
     notificationBox.classList.add("notification");

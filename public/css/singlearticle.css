@@ -14,10 +14,6 @@ a {
     text-decoration: none;
     color: var(--accent-color);
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> f624fc138d2313d9465e14eb2fe1ac32eba927e4
 .a-tag__wrapper {
     background-color: var(--secondary-color);
     border: 1px solid transparent;
@@ -284,7 +280,7 @@ a {
 /*Read more section */
 /*-----Controls-----*/
 .controls {
-    width: 70em;
+    width: 89.3%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -308,4 +304,10 @@ a {
 /*-------article img-----*/
 #like-btn{
     padding: 0;
+}
+#heart-icon{
+    color: var(--secondary-color);
+}
+#bookmark-icon{
+    color: var(--secondary-color);
 }

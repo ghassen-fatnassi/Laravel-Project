@@ -92,11 +92,13 @@
                             <span class="error"></span>
                     </div>
 
-
+                    <form class="verification-form" method="POST" action="{{ route('verification.send') }}">
+                    @csrf
                     <div class="CTA">
                         <input type="submit" value="Signup Now" id="submit"> 
                         <a href="{{ route('login') }}" class="switchbutton" id="switch-signup">I have an account</a>
                     </div>
+                    </form>
                     <x-input-error :messages="$errors->get('email')" class="mt-2" style="color:#f95959;position: absolute;margin-top: 2vh;" />
                 </form>
             </div>

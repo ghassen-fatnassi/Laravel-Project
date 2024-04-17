@@ -76,7 +76,7 @@
                 <form action="{{ route('articles.bookmark', ['article' => $article->id]) }}" method="POST">
                     @csrf
                     <button type="submit" style="border: none; background: none;">
-                        <i class='bx bxs-bookmark bx-sm'></i>
+                        <i id="bookmark-icon" class='bx bxs-bookmark bx-sm'></i>
                     </button>
                 </form>
 

@@ -48,6 +48,8 @@ function initializeTextToSpeech() {
 
     // Get the speech synthesis engine
     let synth = window.speechSynthesis;
+    // Clear previous utterances
+    synth.cancel();
 
     // Initialize the SpeechSynthesisUtterance object
     let utterance = new SpeechSynthesisUtterance();

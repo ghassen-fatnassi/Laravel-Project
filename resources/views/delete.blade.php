@@ -1,5 +1,7 @@
+<div>
 @auth
     @if(auth()->user()->usertype === 'admin' || auth()->user()->id === $article->author_id)
+        
         <form method="POST" action="{{ route('articles.destroy', ['article' => $article->id]) }}">
             @csrf
             @method('DELETE')
@@ -7,8 +9,10 @@
                 <i class='bx bx-x-circle bx-md'></i>
             </button>
         </form>
+        
     @endif
 @endauth
+</div>
 <style>
     .icon-button {
     border: none;

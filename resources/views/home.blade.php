@@ -65,28 +65,6 @@
         </div>
     </section>
     @include('footer')
-    @if(session('articleDeleted'))
-    <div id="notification" class="notification success">
-        <span>Article deleted successfully</span>
-        <button id="closeNotification">Close</button>
-    </div>
-    @endif
-
-    <script>
-    // Function to close the notification
-    function closeNotification() {
-        var notification = document.getElementById('notification');
-        if (notification) {
-            notification.style.display = 'none';
-        }
-    }
-
-    // Event listener for the close button
-    var closeButton = document.getElementById('closeNotification');
-    if (closeButton) {
-        closeButton.addEventListener('click', closeNotification);
-    }
-    </script>
     <script src="{{asset('js/dark-mode.js')}}"></script>
 </body>
 

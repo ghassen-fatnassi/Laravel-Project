@@ -68,15 +68,17 @@ class ArticleController extends Controller
 
 
         $article->save();
-        return redirect()->route('home');
+        
+        return redirect()->route('articles.show', ['article' => $article]);
     }
 
     public function destroy(Article $article)
     {
         // Delete the article
         $article->delete();
+        
         // Redirect to a relevant page (e.g., articles index)
-        return redirect()->route('home')->with('articleDeleted', true);
+        return view('home');
     }
 
 
