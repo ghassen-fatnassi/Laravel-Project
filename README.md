@@ -15,4 +15,4 @@ Our Blogging Platform is a web application built using the Laravel framework. It
 - 📊 **Dashboard:** Users have access to a personalized dashboard where they can view thei acitivity Heatmap, stats, category investment and reads_per_day
 - 📱 **Responsive design:** The platform is optimized for various screen sizes and devices.
 
-🚧 *Note: This project is still incomplete due to late feature additions. We are actively working on implementing additional features to enhance the platform.
+### 🚧 *Note: This project is still incomplete due to late feature additions. We are actively working on implementing additional features to enhance the platform.
